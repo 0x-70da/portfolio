@@ -206,3 +206,30 @@
   font-family: var(--font-cinzel), serif;
   letter-spacing: 0.08em;
 }
+
+/* ── Divider line ── */
+.wow-divider-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.5) 40%,
+    rgba(180, 140, 40, 0.5) 60%,
+    transparent
+  );
+}
+
+.wow-divider-line::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.12) 40%,
+    rgba(180, 140, 40, 0.12) 60%,
+    transparent
+  );
+}
