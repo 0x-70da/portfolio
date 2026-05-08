@@ -1,0 +1,251 @@
+/* ──────────────────────────────────────────
+   Header
+────────────────────────────────────────── */
+
+.wow-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 6, 0.97) 0%,
+    rgba(10, 8, 6, 0.92) 100%
+  );
+  border-bottom: 1px solid rgba(180, 140, 40, 0.18);
+  box-shadow:
+    0 1px 0 rgba(180, 140, 40, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* top gold accent line */
+.wow-header-top-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 152, 40, 0.6) 20%,
+    rgba(200, 152, 40, 0.6) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* logo gem */
+.wow-header-logo-gem {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: #c89828;
+  box-shadow:
+    0 0 10px rgba(200, 152, 40, 0.8),
+    0 0 20px rgba(200, 152, 40, 0.3);
+  flex-shrink: 0;
+  position: relative;
+}
+.wow-header-logo-gem::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(255, 220, 100, 0.4);
+}
+
+/* ── Desktop nav ── */
+.wow-header-nav {
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+}
+
+.wow-nav-link {
+  position: relative;
+  font-family: var(--font-heading), serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b5828;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 2px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.wow-nav-link:hover { color: #a08030; }
+
+.wow-nav-link-active {
+  color: #d4a830;
+  text-shadow: 0 0 10px rgba(212, 168, 48, 0.4);
+}
+
+/* active — bottom underline */
+.wow-nav-link-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c89828, transparent);
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.6);
+}
+
+/* active — top gem dot */
+.wow-nav-link-active::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 4px;
+  height: 4px;
+  background: #c89828;
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.7);
+}
+
+/* ── Social buttons ── */
+.wow-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  color: #6b5828;
+  text-decoration: none;
+  transition: color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.wow-social-btn:hover {
+  color: #d4a830;
+  background: rgba(180, 140, 40, 0.06);
+  border-color: rgba(180, 140, 40, 0.2);
+  box-shadow: 0 0 8px rgba(200, 152, 40, 0.15);
+}
+
+/* ── Bottom center ornament ── */
+.wow-header-bottom-ornament {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.wow-hbo-gem {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: #c89828;
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.6);
+  flex-shrink: 0;
+}
+
+.wow-hbo-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200, 152, 40, 0.4), transparent);
+}
+
+.wow-hbo-line-rev {
+  background: linear-gradient(90deg, transparent, rgba(200, 152, 40, 0.4));
+}
+
+/* ── Hamburger ── */
+.wow-hamburger {
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  color: #6b5828;
+  background: transparent;
+  border: 1px solid rgba(180, 140, 40, 0.2);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.wow-hamburger:hover {
+  color: #d4a830;
+  border-color: rgba(180, 140, 40, 0.45);
+}
+
+/* ── Mobile drawer ── */
+.wow-mobile-drawer {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 49;
+  background: rgba(10, 8, 6, 0.98);
+  border-bottom: 1px solid rgba(180, 140, 40, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 0 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+.wow-mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading), serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b5828;
+  text-decoration: none;
+  padding: 14px 32px;
+  transition: color 0.2s ease, background 0.2s ease;
+  border-bottom: 1px solid rgba(180, 140, 40, 0.06);
+}
+
+.wow-mobile-nav-link:hover {
+  color: #a08030;
+  background: rgba(180, 140, 40, 0.04);
+}
+
+.wow-mobile-nav-link-active {
+  color: #d4a830;
+  text-shadow: 0 0 10px rgba(212, 168, 48, 0.3);
+  background: rgba(180, 140, 40, 0.04);
+}
+
+.wow-mobile-nav-gem {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: rgba(180, 140, 40, 0.2);
+  flex-shrink: 0;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wow-mobile-nav-gem-active {
+  background: #c89828;
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.6);
+}
+
+.wow-mobile-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px 0;
+  border-top: 1px solid rgba(180, 140, 40, 0.1);
+  margin-top: 8px;
+}
