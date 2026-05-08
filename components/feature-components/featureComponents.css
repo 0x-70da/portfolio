@@ -1,0 +1,404 @@
+/* ──────────────────────────────────────────
+   ProfileFlipCard
+────────────────────────────────────────── */
+
+.pfc-scene {
+  perspective: 1200px;
+  width: 300px;
+  height: 400px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.pfc-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pfc-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.pfc-face-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Shell ── */
+.pfc-shell {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1a1510 0%, #0e0c08 60%, #12100b 100%);
+  border: 1px solid #5a4a1e;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1),
+    0 12px 48px rgba(0, 0, 0, 0.85),
+    0 0 0 1px #1a1510;
+}
+
+/* stone texture */
+.pfc-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.01) 3px,
+      rgba(255, 255, 255, 0.01) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.007) 3px,
+      rgba(255, 255, 255, 0.007) 4px
+    );
+}
+
+/* frames */
+.pfc-frame {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 5px;
+  z-index: 3;
+}
+.pfc-frame-outer {
+  inset: 5px;
+  border: 1px solid rgba(180, 140, 40, 0.45);
+}
+.pfc-frame-inner {
+  inset: 8px;
+  border: 1px solid rgba(180, 140, 40, 0.12);
+  border-radius: 4px;
+}
+
+/* corners */
+.pfc-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 4;
+  pointer-events: none;
+}
+.pfc-corner-tl { top: 4px;    left: 4px; }
+.pfc-corner-tr { top: 4px;    right: 4px;    transform: scaleX(-1); }
+.pfc-corner-bl { bottom: 4px; left: 4px;     transform: scaleY(-1); }
+.pfc-corner-br { bottom: 4px; right: 4px;    transform: scale(-1); }
+
+/* glow */
+.pfc-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(200, 160, 50, 0.16) 0%,
+    transparent 70%
+  );
+}
+.pfc-scene:hover .pfc-glow { opacity: 1; }
+
+/* shimmer */
+.pfc-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.15s;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(200, 160, 50, 0.1) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+}
+.pfc-scene:hover .pfc-shimmer {
+  opacity: 1;
+  animation: pfc-shimmer 1.2s ease forwards;
+}
+@keyframes pfc-shimmer {
+  from { background-position: -100% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* ── Front content ── */
+.pfc-content {
+  position: absolute;
+  inset: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pfc-header {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(180, 140, 40, 0.25);
+}
+
+.pfc-class {
+  font-family: var(--font-heading), serif;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a7030;
+}
+
+.pfc-name {
+  font-family: var(--font-heading), serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4a830;
+  text-shadow: 0 0 16px rgba(212, 168, 48, 0.5);
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.pfc-photo-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(180, 140, 40, 0.5);
+  box-shadow:
+    inset 0 0 0 2px rgba(180, 140, 40, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.7);
+  background: #1a1510;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.pfc-photo-placeholder {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2a2010, #3a2e14);
+  border: 1px solid rgba(180, 140, 40, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfc-photo-inner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(180, 140, 40, 0.15);
+  border: 1px solid rgba(180, 140, 40, 0.25);
+}
+
+.pfc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.pfc-role {
+  font-family: var(--font-heading), serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c89828;
+}
+
+.pfc-gem {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: #c89828;
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.6);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.pfc-gem-sm {
+  width: 3px;
+  height: 3px;
+  transform: rotate(45deg);
+  background: rgba(200, 152, 40, 0.45);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.pfc-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.35) 20%,
+    rgba(180, 140, 40, 0.35) 80%,
+    transparent
+  );
+  margin: 6px 0;
+}
+
+.pfc-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+  margin-top: 6px;
+}
+
+.pfc-stat {
+  text-align: center;
+  flex: 1;
+}
+
+.pfc-stat-val {
+  font-family: var(--font-heading), serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #d4a830;
+  text-shadow: 0 0 8px rgba(212, 168, 48, 0.4);
+  line-height: 1;
+}
+
+.pfc-stat-lbl {
+  font-family: var(--font-heading), serif;
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b5828;
+  margin-top: 2px;
+}
+
+.pfc-stat-sep {
+  width: 1px;
+  background: rgba(180, 140, 40, 0.2);
+  align-self: stretch;
+  margin: 2px 0;
+}
+
+.pfc-hint {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading), serif;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(180, 140, 40, 0.3);
+  z-index: 6;
+  white-space: nowrap;
+  animation: pfc-hint-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pfc-hint-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+/* ── Back content ── */
+.pfc-back-content {
+  position: absolute;
+  inset: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pfc-back-title {
+  font-family: var(--font-heading), serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #d4a830;
+  text-shadow: 0 0 10px rgba(212, 168, 48, 0.4);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(180, 140, 40, 0.25);
+}
+
+.pfc-lore {
+  font-family: var(--font-heading), serif;
+  font-size: 8.5px;
+  line-height: 1.75;
+  color: #a08840;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  padding: 0 4px;
+}
+
+.pfc-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pfc-info-gem {
+  width: 4px;
+  height: 4px;
+  transform: rotate(45deg);
+  background: #c89828;
+  box-shadow: 0 0 4px rgba(200, 152, 40, 0.5);
+  flex-shrink: 0;
+  margin-top: 3px;
+  display: inline-block;
+}
+
+.pfc-info-label {
+  font-family: var(--font-heading), serif;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a6228;
+  width: 54px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.pfc-info-value {
+  font-family: var(--font-heading), serif;
+  font-size: 8.5px;
+  color: #c8a848;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.pfc-back-footer {
+  margin-top: auto;
+  text-align: center;
+  font-family: var(--font-heading), serif;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a4818;
+  border-top: 1px solid rgba(180, 140, 40, 0.15);
+  padding-top: 6px;
+}
