@@ -1,0 +1,236 @@
+/* ──────────────────────────────────────────
+   HeroSection
+────────────────────────────────────────── */
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* bg radial glow */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(180, 140, 40, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(100, 80, 200, 0.04) 0%, transparent 60%);
+}
+
+.hero-top-line {
+  position: absolute;
+  top: 64px;
+  left: 0; right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.12) 20%,
+    rgba(180, 140, 40, 0.12) 80%,
+    transparent
+  );
+}
+
+/* ── Layout ── */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 1;
+}
+
+/* ── Text col ── */
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* eyebrow */
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hero-ey-line {
+  width: 32px;
+  height: 1px;
+  background: rgba(180, 140, 40, 0.4);
+}
+
+.hero-ey-gem {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: #c89828;
+  box-shadow: 0 0 6px rgba(200, 152, 40, 0.6);
+  flex-shrink: 0;
+}
+
+.hero-ey-text {
+  font-family: var(--font-heading), serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7a6228;
+}
+
+/* greeting */
+.hero-greeting {
+  font-family: var(--font-heading), serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a4818;
+  margin-bottom: 8px;
+}
+
+/* name */
+.hero-name {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d4a830;
+  text-shadow:
+    0 0 32px rgba(212, 168, 48, 0.35),
+    0 0 4px rgba(212, 168, 48, 0.15);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+/* title */
+.hero-title {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(12px, 2vw, 16px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a7030;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-title-sep {
+  width: 4px;
+  height: 4px;
+  transform: rotate(45deg);
+  background: rgba(180, 140, 40, 0.4);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* description */
+.hero-desc {
+  font-family: var(--font-heading), serif;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #6a5a38;
+  letter-spacing: 0.06em;
+  font-style: italic;
+  max-width: 480px;
+  margin-bottom: 32px;
+  border-left: 1px solid rgba(180, 140, 40, 0.2);
+  padding-left: 16px;
+}
+
+/* divider */
+.hero-divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 28px;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 140, 40, 0.3),
+    transparent
+  );
+}
+
+/* CTAs */
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── Card col ── */
+.hero-card-wrap {
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 88px 20px 48px;
+  }
+
+  .hero-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-text {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  .hero-title {
+    justify-content: center;
+  }
+
+  .hero-desc {
+    border-left: none;
+    border-top: 1px solid rgba(180, 140, 40, 0.2);
+    padding-left: 0;
+    padding-top: 16px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-divider {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(180, 140, 40, 0.3) 50%,
+      transparent
+    );
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 32px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-ctas .wow-btn {
+    width: 100%;
+  }
+}
