@@ -1,0 +1,208 @@
+/* ──────────────────────────────────────────
+   WoW Card
+────────────────────────────────────────── */
+
+.wow-card-scene {
+  perspective: 1000px;
+  cursor: pointer;
+  width: 280px;
+  height: 360px;
+}
+
+.wow-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wow-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 6px;
+}
+
+.wow-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Shell ── */
+.wow-card-shell {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, #1a1510 0%, #0e0c08 60%, #12100b 100%);
+  border: 1px solid #5a4a1e;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1),
+    0 0 0 1px #1a1510,
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(160, 120, 30, 0.08);
+}
+
+/* Stone texture */
+.wow-card-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+}
+
+/* ── Border frames ── */
+.wow-frame-outer,
+.wow-frame-inner {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 4px;
+  z-index: 3;
+}
+
+.wow-frame-outer {
+  inset: 5px;
+  border: 1px solid rgba(180, 140, 40, 0.45);
+}
+
+.wow-frame-inner {
+  inset: 8px;
+  border: 1px solid rgba(180, 140, 40, 0.15);
+  border-radius: 3px;
+}
+
+/* ── Corner ornaments ── */
+.wow-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.wow-corner-tl { top: 4px;    left: 4px; }
+.wow-corner-tr { top: 4px;    right: 4px;    transform: scaleX(-1); }
+.wow-corner-bl { bottom: 4px; left: 4px;     transform: scaleY(-1); }
+.wow-corner-br { bottom: 4px; right: 4px;    transform: scale(-1); }
+
+/* ── Glow on hover ── */
+.wow-glow-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(200, 160, 50, 0.18) 0%,
+    transparent 70%
+  );
+}
+
+.wow-card-scene:hover .wow-glow-layer {
+  opacity: 1;
+}
+
+/* ── Shimmer sweep ── */
+.wow-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.2s;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(200, 160, 50, 0.12) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  background-position: -100% 0;
+}
+
+.wow-card-scene:hover .wow-shimmer {
+  opacity: 1;
+  animation: wow-shimmer-sweep 1.2s ease forwards;
+}
+
+@keyframes wow-shimmer-sweep {
+  from { background-position: -100% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* ── Content slot ── */
+.wow-card-content {
+  position: absolute;
+  inset: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wow-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.wow-border {
+  position: relative;
+  border: 1px solid var(--color-wow-gold-dark);
+  box-shadow:
+    inset 0 0 0 1px oklch(72% 0.17 82 / 0.15),
+    var(--shadow-card);
+}
+
+.wow-border::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid oklch(72% 0.17 82 / 0.12);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.wow-corners::after,
+.wow-corners::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+
+.font-wow {
+  font-family: var(--font-cinzel), serif;
+  letter-spacing: 0.08em;
+}
