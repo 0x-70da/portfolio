@@ -216,11 +216,6 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    background-color: var(--color-wow-stone);
-    color:            var(--color-wow-parchment);
-    font-family:      var(--font-inter), sans-serif;
-  }
   html {
     @apply font-sans;
   }
