@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Welcome to My Portfolio",
+
+    "greeting": "Hey there!, I am",
+
+    "name": "Mahmoud Abdelnasser",
+
+    "title": "Full-Stack Developer",
+
+    "description": "I build modern web applications with React, TypeScript, and Node.js, focusing on performance, scalability, and clean user experiences.",
+
+    "ctas": {
+      "projects": "View Projects",
+      "contact": "Get In Touch",
+      "resume": "Download Resume"
+    }
+  },
+  "about": {
+    "header": "My Background",
+
+    "title": "A Full-Stack Developer",
+
+    "bio": [
+      "I'm a Full-Stack Developer focused on building scalable and maintainable web applications using modern technologies like TypeScript, React, Next.js, and Node.js.",
+
+      "I enjoy creating clean user interfaces, improving performance, and developing systems that balance user experience with solid engineering practices.",
+
+      "My goal is to build products that are not only visually polished, but also practical, efficient, and reliable in real-world use."
+    ]
+  },
+  "infoPanel": {
+    "header": "Get In Touch",
+
+    "title": "Let's Build Something Great Together",
+
+    "description": "Whether you have a project in mind, a business inquiry, or an opportunity to discuss, feel free to reach out. I'm always open to meaningful collaborations and interesting ideas."
+  }
+}
