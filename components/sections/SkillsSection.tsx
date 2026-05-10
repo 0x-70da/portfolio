@@ -1,8 +1,8 @@
 import { SectionTitle } from "../wow-components/SectionTitle"; 
-import { SKILLS }        from "@/lib/data";
 import type { SkillCategory } from "@/lib/types";
 import { GlowBadge } from "../wow-components/GlowBadge";
 import { getIcon } from "@/lib/getIcon";
+import { skills } from "@/lib/data.json";
 
 // ── Corner ornament ───────────────────────────────────────────────────────────
 
@@ -75,7 +75,7 @@ export function SkillsSection() {
         <SectionTitle title="Skills" />
 
         <div className="skills-grid">
-          {SKILLS.map((category) => (
+          {skills.map((category) => (
             <SkillCategoryCard key={category.id} category={category} />
           ))}
         </div>

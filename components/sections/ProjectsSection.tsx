@@ -1,6 +1,6 @@
 import { SectionTitle } from "../wow-components/SectionTitle"; 
 import { ProjectCarousel } from "../feature-components/ProjectCarousel"; 
-import { PROJECTS }        from "@/lib/data";
+import { projects } from "@/lib/data.json";
 
 export function ProjectsSection() {
   return (
@@ -11,7 +11,7 @@ export function ProjectsSection() {
         <SectionTitle title="Projects" />
 
         <div className="projects-carousel-wrap">
-          <ProjectCarousel projects={PROJECTS} />
+          <ProjectCarousel projects={projects} />
         </div>
       </div>
     </section>

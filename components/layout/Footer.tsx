@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SOCIAL_LINKS } from "@/lib/data";
+import { socialLinks } from "@/lib/data.json";
 import { getIcon } from "@/lib/getIcon";
 
 function TopOrnament() {
@@ -69,7 +69,7 @@ export function Footer() {
             Find Me
           </div>
           <div className="flex gap-1.5 mb-2.5">
-            {SOCIAL_LINKS.map((link) => (
+            {socialLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
