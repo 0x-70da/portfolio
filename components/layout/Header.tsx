@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { SOCIAL_LINKS, NAV_ITEMS } from "@/lib/data";
+import { socialLinks, navItems } from "@/lib/data.json";
 import { cn } from "@/lib/utils";
-import { useActiveSection, type SectionId } from "@/hooks/useActiveSection";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import Link from "next/link";
 import { NavItem, SocialLink } from "@/lib/types";
 import { getIcon } from "@/lib/getIcon";
@@ -126,7 +126,7 @@ export function Header() {
   const activeSection = useActiveSection();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleNavClick = (id: SectionId) => {
+  const handleNavClick = (id: string) => {
     setMobileOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -142,10 +142,11 @@ export function Header() {
 
         {/* Desktop nav — hidden on mobile */}
         <nav className="wow-header-nav hidden md:flex">
-          {NAV_ITEMS.map((item, i) => (
+          {navItems.map((item, i) => (
             <div key={item.id} className="flex items-center">
               {i > 0 && <NavSep />}
               <NavLink
+                key={item.id}
                 item={item}
                 active={activeSection === item.id}
                 onClick={() => handleNavClick(item.id)}
@@ -156,7 +157,7 @@ export function Header() {
 
         {/* Socials — hidden on mobile */}
         <div className="hidden md:flex items-center gap-1 shrink-0">
-          {SOCIAL_LINKS.map((link) => (
+          {socialLinks.map((link) => (
             <SocialIconBtn key={link.label} link={link} />
           ))}
         </div>
@@ -185,7 +186,7 @@ export function Header() {
       {mobileOpen && (
         <div className="wow-mobile-drawer md:hidden">
           <nav className="flex flex-col">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <MobileNavLink
                 key={item.id}
                 item={item}
@@ -197,7 +198,7 @@ export function Header() {
 
           {/* socials in drawer */}
           <div className="wow-mobile-socials">
-            {SOCIAL_LINKS.map((link) => (
+            {socialLinks.map((link) => (
               <SocialIconBtn key={link.label} link={link} />
             ))}
           </div>

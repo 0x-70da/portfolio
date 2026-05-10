@@ -1,5 +1,5 @@
 import { SectionTitle } from "../wow-components/SectionTitle";
-import { EXPERIENCE }   from "@/lib/data";
+import { experiences } from "@/lib/data.json";
 import type { Experience } from "@/lib/types";
 
 // ── Corner ornament ───────────────────────────────────────────────────────────
@@ -124,7 +124,7 @@ export function ExperienceSection() {
         <SectionTitle title="Experience" />
 
         <div className="exp-timeline">
-          {EXPERIENCE.map((item) => (
+          {experiences.map((item) => (
             <TimelineItem key={item.id} item={item} />
           ))}
         </div>

@@ -1,59 +1,9 @@
-// import { CONTACT_ITEMS, FACT_ITEMS } from "@/lib/data";
 import { SectionTitle } from "../wow-components/SectionTitle";
 import { WowDivider } from "../wow-components/wow-divider/WowDivider";
-import { ContactItem, FactItem } from "@/lib/types";
+import { ContactItem } from "@/lib/types";
 import { getIcon } from "@/lib/getIcon";
-
-export const CONTACT_ITEMS: ContactItem[] = [
-  {
-    label: "Email",
-    value: "mahmoud@email.com",
-    href:  "mailto:mahmoud@email.com",
-    icon:  "Mail",
-  },
-  {
-    label: "GitHub",
-    value: "github.com/mahmoud",
-    href:  "https://github.com/",
-    icon:  "Github",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/mahmoud",
-    href:  "https://linkedin.com/",
-    icon:  "Linkedin",
-  },
-  {
-    label: "X (Twitter)",
-    value: "@mahmoud_dev",
-    href:  "https://x.com/",
-    icon:  "Twitter",
-  },
-];
-
-export const FACT_ITEMS: FactItem[] = [
-  {
-    label: "Location",
-    value: "Luxor, Egypt · Open to Remote",
-    icon:  "MapPin",
-  },
-  {
-    label: "Education",
-    value: "BSc Computer Science — Luxor University",
-    icon:  "GraduationCap",
-  },
-  {
-    label: "Experience",
-    value: "3+ Years · Freelance & Personal Projects",
-    icon:  "Briefcase",
-  },
-  {
-    label: "Focus",
-    value: "React · TypeScript · Node.js · Supabase",
-    icon:  "Code2",
-  },
-];
-
+import { about } from "@/lib/translation.json";
+import { factItems, contactItems } from "@/lib/data.json"
 
 function AboutCard() {
   return (
@@ -67,29 +17,23 @@ function AboutCard() {
         <div className="about-card-header">
           <div className="about-card-label">
             <span className="about-label-gem" />
-            The Chronicle
+            {about.header}
           </div>
-          <h3 className="about-card-title">A Full-Stack Mage of the Web</h3>
+          <h3 className="about-card-title">{about.title}</h3>
         </div>
 
         {/* bio paragraphs */}
-        <p className="about-bio-text">
-          I am a passionate full-stack engineer with 3+ years of experience
-          crafting powerful digital experiences. I specialize in building
-          scalable web applications using modern technologies, with a deep
-          focus on clean architecture, type safety, and user experience.
-        </p>
-        <p className="about-bio-text">
-          Currently pursuing my Computer Science degree at Luxor University
-          while actively working on real-world projects — balancing the ancient
-          scrolls of academia with the forge of practical engineering.
-        </p>
+        {about.bio.map((paragraph, idx) => (
+          <p key={idx} className="about-bio-text">
+            {paragraph}
+          </p>
+        ))}
 
         <WowDivider />
 
         {/* facts */}
         <div className="about-facts">
-          {FACT_ITEMS.map((fact) => (
+          {factItems.map((fact) => (
             <div key={fact.label} className="about-fact-row">
               <div className="about-fact-icon">{getIcon(fact.icon)}</div>
               <span className="about-fact-label">{fact.label}</span>
@@ -166,7 +110,7 @@ export function AboutSection() {
             </div>
 
             <div className="about-contact-list">
-              {CONTACT_ITEMS.map((item) => (
+              {contactItems.map((item) => (
                 <ContactBadge key={item.label} item={item} />
               ))}
             </div>

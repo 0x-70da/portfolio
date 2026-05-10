@@ -1,0 +1,186 @@
+{
+  "skills": [
+    {
+      "id":       "frontend",
+      "title":    "Frontend",
+      "subtitle": "The Art of the Interface",
+      "variant":  "gold",
+      "icon":     "Code2",
+      "skills":   ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "shadcn/ui"]
+    },
+    {
+      "id":       "backend",
+      "title":    "Backend",
+      "subtitle": "The Forge of Logic",
+      "variant":  "crimson",
+      "icon":     "Server",
+      "skills":   ["Node.js", "Express.js", "PostgreSQL", "Zod"]
+    },
+    {
+      "id":       "state",
+      "title":    "State & Data",
+      "subtitle": "The Flow of Power",
+      "variant":  "arcane",
+      "icon":     "Database",
+      "skills":   ["TanStack Query", "Zustand", "React Hook Form", "Context API"]
+    },
+    {
+      "id":       "tools",
+      "title":    "Tools & DevOps",
+      "subtitle": "The Arsenal",
+      "variant":  "stone",
+      "icon":     "Wrench",
+      "skills":   ["Git", "GitHub", "pnpm", "Vite", "ESLint", "Prettier", "Vercel"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "horus-shop",
+      "title": "Horus Shop",
+      "description":
+        "A full-stack e-commerce platform forged with React and Node, featuring JWT auth, product filtering, and a Supabase-powered dungeon of data.",
+      "badges": ["React", "TypeScript", "Node.js", "Supabase", "Tailwind"],
+      "status": "wip",
+      "githubUrl": "https://github.com/0x-70da/horus-shop-v2",
+      "liveUrl": "",
+      "imageSrc": ""
+    },
+    {
+      "id": "to-do-app",
+      "title": "To-Do App",
+      "description":
+        "A World of Warcraft-themed portfolio forged with Next.js and Framer Motion. Every pixel enchanted, every component a legendary drop.",
+      "badges": ["React", "Javascript", "Tailwind"],
+      "status": "wip",
+      "githubUrl": "https://github.com/0x-70da/To-Do-App",
+      "liveUrl": "",
+      "imageSrc": ""
+    },
+    {
+      "id": "weather-application",
+      "title": "Weather Application",
+      "description":
+        "A weather application built with React and OpenWeatherMap API, providing real-time forecasts and dynamic backgrounds that change with the weather.",
+      "badges": ["React", "Javascript", "OpenWeatherMap API", "Tailwind"],
+      "status": "live",
+      "githubUrl": "https://github.com/0x-70da/Weather-Application-v2",
+      "liveUrl": "",
+      "imageSrc": ""
+    },
+    {
+      "id": "college-web-project",
+      "title": "College Web Project",
+      "description":
+        "A college project website built with React, showcasing a responsive design and interactive features to demonstrate web development skills.",
+      "badges": ["Next.js", "TypeScript", "Tailwind", "shadcn/ui", "Prisma", "JWT Auth"],
+      "status": "wip",
+      "githubUrl": "https://github.com/0x-70da/web-project-nextjs",
+      "liveUrl": "",
+      "imageSrc": ""
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Admin Dashboard",
+      "description":
+        "An admin dashboard built with Next.js, featuring data visualization, user management, and responsive design for seamless administration.",
+      "badges": ["Next.js", "Javascript", "Tailwind", "Recharts", "Framer Motion"],
+      "status": "wip",
+      "githubUrl": "https://github.com/0x-70da/admin-dashboard",
+      "liveUrl": "",
+      "imageSrc": ""
+    }
+  ],
+  "experiences": [
+    {
+      "id":          "freelance",
+      "role":        "Full-Stack Developer",
+      "company":     "Freelance",
+      "date":        "2022 — Present",
+      "type":        "freelance",
+      "current":     true,
+      "description": "Crafting bespoke web solutions for clients across multiple domains, delivering full-stack applications from concept to deployment.",
+      "achievements": [
+        "Built and deployed 10+ client projects using React, Node.js, and various databases",
+        "Implemented secure authentication systems and RESTful APIs for multiple clients",
+        "Maintained long-term relationships with 5+ recurring clients"
+      ],
+      "tags": ["React", "Node.js", "TypeScript", "Supabase"]
+    },
+    {
+      "id":          "startup",
+      "role":        "Frontend Developer",
+      "company":     "Tech Startup — Remote",
+      "date":        "2023 — 2024",
+      "type":        "parttime",
+      "current":     false,
+      "description": "Contributed to building a SaaS dashboard product, focusing on component architecture and performance optimization.",
+      "achievements": [
+        "Rebuilt the core UI component library using React and TypeScript",
+        "Reduced bundle size by 40% through code splitting and lazy loading"
+      ],
+      "tags": ["React", "TypeScript", "Tailwind"]
+    }
+  ],
+  "contactItems": [
+    {
+      "label": "Email",
+      "value": "mahmoud.abdelnasser.dev@email.com",
+      "href":  "mailto:mahmoud.abdelnasser.dev@email.com",
+      "icon":  "Mail"
+    },
+    {
+      "label": "GitHub",
+      "value": "github.com/0x-70da",
+      "href":  "https://github.com/0x-70da",
+      "icon":  "Github"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/mahmoud-abdelnasser-a7b246332",
+      "href":  "https://linkedin.com/in/mahmoud-abdelnasser-a7b246332",
+      "icon":  "Linkedin"
+    },
+    {
+      "label": "X (Twitter)",
+      "value": "@MahmoudCanCode",
+      "href":  "https://x.com/MahmoudCanCode",
+      "icon":  "Twitter"
+    }
+  ],
+  "factItems": [
+    {
+      "label": "Location",
+      "value": "Aswan, Egypt · Open to Remote",
+      "icon":  "MapPin"
+    },
+    {
+      "label": "Education",
+      "value": "Computer Science — Luxor University",
+      "icon":  "GraduationCap"
+    },
+    {
+      "label": "Experience",
+      "value": "1+ Years · Personal Projects",
+      "icon":  "Briefcase"
+    },
+    {
+      "label": "Focus",
+      "value": "React · TypeScript · Node.js · Next.js",
+      "icon":  "Code2"
+    }
+  ],
+  "navItems": [
+    { "label": "Home",       "id": "home"       },
+    { "label": "About",      "id": "about"      },
+    { "label": "Skills",     "id": "skills"     },
+    { "label": "Projects",   "id": "projects"   },
+    { "label": "Experience", "id": "experience" },
+    { "label": "Contact",    "id": "contact"    }
+  ],
+  "socialLinks": [
+    { "label": "GitHub",    "href": "https://github.com/0x-70da",    "icon": "Github" },
+    { "label": "LinkedIn",  "href": "https://linkedin.com/in/mahmoud-abdelnasser-a7b246332",  "icon": "Linkedin" },
+    { "label": "Email",     "href": "mailto:mahmoud.abdelnasser.dev@email.com",   "icon": "Mail" },
+    { "label": "Twitter",   "href": "https://x.com/MahmoudCanCode",        "icon": "Twitter" }
+  ]
+}

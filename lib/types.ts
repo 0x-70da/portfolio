@@ -1,11 +1,9 @@
-import { SectionId } from "@/hooks/useActiveSection";
-
 export interface Project {
   id: string;
   title: string;
   description: string;
   badges: string[];
-  status: "live" | "wip";
+  status: string;
   githubUrl?: string;
   liveUrl?: string;
   imageSrc?: string;
@@ -15,7 +13,7 @@ export interface SkillCategory {
   id:       string;
   title:    string;
   subtitle: string;
-  variant:  "gold" | "arcane" | "crimson" | "stone";
+  variant:  string;
   icon:     string;
   skills:   string[];
 }
@@ -25,7 +23,7 @@ export interface Experience {
   role:         string;
   company:      string;
   date:         string;
-  type:         "fulltime" | "freelance" | "parttime" | "internship";
+  type:         string;
   description:  string;
   achievements: string[];
   tags:         string[];
@@ -47,7 +45,7 @@ export interface FactItem {
 
 export interface NavItem {
   label: string;
-  id: SectionId;
+  id: string;
 }
 
 export interface SocialLink {

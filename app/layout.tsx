@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", cinzel.variable, inter.variable)}
     >
-      <body className="font-sans min-h-full flex flex-col">
+      <body className="font-sans bg-wow-stone text-wow-parchment min-h-full flex flex-col">
         <Header />
         {children}
         <Footer />
