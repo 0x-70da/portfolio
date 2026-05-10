@@ -1,25 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import type { Project } from "@/lib/types";
-
-const variants = {
-  enter: (dir: number) => ({
-    x: dir > 0 ? 80 : -80,
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (dir: number) => ({
-    x: dir > 0 ? -80 : 80,
-    opacity: 0,
-  }),
-};
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -55,18 +39,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
         {/* animated card */}
         <div className="flex-1 relative min-h-115 md:min-h-100">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                duration: 0.35,
-                ease: [0.4, 0, 0.2, 1],
-              }}
+            <div
               className="absolute inset-0"
             >
               <ProjectCard
@@ -74,8 +47,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 index={current}
                 total={projects.length}
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
         </div>
 
         {/* next arrow */}
