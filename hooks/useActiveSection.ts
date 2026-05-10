@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 
 const SECTIONS = ["home", "about", "skills", "projects", "experience", "contact"] as const;
-export type SectionId = (typeof SECTIONS)[number];
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<SectionId>("home");
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];

@@ -45,7 +45,7 @@ export function WowButton({
   children,
   variant = "gold",
   size = "md",
-  icon,
+  icon = "null",
   onClick,
   href,
   className,
