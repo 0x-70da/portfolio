@@ -1,16 +1,19 @@
-import { SectionTitle } from "../wow-components/SectionTitle"; 
-import { ProjectCarousel } from "../feature-components/ProjectCarousel"; 
+import { SectionTitle } from "../wow-components/SectionTitle";
+import { ProjectCarousel } from "../feature-components/ProjectCarousel";
 import { projects } from "@/lib/data.json";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="projects-section">
-      <div className="projects-bg" />
+    <section
+      id="projects"
+      className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
+    >
+      <div className="absolute inset-0 pointer-events-none bg-hero" />
 
-      <div className="projects-inner">
+      <div className="relative z-10 w-full max-w-275 mx-auto">
         <SectionTitle title="Projects" />
 
-        <div className="projects-carousel-wrap">
+        <div className="mt-10 w-full max-w-185 mx-auto md:mt-14">
           <ProjectCarousel projects={projects} />
         </div>
       </div>
