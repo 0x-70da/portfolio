@@ -1,222 +1,1596 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "../components/layout/layout.css";
 @import "../components/sections/sections.css";
 @import "../components/feature-components/featureComponents.css";
 @import "../components/wow-components/Wow.css";
-@import "../components/layout/layout.css";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+:root {
+  --color-scheme: dark;
+
+  /* ── Font families ── */
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-cinzel), serif;
+  --font-cinzel: var(--font-cinzel);
+  --font-inter: var(--font-inter);
+
+  /* ── Theme source tokens ── */
+  --theme-color-primary: #d4a830;
+  --theme-color-accent: #c89828;
+  --theme-color-soft: #c8a848;
+  --theme-color-muted-strong: #a08030;
+  --theme-color-muted: #8a7030;
+  --theme-color-muted-soft: #a08840;
+  --theme-color-body-muted: #7a6840;
+  --theme-color-body: #6a5a38;
+  --theme-color-ink-light: #7a6228;
+  --theme-color-ink: #6b5828;
+  --theme-color-ink-dark: #5a4818;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #1a1510 0%,
+    #0e0c08 60%,
+    #12100b 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #2a2010 0%, #1a1508 100%);
+  --theme-surface-badge: linear-gradient(135deg, #1e1808 0%, #2a2210 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #16122a 0%, #0e0c1a 100%);
+
+  --theme-alpha-a70: rgba(180, 140, 40, 0.7);
+  --theme-alpha-a60: rgba(180, 140, 40, 0.6);
+  --theme-alpha-a65: rgba(180, 140, 40, 0.65);
+  --theme-alpha-a50: rgba(180, 140, 40, 0.5);
+  --theme-alpha-a45: rgba(180, 140, 40, 0.45);
+  --theme-alpha-a40: rgba(180, 140, 40, 0.4);
+  --theme-alpha-a55: rgba(180, 140, 40, 0.55);
+  --theme-alpha-a35: rgba(180, 140, 40, 0.35);
+  --theme-alpha-a30: rgba(180, 140, 40, 0.3);
+  --theme-alpha-a25: rgba(180, 140, 40, 0.25);
+  --theme-alpha-a20: rgba(180, 140, 40, 0.2);
+  --theme-alpha-a18: rgba(180, 140, 40, 0.18);
+  --theme-alpha-a15: rgba(180, 140, 40, 0.15);
+  --theme-alpha-a14: rgba(180, 140, 40, 0.14);
+  --theme-alpha-a12: rgba(180, 140, 40, 0.12);
+  --theme-alpha-a11: rgba(180, 140, 40, 0.11);
+  --theme-alpha-a10: rgba(180, 140, 40, 0.1);
+  --theme-alpha-a09: rgba(180, 140, 40, 0.09);
+  --theme-alpha-a08: rgba(180, 140, 40, 0.08);
+  --theme-alpha-a07: rgba(180, 140, 40, 0.07);
+  --theme-alpha-a06: rgba(180, 140, 40, 0.06);
+  --theme-alpha-a05: rgba(180, 140, 40, 0.05);
+  --theme-alpha-a04: rgba(180, 140, 40, 0.04);
+  --theme-alpha-a03: rgba(180, 140, 40, 0.03);
+  --theme-alpha-bright-a40: rgba(200, 152, 40, 0.4);
+  --theme-alpha-bright-a50: rgba(200, 152, 40, 0.5);
+  --theme-alpha-bright-a70: rgba(200, 152, 40, 0.7);
+  --theme-alpha-bright-a20: rgba(200, 152, 40, 0.2);
+  --theme-alpha-bright-a15: rgba(200, 152, 40, 0.15);
+  --theme-alpha-bright-a10: rgba(200, 152, 40, 0.1);
+  --theme-alpha-ornament-a60: rgba(120, 90, 20, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(212, 168, 48, 0.6);
+  --theme-glow-primary-a30: rgba(212, 168, 48, 0.3);
+
+  --theme-color-secondary: #8870d0;
+  --theme-color-secondary-text: #a990f0;
+  --theme-color-secondary-border: #3a2e6a;
+  --theme-color-secondary-border-strong: #6a58b0;
+  --theme-alpha-secondary-bright-a60: rgba(150, 120, 240, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(150, 120, 240, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(150, 120, 240, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(140, 110, 240, 0.15);
+  --theme-alpha-secondary-a20: rgba(120, 90, 200, 0.2);
+  --theme-alpha-secondary-a08: rgba(120, 90, 200, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(160, 120, 30, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(180, 140, 40, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(200, 152, 40, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(200, 152, 40, 0.7), 0 0 20px rgba(200, 152, 40, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(200, 152, 40, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(150, 120, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(120, 90, 200, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(150, 120, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(130, 100, 230, 0.3),
+    0 0 0 1px rgba(120, 90, 200, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(140, 110, 220, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(150, 120, 240, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(200, 160, 50, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(200, 160, 50, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(200, 152, 40, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(180, 140, 40, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(180, 140, 40, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(180, 140, 40, 0.12), 0 0 12px rgba(180, 140, 40, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(212, 168, 48, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(212, 168, 48, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(212, 168, 48, 0.35), 0 0 4px rgba(212, 168, 48, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(212, 168, 48, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(212, 168, 48, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(150, 120, 240, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(180, 140, 40, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(100, 80, 200, 0.04) 0%,
+      transparent 60%
+    );
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(10, 8, 6, 0.97) 0%,
+    rgba(10, 8, 6, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #0a0906 0%, #070604 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.12) 20%,
+    rgba(180, 140, 40, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.35) 20%,
+    rgba(180, 140, 40, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  /* ── Public semantic aliases ── */
+  --color-primary: var(--theme-color-primary);
+  --color-accent: var(--theme-color-accent);
+  --color-soft: var(--theme-color-soft);
+  --color-muted-strong: var(--theme-color-muted-strong);
+  --color-muted: var(--theme-color-muted);
+  --color-muted-soft: var(--theme-color-muted-soft);
+  --color-body-muted: var(--theme-color-body-muted);
+  --color-body: var(--theme-color-body);
+  --color-ink-light: var(--theme-color-ink-light);
+  --color-ink: var(--theme-color-ink);
+  --color-ink-dark: var(--theme-color-ink-dark);
+  --color-secondary: var(--theme-color-secondary);
+  --color-secondary-text: var(--theme-color-secondary-text);
+  --color-secondary-border: var(--theme-color-secondary-border);
+  --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+
+  --alpha-a70: var(--theme-alpha-a70);
+  --alpha-a60: var(--theme-alpha-a60);
+  --alpha-a65: var(--theme-alpha-a65);
+  --alpha-a50: var(--theme-alpha-a50);
+  --alpha-a45: var(--theme-alpha-a45);
+  --alpha-a40: var(--theme-alpha-a40);
+  --alpha-a55: var(--theme-alpha-a55);
+  --alpha-a35: var(--theme-alpha-a35);
+  --alpha-a30: var(--theme-alpha-a30);
+  --alpha-a25: var(--theme-alpha-a25);
+  --alpha-a20: var(--theme-alpha-a20);
+  --alpha-a18: var(--theme-alpha-a18);
+  --alpha-a15: var(--theme-alpha-a15);
+  --alpha-a14: var(--theme-alpha-a14);
+  --alpha-a12: var(--theme-alpha-a12);
+  --alpha-a11: var(--theme-alpha-a11);
+  --alpha-a10: var(--theme-alpha-a10);
+  --alpha-a09: var(--theme-alpha-a09);
+  --alpha-a08: var(--theme-alpha-a08);
+  --alpha-a07: var(--theme-alpha-a07);
+  --alpha-a06: var(--theme-alpha-a06);
+  --alpha-a05: var(--theme-alpha-a05);
+  --alpha-a04: var(--theme-alpha-a04);
+  --alpha-a03: var(--theme-alpha-a03);
+  --alpha-bright-a40: var(--theme-alpha-bright-a40);
+  --alpha-bright-a50: var(--theme-alpha-bright-a50);
+  --alpha-bright-a70: var(--theme-alpha-bright-a70);
+  --alpha-bright-a20: var(--theme-alpha-bright-a20);
+  --alpha-bright-a15: var(--theme-alpha-bright-a15);
+  --alpha-bright-a10: var(--theme-alpha-bright-a10);
+  --alpha-ornament-a60: var(--theme-alpha-ornament-a60);
+  --alpha-white-a08: var(--theme-alpha-white-a08);
+  --alpha-white-a012: var(--theme-alpha-white-a012);
+  --alpha-white-a008: var(--theme-alpha-white-a008);
+  --alpha-secondary-bright-a60: var(--theme-alpha-secondary-bright-a60);
+  --alpha-secondary-bright-a40: var(--theme-alpha-secondary-bright-a40);
+  --alpha-secondary-bright-a20: var(--theme-alpha-secondary-bright-a20);
+  --alpha-secondary-bright-a15: var(--theme-alpha-secondary-bright-a15);
+  --alpha-secondary-a20: var(--theme-alpha-secondary-a20);
+  --alpha-secondary-a08: var(--theme-alpha-secondary-a08);
+
+  --glow-primary-a60: var(--theme-glow-primary-a60);
+  --glow-primary-a30: var(--theme-glow-primary-a30);
+
+  --surface-card: var(--theme-surface-card);
+  --surface-button: var(--theme-surface-button);
+  --surface-badge: var(--theme-surface-badge);
+  --surface-secondary: var(--theme-surface-secondary);
+
+  --shadow-card: var(--theme-shadow-card);
+  --shadow-card-hover: var(--theme-shadow-card-hover);
+  --shadow-glow: var(--theme-shadow-glow);
+  --shadow-glow-strong: var(--theme-shadow-glow-strong);
+  --shadow-glow-subtle: var(--theme-shadow-glow-subtle);
+  --shadow-secondary: var(--theme-shadow-secondary);
+  --shadow-secondary-hover: var(--theme-shadow-secondary-hover);
+  --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
+  --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
+  --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-btn: var(--theme-shadow-btn);
+  --shadow-btn-hover: var(--theme-shadow-btn-hover);
+  --shadow-badge-contact: var(--theme-shadow-badge-contact);
+  --shadow-badge-contact-hover: var(--theme-shadow-badge-contact-hover);
+  --shadow-photo-frame: var(--theme-shadow-photo-frame);
+  --shadow-header: var(--theme-shadow-header);
+  --shadow-input: var(--theme-shadow-input);
+  --shadow-glow-success-12-a60: 0 0 12px rgba(96, 192, 96, 0.6);
+  --shadow-glow-success-8-a60: 0 0 8px rgba(96, 192, 96, 0.6);
+
+  --text-shadow-primary: var(--theme-text-shadow-primary);
+  --text-shadow-primary-soft: var(--theme-text-shadow-primary-soft);
+  --text-shadow-primary-strong: var(--theme-text-shadow-primary-strong);
+  --text-shadow-primary-glow: var(--theme-text-shadow-primary-glow);
+  --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
+  --text-shadow-secondary: var(--theme-text-shadow-secondary);
+  --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+
+  --gradient-hero: var(--theme-gradient-hero);
+  --gradient-header: var(--theme-gradient-header);
+  --gradient-footer: var(--theme-gradient-footer);
+  --gradient-line-primary: var(--theme-gradient-line-primary);
+  --gradient-line-primary-strong: var(--theme-gradient-line-primary-strong);
+  --gradient-sheen: var(--theme-gradient-sheen);
+  --gradient-texture-stone-strong: var(--theme-gradient-texture-stone-strong);
+
+  /* ── Success / availability ── */
+  --success: #60c060;
+  --success-surface-a80: rgba(20, 50, 20, 0.8);
+  --success-border-a30: rgba(60, 160, 60, 0.3);
+  --success-text-muted: #60c060;
+
+  /* ── Intern ── */
+  --intern-surface-a80: rgba(40, 20, 10, 0.8);
+  --intern-border-a30: rgba(180, 100, 40, 0.3);
+  --intern-text: #c07840;
+
+  /* ── Neutral / stone ink ── */
+  --stone-ink-a60: rgba(200, 160, 50, 0.6);
+  --neutral-stone-text: #a08840;
+
+  /* ── Black alphas ── */
+  --black-a30: rgba(0, 0, 0, 0.3);
+  --black-a40: rgba(0, 0, 0, 0.4);
+  --black-a50: rgba(0, 0, 0, 0.5);
+  --black-a60: rgba(0, 0, 0, 0.6);
+
+  /* ── Photo ── */
+  --stone-1: #1a1510;
+  --photo-placeholder: rgba(50, 40, 15, 0.8);
+
+  /* ── Stone backgrounds ── */
+  --stone: 18% 0.015 80;
+  --stone-mid: 25% 0.015 80;
+  --stone-light: 35% 0.015 80;
+
+  /* ── Font sizes (all in px, match profile-before-break) ── */
+  --font-size-hero-name: clamp(36px, 5vw, 56px);
+  --font-size-hero-title: clamp(12px, 2vw, 16px);
+  --font-size-hero-name-mobile: 32px;
+  --font-size-5xl: 20px;
+  --font-size-4xl: 18px;
+  --font-size-3xl: 15px;
+  --font-size-2xl: 13px;
+  --font-size-xl: 12px;
+  --font-size-lg: 11px;
+  --font-size-md: 10px;
 }
 
-@theme {
-  /* ── Fonts ── */
-  --font-cinzel:  var(--font-cinzel);
-  --font-inter:   var(--font-inter);
-  --font-sans:    var(--font-inter), sans-serif;
-  --font-heading: var(--font-cinzel), serif;
+[data-theme="gold"] {
+  --theme-color-primary: #d4a830;
+  --theme-color-accent: #c89828;
+  --theme-color-soft: #c8a848;
+  --theme-color-muted-strong: #a08030;
+  --theme-color-muted: #8a7030;
+  --theme-color-muted-soft: #a08840;
+  --theme-color-body-muted: #7a6840;
+  --theme-color-body: #6a5a38;
+  --theme-color-ink-light: #7a6228;
+  --theme-color-ink: #6b5828;
+  --theme-color-ink-dark: #5a4818;
 
-  /* ──────────────────────────────────────────
-     WoW Primitive Colors
-     (غيّر هنا بس عشان تغير الموقع كله)
-  ────────────────────────────────────────── */
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #1a1510 0%,
+    #0e0c08 60%,
+    #12100b 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #2a2010 0%, #1a1508 100%);
+  --theme-surface-badge: linear-gradient(135deg, #1e1808 0%, #2a2210 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #16122a 0%, #0e0c1a 100%);
 
-  /* Gold */
-  --wow-primitive-gold:       72% 0.17 82;
-  --wow-primitive-gold-light: 85% 0.14 88;
-  --wow-primitive-gold-dark:  48% 0.13 72;
+  --theme-alpha-a70: rgba(180, 140, 40, 0.7);
+  --theme-alpha-a60: rgba(180, 140, 40, 0.6);
+  --theme-alpha-a50: rgba(180, 140, 40, 0.5);
+  --theme-alpha-a45: rgba(180, 140, 40, 0.45);
+  --theme-alpha-a40: rgba(180, 140, 40, 0.4);
+  --theme-alpha-a35: rgba(180, 140, 40, 0.35);
+  --theme-alpha-a30: rgba(180, 140, 40, 0.3);
+  --theme-alpha-a20: rgba(180, 140, 40, 0.2);
+  --theme-alpha-a15: rgba(180, 140, 40, 0.15);
+  --theme-alpha-a12: rgba(180, 140, 40, 0.12);
+  --theme-alpha-a10: rgba(180, 140, 40, 0.1);
+  --theme-alpha-a08: rgba(180, 140, 40, 0.08);
+  --theme-alpha-a06: rgba(180, 140, 40, 0.06);
+  --theme-alpha-a04: rgba(180, 140, 40, 0.04);
+  --theme-alpha-bright-a40: rgba(200, 152, 40, 0.4);
+  --theme-alpha-bright-a15: rgba(200, 152, 40, 0.15);
+  --theme-alpha-ornament-a60: rgba(120, 90, 20, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
 
-  /* Arcane */
-  --wow-primitive-arcane:     62% 0.26 290;
-  --wow-primitive-arcane-light: 72% 0.30 290;
+  --theme-glow-primary-a60: rgba(212, 168, 48, 0.6);
+  --theme-glow-primary-a30: rgba(212, 168, 48, 0.3);
 
-  /* Crimson */
-  --wow-primitive-crimson:    50% 0.22 20;
-  --wow-primitive-crimson-dark: 35% 0.16 20;
+  --theme-color-secondary: #8870d0;
+  --theme-color-secondary-text: #a990f0;
+  --theme-color-secondary-border: #3a2e6a;
+  --theme-color-secondary-border-strong: #6a58b0;
+  --theme-alpha-secondary-bright-a60: rgba(150, 120, 240, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(150, 120, 240, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(150, 120, 240, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(140, 110, 240, 0.15);
+  --theme-alpha-secondary-a20: rgba(120, 90, 200, 0.2);
+  --theme-alpha-secondary-a08: rgba(120, 90, 200, 0.08);
 
-  /* Stone */
-  --wow-primitive-stone:      18% 0.015 80;
-  --wow-primitive-stone-mid:  25% 0.015 80;
-  --wow-primitive-stone-light:35% 0.015 80;
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(160, 120, 30, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(180, 140, 40, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(200, 152, 40, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(200, 152, 40, 0.7), 0 0 20px rgba(200, 152, 40, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(200, 152, 40, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(150, 120, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(120, 90, 200, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(150, 120, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(130, 100, 230, 0.3),
+    0 0 0 1px rgba(120, 90, 200, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(140, 110, 220, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(150, 120, 240, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(200, 160, 50, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(200, 160, 50, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(200, 152, 40, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(180, 140, 40, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(180, 140, 40, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(180, 140, 40, 0.12), 0 0 12px rgba(180, 140, 40, 0.08);
 
-  /* Parchment */
-  --wow-primitive-parchment:  92% 0.025 85;
+  --theme-text-shadow-primary: 0 0 10px rgba(212, 168, 48, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(212, 168, 48, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(212, 168, 48, 0.35), 0 0 4px rgba(212, 168, 48, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(212, 168, 48, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(212, 168, 48, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(150, 120, 240, 0.6);
 
-  /* ──────────────────────────────────────────
-     WoW Semantic Colors — Tailwind utilities
-     استخدم دول في الـ classNames
-  ────────────────────────────────────────── */
-
-  /* Solid colors */
-  --color-wow-gold:         oklch(var(--wow-primitive-gold));
-  --color-wow-gold-light:   oklch(var(--wow-primitive-gold-light));
-  --color-wow-gold-dark:    oklch(var(--wow-primitive-gold-dark));
-  --color-wow-arcane:       oklch(var(--wow-primitive-arcane));
-  --color-wow-arcane-light: oklch(var(--wow-primitive-arcane-light));
-  --color-wow-crimson:      oklch(var(--wow-primitive-crimson));
-  --color-wow-crimson-dark: oklch(var(--wow-primitive-crimson-dark));
-  --color-wow-stone:        oklch(var(--wow-primitive-stone));
-  --color-wow-stone-mid:    oklch(var(--wow-primitive-stone-mid));
-  --color-wow-stone-light:  oklch(var(--wow-primitive-stone-light));
-  --color-wow-parchment:    oklch(var(--wow-primitive-parchment));
-
-  /* Alpha variants — borders */
-  --color-wow-gold-border:        oklch(var(--wow-primitive-gold-dark) / 0.6);
-  --color-wow-gold-border-subtle: oklch(var(--wow-primitive-gold) / 0.15);
-  --color-wow-gold-border-faint:  oklch(var(--wow-primitive-gold) / 0.08);
-  --color-wow-arcane-border:      oklch(var(--wow-primitive-arcane) / 0.35);
-  --color-wow-crimson-border:     oklch(var(--wow-primitive-crimson) / 0.35);
-
-  /* Alpha variants — backgrounds */
-  --color-wow-gold-surface:       oklch(var(--wow-primitive-gold) / 0.06);
-  --color-wow-gold-surface-mid:   oklch(var(--wow-primitive-gold) / 0.12);
-  --color-wow-arcane-surface:     oklch(var(--wow-primitive-arcane) / 0.08);
-  --color-wow-crimson-surface:    oklch(var(--wow-primitive-crimson) / 0.08);
-
-  /* Alpha variants — glows */
-  --color-wow-gold-glow-sm:   oklch(var(--wow-primitive-gold) / 0.3);
-  --color-wow-gold-glow-md:   oklch(var(--wow-primitive-gold) / 0.5);
-  --color-wow-arcane-glow-sm: oklch(var(--wow-primitive-arcane) / 0.3);
-  --color-wow-arcane-glow-md: oklch(var(--wow-primitive-arcane) / 0.5);
-
-  /* ──────────────────────────────────────────
-     Semantic Aliases
-     لو عايز تغير المعنى مش اللون
-  ────────────────────────────────────────── */
-
-  /* Text */
-  --color-wow-text-primary:  var(--color-wow-gold);
-  --color-wow-text-secondary:var(--color-wow-gold-dark);
-  --color-wow-text-muted:    oklch(var(--wow-primitive-gold-dark) / 0.7);
-  --color-wow-text-faint:    oklch(35% 0.09 75);
-  --color-wow-text-body:     oklch(var(--wow-primitive-gold-dark) / 0.85);
-
-  /* Surfaces */
-  --color-wow-surface-card:  oklch(var(--wow-primitive-stone-mid) / 0.9);
-  --color-wow-surface-input: oklch(14% 0.012 80 / 0.8);
-
-  /* ──────────────────────────────────────────
-     Shadows — CSS vars مش Tailwind
-  ────────────────────────────────────────── */
-  --shadow-wow-card:
-    0 12px 40px oklch(0% 0 0 / 0.8);
-
-  --shadow-wow-gold-glow:
-    0 0 12px oklch(var(--wow-primitive-gold) / 0.5),
-    0 0 28px oklch(var(--wow-primitive-gold) / 0.25);
-
-  --shadow-wow-arcane-glow:
-    0 0 12px oklch(var(--wow-primitive-arcane) / 0.5),
-    0 0 28px oklch(var(--wow-primitive-arcane) / 0.25);
-
-  --shadow-wow-gold-btn:
-    inset 0 1px 0 oklch(var(--wow-primitive-gold) / 0.15),
-    inset 0 -1px 0 oklch(0% 0 0 / 0.3),
-    0 4px 16px oklch(0% 0 0 / 0.5);
-
-  --shadow-wow-gold-btn-hover:
-    inset 0 1px 0 oklch(var(--wow-primitive-gold) / 0.2),
-    inset 0 -1px 0 oklch(0% 0 0 / 0.3),
-    0 4px 20px oklch(0% 0 0 / 0.6),
-    0 0 16px oklch(var(--wow-primitive-gold) / 0.25);
-
-  /* ──────────────────────────────────────────
-     Card shell background gradient
-  ────────────────────────────────────────── */
-  --bg-wow-card:
-    linear-gradient(
-      160deg,
-      oklch(22% 0.018 80) 0%,
-      oklch(14% 0.012 80) 60%,
-      oklch(17% 0.014 80) 100%
+  --theme-gradient-hero:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(180, 140, 40, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(100, 80, 200, 0.04) 0%,
+      transparent 60%
+    );
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(10, 8, 6, 0.97) 0%,
+    rgba(10, 8, 6, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #0a0906 0%, #070604 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.12) 20%,
+    rgba(180, 140, 40, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 140, 40, 0.35) 20%,
+    rgba(180, 140, 40, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
     );
 }
 
-:root {
-  --color-scheme: dark;
-  --background: oklch(0.147 0.004 49.3);
-  --foreground: oklch(0.986 0.002 67.8);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.147 0.004 49.3);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.147 0.004 49.3);
-  --primary: oklch(0.214 0.009 43.1);
-  --primary-foreground: oklch(0.986 0.002 67.8);
-  --secondary: oklch(0.96 0.002 17.2);
-  --secondary-foreground: oklch(0.214 0.009 43.1);
-  --muted: oklch(0.96 0.002 17.2);
-  --muted-foreground: oklch(0.547 0.021 43.1);
-  --accent: oklch(0.96 0.002 17.2);
-  --accent-foreground: oklch(0.214 0.009 43.1);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0.005 34.3);
-  --input: oklch(0.922 0.005 34.3);
-  --ring: oklch(0.714 0.014 41.2);
-  --chart-1: oklch(0.868 0.007 39.5);
-  --chart-2: oklch(0.547 0.021 43.1);
-  --chart-3: oklch(0.438 0.017 39.3);
-  --chart-4: oklch(0.367 0.016 35.7);
-  --chart-5: oklch(0.268 0.011 36.5);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.986 0.002 67.8);
-  --sidebar-foreground: oklch(0.147 0.004 49.3);
-  --sidebar-primary: oklch(0.214 0.009 43.1);
-  --sidebar-primary-foreground: oklch(0.986 0.002 67.8);
-  --sidebar-accent: oklch(0.96 0.002 17.2);
-  --sidebar-accent-foreground: oklch(0.214 0.009 43.1);
-  --sidebar-border: oklch(0.922 0.005 34.3);
-  --sidebar-ring: oklch(0.714 0.014 41.2);
+[data-theme="red"] {
+  --theme-color-primary: #e85545;
+  --theme-color-accent: #d44535;
+  --theme-color-soft: #d46858;
+  --theme-color-muted-strong: #b03828;
+  --theme-color-muted: #9a3828;
+  --theme-color-muted-soft: #b04840;
+  --theme-color-body-muted: #8a4838;
+  --theme-color-body: #7a3828;
+  --theme-color-ink-light: #8a3828;
+  --theme-color-ink: #7a3020;
+  --theme-color-ink-dark: #6a2818;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #1e1010 0%,
+    #120808 60%,
+    #160a0a 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #2e1010 0%, #1e0808 100%);
+  --theme-surface-badge: linear-gradient(135deg, #221008 0%, #2e1210 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #2a1212 0%, #1a0c0c 100%);
+
+  --theme-alpha-a70: rgba(200, 60, 50, 0.7);
+  --theme-alpha-a60: rgba(200, 60, 50, 0.6);
+  --theme-alpha-a65: rgba(200, 60, 50, 0.65);
+  --theme-alpha-a50: rgba(200, 60, 50, 0.5);
+  --theme-alpha-a45: rgba(200, 60, 50, 0.45);
+  --theme-alpha-a40: rgba(200, 60, 50, 0.4);
+  --theme-alpha-a55: rgba(200, 60, 50, 0.55);
+  --theme-alpha-a35: rgba(200, 60, 50, 0.35);
+  --theme-alpha-a30: rgba(200, 60, 50, 0.3);
+  --theme-alpha-a25: rgba(200, 60, 50, 0.25);
+  --theme-alpha-a20: rgba(200, 60, 50, 0.2);
+  --theme-alpha-a18: rgba(200, 60, 50, 0.18);
+  --theme-alpha-a15: rgba(200, 60, 50, 0.15);
+  --theme-alpha-a14: rgba(200, 60, 50, 0.14);
+  --theme-alpha-a12: rgba(200, 60, 50, 0.12);
+  --theme-alpha-a11: rgba(200, 60, 50, 0.11);
+  --theme-alpha-a10: rgba(200, 60, 50, 0.1);
+  --theme-alpha-a09: rgba(200, 60, 50, 0.09);
+  --theme-alpha-a08: rgba(200, 60, 50, 0.08);
+  --theme-alpha-a07: rgba(200, 60, 50, 0.07);
+  --theme-alpha-a06: rgba(200, 60, 50, 0.06);
+  --theme-alpha-a05: rgba(200, 60, 50, 0.05);
+  --theme-alpha-a04: rgba(200, 60, 50, 0.04);
+  --theme-alpha-a03: rgba(200, 60, 50, 0.03);
+  --theme-alpha-bright-a40: rgba(220, 80, 60, 0.4);
+  --theme-alpha-bright-a50: rgba(220, 80, 60, 0.5);
+  --theme-alpha-bright-a70: rgba(220, 80, 60, 0.7);
+  --theme-alpha-bright-a20: rgba(220, 80, 60, 0.2);
+  --theme-alpha-bright-a15: rgba(220, 80, 60, 0.15);
+  --theme-alpha-bright-a10: rgba(220, 80, 60, 0.1);
+  --theme-alpha-ornament-a60: rgba(140, 40, 30, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(232, 85, 69, 0.6);
+  --theme-glow-primary-a30: rgba(232, 85, 69, 0.3);
+
+  --theme-color-secondary: #d06870;
+  --theme-color-secondary-text: #f09098;
+  --theme-color-secondary-border: #6a2e38;
+  --theme-color-secondary-border-strong: #b05860;
+  --theme-alpha-secondary-bright-a60: rgba(240, 120, 130, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(240, 120, 130, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(240, 120, 130, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(230, 110, 120, 0.15);
+  --theme-alpha-secondary-a20: rgba(200, 80, 90, 0.2);
+  --theme-alpha-secondary-a08: rgba(200, 80, 90, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(180, 50, 40, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(200, 60, 50, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(220, 80, 60, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(220, 80, 60, 0.7),
+    0 0 20px rgba(220, 80, 60, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(220, 80, 60, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(240, 120, 130, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(200, 80, 90, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(240, 120, 130, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(220, 100, 110, 0.3),
+    0 0 0 1px rgba(200, 80, 90, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(230, 110, 120, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(240, 120, 130, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(240, 120, 130, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(220, 80, 60, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(220, 80, 60, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(220, 80, 60, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(200, 60, 50, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(200, 60, 50, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(200, 60, 50, 0.12),
+    0 0 12px rgba(200, 60, 50, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(232, 85, 69, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(232, 85, 69, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(232, 85, 69, 0.35),
+    0 0 4px rgba(232, 85, 69, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(232, 85, 69, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(232, 85, 69, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(240, 120, 130, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(240, 120, 130, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(ellipse at 30% 50%, rgba(200, 60, 50, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(180, 40, 60, 0.04) 0%, transparent 60%);
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(12, 6, 6, 0.97) 0%,
+    rgba(12, 6, 6, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #0e0808 0%, #080404 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 60, 50, 0.12) 20%,
+    rgba(200, 60, 50, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 60, 50, 0.35) 20%,
+    rgba(200, 60, 50, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  --stone-ink-a60: rgba(200, 60, 50, 0.6);
+  --neutral-stone-text: #a04040;
+  --stone-1: #1e1010;
+  --photo-placeholder: rgba(50, 20, 15, 0.8);
+  --stone: 15% 0.02 15;
+  --stone-mid: 22% 0.02 15;
+  --stone-light: 32% 0.02 15;
 }
 
+[data-theme="blue"] {
+  --theme-color-primary: #4a9edd;
+  --theme-color-accent: #3a8ecd;
+  --theme-color-soft: #5aaee8;
+  --theme-color-muted-strong: #2a78b0;
+  --theme-color-muted: #2a6898;
+  --theme-color-muted-soft: #3a78a8;
+  --theme-color-body-muted: #2a6888;
+  --theme-color-body: #1a5878;
+  --theme-color-ink-light: #2a6888;
+  --theme-color-ink: #1a5878;
+  --theme-color-ink-dark: #0a4868;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #0e1520 0%,
+    #080e18 60%,
+    #0a1218 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #0e1e30 0%, #081420 100%);
+  --theme-surface-badge: linear-gradient(135deg, #0c1828 0%, #101e30 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #0e1a2a 0%, #080e1a 100%);
+
+  --theme-alpha-a70: rgba(40, 120, 200, 0.7);
+  --theme-alpha-a60: rgba(40, 120, 200, 0.6);
+  --theme-alpha-a65: rgba(40, 120, 200, 0.65);
+  --theme-alpha-a50: rgba(40, 120, 200, 0.5);
+  --theme-alpha-a45: rgba(40, 120, 200, 0.45);
+  --theme-alpha-a40: rgba(40, 120, 200, 0.4);
+  --theme-alpha-a55: rgba(40, 120, 200, 0.55);
+  --theme-alpha-a35: rgba(40, 120, 200, 0.35);
+  --theme-alpha-a30: rgba(40, 120, 200, 0.3);
+  --theme-alpha-a25: rgba(40, 120, 200, 0.25);
+  --theme-alpha-a20: rgba(40, 120, 200, 0.2);
+  --theme-alpha-a18: rgba(40, 120, 200, 0.18);
+  --theme-alpha-a15: rgba(40, 120, 200, 0.15);
+  --theme-alpha-a14: rgba(40, 120, 200, 0.14);
+  --theme-alpha-a12: rgba(40, 120, 200, 0.12);
+  --theme-alpha-a11: rgba(40, 120, 200, 0.11);
+  --theme-alpha-a10: rgba(40, 120, 200, 0.1);
+  --theme-alpha-a09: rgba(40, 120, 200, 0.09);
+  --theme-alpha-a08: rgba(40, 120, 200, 0.08);
+  --theme-alpha-a07: rgba(40, 120, 200, 0.07);
+  --theme-alpha-a06: rgba(40, 120, 200, 0.06);
+  --theme-alpha-a05: rgba(40, 120, 200, 0.05);
+  --theme-alpha-a04: rgba(40, 120, 200, 0.04);
+  --theme-alpha-a03: rgba(40, 120, 200, 0.03);
+  --theme-alpha-bright-a40: rgba(60, 150, 220, 0.4);
+  --theme-alpha-bright-a50: rgba(60, 150, 220, 0.5);
+  --theme-alpha-bright-a70: rgba(60, 150, 220, 0.7);
+  --theme-alpha-bright-a20: rgba(60, 150, 220, 0.2);
+  --theme-alpha-bright-a15: rgba(60, 150, 220, 0.15);
+  --theme-alpha-bright-a10: rgba(60, 150, 220, 0.1);
+  --theme-alpha-ornament-a60: rgba(20, 80, 140, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(74, 158, 221, 0.6);
+  --theme-glow-primary-a30: rgba(74, 158, 221, 0.3);
+
+  --theme-color-secondary: #60b8f0;
+  --theme-color-secondary-text: #90d0ff;
+  --theme-color-secondary-border: #1a4a7a;
+  --theme-color-secondary-border-strong: #3a7ab0;
+  --theme-alpha-secondary-bright-a60: rgba(100, 180, 240, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(100, 180, 240, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(100, 180, 240, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(90, 170, 230, 0.15);
+  --theme-alpha-secondary-a20: rgba(60, 130, 200, 0.2);
+  --theme-alpha-secondary-a08: rgba(60, 130, 200, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(40, 100, 180, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(40, 120, 200, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(60, 150, 220, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(60, 150, 220, 0.7),
+    0 0 20px rgba(60, 150, 220, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(60, 150, 220, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(100, 180, 240, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(60, 130, 200, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(100, 180, 240, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(80, 160, 220, 0.3),
+    0 0 0 1px rgba(60, 130, 200, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(90, 170, 230, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(100, 180, 240, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(100, 180, 240, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(60, 150, 220, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(60, 150, 220, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(60, 150, 220, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(40, 120, 200, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(40, 120, 200, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(40, 120, 200, 0.12),
+    0 0 12px rgba(40, 120, 200, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(74, 158, 221, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(74, 158, 221, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(74, 158, 221, 0.35),
+    0 0 4px rgba(74, 158, 221, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(74, 158, 221, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(74, 158, 221, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(100, 180, 240, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(100, 180, 240, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(ellipse at 30% 50%, rgba(40, 120, 200, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(20, 80, 180, 0.04) 0%, transparent 60%);
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(6, 8, 14, 0.97) 0%,
+    rgba(6, 8, 14, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #060810 0%, #040608 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(40, 120, 200, 0.12) 20%,
+    rgba(40, 120, 200, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(40, 120, 200, 0.35) 20%,
+    rgba(40, 120, 200, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  --stone-ink-a60: rgba(40, 120, 200, 0.6);
+  --neutral-stone-text: #4080a8;
+  --stone-1: #0e1520;
+  --photo-placeholder: rgba(10, 25, 50, 0.8);
+  --stone: 15% 0.02 240;
+  --stone-mid: 22% 0.02 240;
+  --stone-light: 32% 0.02 240;
+}
+
+[data-theme="green"] {
+  --theme-color-primary: #4ab870;
+  --theme-color-accent: #3aa860;
+  --theme-color-soft: #5ac880;
+  --theme-color-muted-strong: #2a8848;
+  --theme-color-muted: #2a7840;
+  --theme-color-muted-soft: #3a8850;
+  --theme-color-body-muted: #2a6838;
+  --theme-color-body: #1a5828;
+  --theme-color-ink-light: #2a6838;
+  --theme-color-ink: #1a5828;
+  --theme-color-ink-dark: #0a4818;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #0e1810 0%,
+    #081008 60%,
+    #0a140a 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #102010 0%, #081408 100%);
+  --theme-surface-badge: linear-gradient(135deg, #0c180c 0%, #102010 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #0e1a10 0%, #080e08 100%);
+
+  --theme-alpha-a70: rgba(40, 160, 80, 0.7);
+  --theme-alpha-a60: rgba(40, 160, 80, 0.6);
+  --theme-alpha-a65: rgba(40, 160, 80, 0.65);
+  --theme-alpha-a50: rgba(40, 160, 80, 0.5);
+  --theme-alpha-a45: rgba(40, 160, 80, 0.45);
+  --theme-alpha-a40: rgba(40, 160, 80, 0.4);
+  --theme-alpha-a55: rgba(40, 160, 80, 0.55);
+  --theme-alpha-a35: rgba(40, 160, 80, 0.35);
+  --theme-alpha-a30: rgba(40, 160, 80, 0.3);
+  --theme-alpha-a25: rgba(40, 160, 80, 0.25);
+  --theme-alpha-a20: rgba(40, 160, 80, 0.2);
+  --theme-alpha-a18: rgba(40, 160, 80, 0.18);
+  --theme-alpha-a15: rgba(40, 160, 80, 0.15);
+  --theme-alpha-a14: rgba(40, 160, 80, 0.14);
+  --theme-alpha-a12: rgba(40, 160, 80, 0.12);
+  --theme-alpha-a11: rgba(40, 160, 80, 0.11);
+  --theme-alpha-a10: rgba(40, 160, 80, 0.1);
+  --theme-alpha-a09: rgba(40, 160, 80, 0.09);
+  --theme-alpha-a08: rgba(40, 160, 80, 0.08);
+  --theme-alpha-a07: rgba(40, 160, 80, 0.07);
+  --theme-alpha-a06: rgba(40, 160, 80, 0.06);
+  --theme-alpha-a05: rgba(40, 160, 80, 0.05);
+  --theme-alpha-a04: rgba(40, 160, 80, 0.04);
+  --theme-alpha-a03: rgba(40, 160, 80, 0.03);
+  --theme-alpha-bright-a40: rgba(60, 180, 100, 0.4);
+  --theme-alpha-bright-a50: rgba(60, 180, 100, 0.5);
+  --theme-alpha-bright-a70: rgba(60, 180, 100, 0.7);
+  --theme-alpha-bright-a20: rgba(60, 180, 100, 0.2);
+  --theme-alpha-bright-a15: rgba(60, 180, 100, 0.15);
+  --theme-alpha-bright-a10: rgba(60, 180, 100, 0.1);
+  --theme-alpha-ornament-a60: rgba(20, 100, 40, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(74, 184, 112, 0.6);
+  --theme-glow-primary-a30: rgba(74, 184, 112, 0.3);
+
+  --theme-color-secondary: #60d890;
+  --theme-color-secondary-text: #90eeb8;
+  --theme-color-secondary-border: #1a5a2a;
+  --theme-color-secondary-border-strong: #3a9a5a;
+  --theme-alpha-secondary-bright-a60: rgba(100, 210, 140, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(100, 210, 140, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(100, 210, 140, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(90, 200, 130, 0.15);
+  --theme-alpha-secondary-a20: rgba(60, 160, 100, 0.2);
+  --theme-alpha-secondary-a08: rgba(60, 160, 100, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(40, 140, 70, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(40, 160, 80, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(60, 180, 100, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(60, 180, 100, 0.7),
+    0 0 20px rgba(60, 180, 100, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(60, 180, 100, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(100, 210, 140, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(60, 160, 100, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(100, 210, 140, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(80, 190, 120, 0.3),
+    0 0 0 1px rgba(60, 160, 100, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(90, 200, 130, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(100, 210, 140, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(100, 210, 140, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(60, 180, 100, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(60, 180, 100, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(60, 180, 100, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(40, 160, 80, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(40, 160, 80, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(40, 160, 80, 0.12),
+    0 0 12px rgba(40, 160, 80, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(74, 184, 112, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(74, 184, 112, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(74, 184, 112, 0.35),
+    0 0 4px rgba(74, 184, 112, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(74, 184, 112, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(74, 184, 112, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(100, 210, 140, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(100, 210, 140, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(ellipse at 30% 50%, rgba(40, 160, 80, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(20, 120, 60, 0.04) 0%, transparent 60%);
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(6, 10, 6, 0.97) 0%,
+    rgba(6, 10, 6, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #060a06 0%, #040604 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(40, 160, 80, 0.12) 20%,
+    rgba(40, 160, 80, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(40, 160, 80, 0.35) 20%,
+    rgba(40, 160, 80, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  --stone-ink-a60: rgba(40, 160, 80, 0.6);
+  --neutral-stone-text: #408850;
+  --stone-1: #0e1810;
+  --photo-placeholder: rgba(10, 30, 15, 0.8);
+  --stone: 15% 0.02 150;
+  --stone-mid: 22% 0.02 150;
+  --stone-light: 32% 0.02 150;
+}
+
+[data-theme="purple"] {
+  --theme-color-primary: #a870e8;
+  --theme-color-accent: #9860d8;
+  --theme-color-soft: #b880f0;
+  --theme-color-muted-strong: #7840b0;
+  --theme-color-muted: #6830a0;
+  --theme-color-muted-soft: #7840b0;
+  --theme-color-body-muted: #583890;
+  --theme-color-body: #482878;
+  --theme-color-ink-light: #583890;
+  --theme-color-ink: #482878;
+  --theme-color-ink-dark: #381868;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #120e1e 0%,
+    #0a0814 60%,
+    #0e0a18 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #1a1028 0%, #100818 100%);
+  --theme-surface-badge: linear-gradient(135deg, #140e22 0%, #1a1028 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #160e28 0%, #0c0818 100%);
+
+  --theme-alpha-a70: rgba(140, 80, 220, 0.7);
+  --theme-alpha-a60: rgba(140, 80, 220, 0.6);
+  --theme-alpha-a65: rgba(140, 80, 220, 0.65);
+  --theme-alpha-a50: rgba(140, 80, 220, 0.5);
+  --theme-alpha-a45: rgba(140, 80, 220, 0.45);
+  --theme-alpha-a40: rgba(140, 80, 220, 0.4);
+  --theme-alpha-a55: rgba(140, 80, 220, 0.55);
+  --theme-alpha-a35: rgba(140, 80, 220, 0.35);
+  --theme-alpha-a30: rgba(140, 80, 220, 0.3);
+  --theme-alpha-a25: rgba(140, 80, 220, 0.25);
+  --theme-alpha-a20: rgba(140, 80, 220, 0.2);
+  --theme-alpha-a18: rgba(140, 80, 220, 0.18);
+  --theme-alpha-a15: rgba(140, 80, 220, 0.15);
+  --theme-alpha-a14: rgba(140, 80, 220, 0.14);
+  --theme-alpha-a12: rgba(140, 80, 220, 0.12);
+  --theme-alpha-a11: rgba(140, 80, 220, 0.11);
+  --theme-alpha-a10: rgba(140, 80, 220, 0.1);
+  --theme-alpha-a09: rgba(140, 80, 220, 0.09);
+  --theme-alpha-a08: rgba(140, 80, 220, 0.08);
+  --theme-alpha-a07: rgba(140, 80, 220, 0.07);
+  --theme-alpha-a06: rgba(140, 80, 220, 0.06);
+  --theme-alpha-a05: rgba(140, 80, 220, 0.05);
+  --theme-alpha-a04: rgba(140, 80, 220, 0.04);
+  --theme-alpha-a03: rgba(140, 80, 220, 0.03);
+  --theme-alpha-bright-a40: rgba(170, 100, 240, 0.4);
+  --theme-alpha-bright-a50: rgba(170, 100, 240, 0.5);
+  --theme-alpha-bright-a70: rgba(170, 100, 240, 0.7);
+  --theme-alpha-bright-a20: rgba(170, 100, 240, 0.2);
+  --theme-alpha-bright-a15: rgba(170, 100, 240, 0.15);
+  --theme-alpha-bright-a10: rgba(170, 100, 240, 0.1);
+  --theme-alpha-ornament-a60: rgba(90, 40, 160, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(168, 112, 232, 0.6);
+  --theme-glow-primary-a30: rgba(168, 112, 232, 0.3);
+
+  --theme-color-secondary: #c090f8;
+  --theme-color-secondary-text: #d8b0ff;
+  --theme-color-secondary-border: #4a2a7a;
+  --theme-color-secondary-border-strong: #8a58c0;
+  --theme-alpha-secondary-bright-a60: rgba(200, 150, 255, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(200, 150, 255, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(200, 150, 255, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(190, 140, 250, 0.15);
+  --theme-alpha-secondary-a20: rgba(150, 90, 220, 0.2);
+  --theme-alpha-secondary-a08: rgba(150, 90, 220, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(120, 60, 200, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(140, 80, 220, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(170, 100, 240, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(170, 100, 240, 0.7),
+    0 0 20px rgba(170, 100, 240, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(170, 100, 240, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(200, 150, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(150, 90, 220, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(200, 150, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(180, 120, 240, 0.3),
+    0 0 0 1px rgba(150, 90, 220, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(190, 140, 250, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(200, 150, 255, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(200, 150, 255, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(170, 100, 240, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(170, 100, 240, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(170, 100, 240, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(140, 80, 220, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(140, 80, 220, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(140, 80, 220, 0.12),
+    0 0 12px rgba(140, 80, 220, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(168, 112, 232, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(168, 112, 232, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(168, 112, 232, 0.35),
+    0 0 4px rgba(168, 112, 232, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(168, 112, 232, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(168, 112, 232, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(200, 150, 255, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(200, 150, 255, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(ellipse at 30% 50%, rgba(140, 80, 220, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(100, 40, 200, 0.04) 0%, transparent 60%);
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(8, 6, 14, 0.97) 0%,
+    rgba(8, 6, 14, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #080610 0%, #04040c 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(140, 80, 220, 0.12) 20%,
+    rgba(140, 80, 220, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(140, 80, 220, 0.35) 20%,
+    rgba(140, 80, 220, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  --stone-ink-a60: rgba(140, 80, 220, 0.6);
+  --neutral-stone-text: #8860b0;
+  --stone-1: #120e1e;
+  --photo-placeholder: rgba(25, 15, 50, 0.8);
+  --stone: 15% 0.02 290;
+  --stone-mid: 22% 0.02 290;
+  --stone-light: 32% 0.02 290;
+}
+
+[data-theme="cyan"] {
+  --theme-color-primary: #40c8d8;
+  --theme-color-accent: #30b8c8;
+  --theme-color-soft: #50d8e8;
+  --theme-color-muted-strong: #2098a8;
+  --theme-color-muted: #208898;
+  --theme-color-muted-soft: #3098a8;
+  --theme-color-body-muted: #207888;
+  --theme-color-body: #106878;
+  --theme-color-ink-light: #207888;
+  --theme-color-ink: #106878;
+  --theme-color-ink-dark: #005868;
+
+  --theme-surface-card: linear-gradient(
+    160deg,
+    #0a1820 0%,
+    #061018 60%,
+    #081418 100%
+  );
+  --theme-surface-button: linear-gradient(180deg, #0a2028 0%, #061418 100%);
+  --theme-surface-badge: linear-gradient(135deg, #081820 0%, #0c2028 100%);
+  --theme-surface-secondary: linear-gradient(180deg, #0a1e28 0%, #061018 100%);
+
+  --theme-alpha-a70: rgba(30, 180, 200, 0.7);
+  --theme-alpha-a60: rgba(30, 180, 200, 0.6);
+  --theme-alpha-a65: rgba(30, 180, 200, 0.65);
+  --theme-alpha-a50: rgba(30, 180, 200, 0.5);
+  --theme-alpha-a45: rgba(30, 180, 200, 0.45);
+  --theme-alpha-a40: rgba(30, 180, 200, 0.4);
+  --theme-alpha-a55: rgba(30, 180, 200, 0.55);
+  --theme-alpha-a35: rgba(30, 180, 200, 0.35);
+  --theme-alpha-a30: rgba(30, 180, 200, 0.3);
+  --theme-alpha-a25: rgba(30, 180, 200, 0.25);
+  --theme-alpha-a20: rgba(30, 180, 200, 0.2);
+  --theme-alpha-a18: rgba(30, 180, 200, 0.18);
+  --theme-alpha-a15: rgba(30, 180, 200, 0.15);
+  --theme-alpha-a14: rgba(30, 180, 200, 0.14);
+  --theme-alpha-a12: rgba(30, 180, 200, 0.12);
+  --theme-alpha-a11: rgba(30, 180, 200, 0.11);
+  --theme-alpha-a10: rgba(30, 180, 200, 0.1);
+  --theme-alpha-a09: rgba(30, 180, 200, 0.09);
+  --theme-alpha-a08: rgba(30, 180, 200, 0.08);
+  --theme-alpha-a07: rgba(30, 180, 200, 0.07);
+  --theme-alpha-a06: rgba(30, 180, 200, 0.06);
+  --theme-alpha-a05: rgba(30, 180, 200, 0.05);
+  --theme-alpha-a04: rgba(30, 180, 200, 0.04);
+  --theme-alpha-a03: rgba(30, 180, 200, 0.03);
+  --theme-alpha-bright-a40: rgba(50, 200, 220, 0.4);
+  --theme-alpha-bright-a50: rgba(50, 200, 220, 0.5);
+  --theme-alpha-bright-a70: rgba(50, 200, 220, 0.7);
+  --theme-alpha-bright-a20: rgba(50, 200, 220, 0.2);
+  --theme-alpha-bright-a15: rgba(50, 200, 220, 0.15);
+  --theme-alpha-bright-a10: rgba(50, 200, 220, 0.1);
+  --theme-alpha-ornament-a60: rgba(10, 120, 150, 0.6);
+  --theme-alpha-white-a08: rgba(255, 255, 255, 0.08);
+  --theme-alpha-white-a012: rgba(255, 255, 255, 0.012);
+  --theme-alpha-white-a008: rgba(255, 255, 255, 0.008);
+
+  --theme-glow-primary-a60: rgba(64, 200, 216, 0.6);
+  --theme-glow-primary-a30: rgba(64, 200, 216, 0.3);
+
+  --theme-color-secondary: #50e0f0;
+  --theme-color-secondary-text: #80f0ff;
+  --theme-color-secondary-border: #0a4a5a;
+  --theme-color-secondary-border-strong: #2a8898;
+  --theme-alpha-secondary-bright-a60: rgba(80, 220, 240, 0.6);
+  --theme-alpha-secondary-bright-a40: rgba(80, 220, 240, 0.4);
+  --theme-alpha-secondary-bright-a20: rgba(80, 220, 240, 0.2);
+  --theme-alpha-secondary-bright-a15: rgba(70, 210, 230, 0.15);
+  --theme-alpha-secondary-a20: rgba(30, 160, 190, 0.2);
+  --theme-alpha-secondary-a08: rgba(30, 160, 190, 0.08);
+
+  --theme-shadow-card:
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(20, 160, 180, 0.08);
+  --theme-shadow-card-hover:
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(30, 180, 200, 0.07);
+  --theme-shadow-glow: 0 0 8px rgba(50, 200, 220, 0.6);
+  --theme-shadow-glow-strong:
+    0 0 10px rgba(50, 200, 220, 0.7),
+    0 0 20px rgba(50, 200, 220, 0.3);
+  --theme-shadow-glow-subtle: 0 0 4px rgba(50, 200, 220, 0.5);
+  --theme-shadow-secondary:
+    inset 0 1px 0 rgba(80, 220, 240, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(30, 160, 190, 0.08);
+  --theme-shadow-secondary-hover:
+    inset 0 1px 0 rgba(80, 220, 240, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(60, 200, 220, 0.3),
+    0 0 0 1px rgba(30, 160, 190, 0.2);
+  --theme-shadow-secondary-glow: 0 0 4px rgba(70, 210, 230, 0.6);
+  --theme-shadow-secondary-glow-strong: 0 0 14px rgba(80, 220, 240, 0.6);
+  --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(80, 220, 240, 0.4);
+  --theme-shadow-btn:
+    inset 0 1px 0 rgba(50, 200, 220, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  --theme-shadow-btn-hover:
+    inset 0 1px 0 rgba(50, 200, 220, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(50, 200, 220, 0.25);
+  --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --theme-shadow-badge-contact-hover:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(30, 180, 200, 0.1);
+  --theme-shadow-photo-frame:
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  --theme-shadow-header:
+    0 1px 0 rgba(30, 180, 200, 0.08),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+  --theme-shadow-input:
+    0 0 0 1px rgba(30, 180, 200, 0.12),
+    0 0 12px rgba(30, 180, 200, 0.08);
+
+  --theme-text-shadow-primary: 0 0 10px rgba(64, 200, 216, 0.4);
+  --theme-text-shadow-primary-soft: 0 0 8px rgba(64, 200, 216, 0.4);
+  --theme-text-shadow-primary-strong:
+    0 0 32px rgba(64, 200, 216, 0.35),
+    0 0 4px rgba(64, 200, 216, 0.15);
+  --theme-text-shadow-primary-glow: 0 0 14px rgba(64, 200, 216, 0.6);
+  --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(64, 200, 216, 0.3);
+  --theme-text-shadow-secondary: 0 0 10px rgba(80, 220, 240, 0.4);
+  --theme-text-shadow-secondary-strong: 0 0 14px rgba(80, 220, 240, 0.6);
+
+  --theme-gradient-hero:
+    radial-gradient(ellipse at 30% 50%, rgba(30, 180, 200, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(10, 140, 180, 0.04) 0%, transparent 60%);
+  --theme-gradient-header: linear-gradient(
+    180deg,
+    rgba(4, 10, 14, 0.97) 0%,
+    rgba(4, 10, 14, 0.92) 100%
+  );
+  --theme-gradient-footer: linear-gradient(180deg, #040c10 0%, #020608 100%);
+  --theme-gradient-line-primary: linear-gradient(
+    90deg,
+    transparent,
+    rgba(30, 180, 200, 0.12) 20%,
+    rgba(30, 180, 200, 0.12) 80%,
+    transparent
+  );
+  --theme-gradient-line-primary-strong: linear-gradient(
+    90deg,
+    transparent,
+    rgba(30, 180, 200, 0.35) 20%,
+    rgba(30, 180, 200, 0.35) 80%,
+    transparent
+  );
+  --theme-gradient-sheen: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 65%
+  );
+  --theme-gradient-texture-stone-strong:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(255, 255, 255, 0.008) 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  --stone-ink-a60: rgba(30, 180, 200, 0.6);
+  --neutral-stone-text: #3098a8;
+  --stone-1: #0a1820;
+  --photo-placeholder: rgba(8, 28, 40, 0.8);
+  --stone: 15% 0.02 200;
+  --stone-mid: 22% 0.02 200;
+  --stone-light: 32% 0.02 200;
+}
+
+@theme inline {
+  --color-primary: var(--theme-color-primary);
+  --color-accent: var(--theme-color-accent);
+  --color-soft: var(--theme-color-soft);
+  --color-muted-strong: var(--theme-color-muted-strong);
+  --color-muted: var(--theme-color-muted);
+  --color-muted-soft: var(--theme-color-muted-soft);
+  --color-body-muted: var(--theme-color-body-muted);
+  --color-body: var(--theme-color-body);
+  --color-ink-light: var(--theme-color-ink-light);
+  --color-ink: var(--theme-color-ink);
+  --color-ink-dark: var(--theme-color-ink-dark);
+  --color-secondary: var(--theme-color-secondary);
+  --color-secondary-text: var(--theme-color-secondary-text);
+  --color-secondary-border: var(--theme-color-secondary-border);
+  --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+
+  --color-alpha-a70: var(--theme-alpha-a70);
+  --color-alpha-a60: var(--theme-alpha-a60);
+  --color-alpha-a50: var(--theme-alpha-a50);
+  --color-alpha-a45: var(--theme-alpha-a45);
+  --color-alpha-a40: var(--theme-alpha-a40);
+  --color-alpha-a35: var(--theme-alpha-a35);
+  --color-alpha-a30: var(--theme-alpha-a30);
+  --color-alpha-a20: var(--theme-alpha-a20);
+  --color-alpha-a15: var(--theme-alpha-a15);
+  --color-alpha-a12: var(--theme-alpha-a12);
+  --color-alpha-a10: var(--theme-alpha-a10);
+  --color-alpha-a08: var(--theme-alpha-a08);
+  --color-alpha-a06: var(--theme-alpha-a06);
+  --color-alpha-a04: var(--theme-alpha-a04);
+  --color-alpha-bright-a40: var(--theme-alpha-bright-a40);
+  --color-alpha-bright-a15: var(--theme-alpha-bright-a15);
+  --color-alpha-secondary-bright-a60: var(--theme-alpha-secondary-bright-a60);
+  --color-alpha-secondary-bright-a40: var(--theme-alpha-secondary-bright-a40);
+  --color-alpha-secondary-bright-a20: var(--theme-alpha-secondary-bright-a20);
+  --color-alpha-secondary-bright-a15: var(--theme-alpha-secondary-bright-a15);
+  --color-alpha-secondary-a20: var(--theme-alpha-secondary-a20);
+  --color-alpha-secondary-a08: var(--theme-alpha-secondary-a08);
+
+  --color-glow-primary-a60: var(--theme-glow-primary-a60);
+  --color-glow-primary-a30: var(--theme-glow-primary-a30);
+
+  --color-success: var(--success);
+  --color-success-surface-a80: var(--success-surface-a80);
+  --color-success-border-a30: var(--success-border-a30);
+  --color-success-text-muted: var(--success-text-muted);
+
+  --color-intern-surface-a80: var(--intern-surface-a80);
+  --color-intern-border-a30: var(--intern-border-a30);
+  --color-intern-text: var(--intern-text);
+
+  --color-stone-ink-a60: var(--stone-ink-a60);
+  --color-neutral-stone-text: var(--neutral-stone-text);
+  --color-stone: oklch(var(--stone));
+  --color-stone-mid: oklch(var(--stone-mid));
+  --color-stone-light: oklch(var(--stone-light));
+  --color-stone-1: var(--stone-1);
+
+  --color-black-a30: var(--black-a30);
+  --color-black-a40: var(--black-a40);
+  --color-black-a50: var(--black-a50);
+  --color-black-a60: var(--black-a60);
+
+  --color-photo-placeholder: var(--photo-placeholder);
+  --color-border-primary: var(--theme-color-primary);
+
+  --color-surface-card: var(--theme-surface-card);
+  --color-surface-button: var(--theme-surface-button);
+  --color-surface-badge: var(--theme-surface-badge);
+  --color-surface-secondary: var(--theme-surface-secondary);
+
+  --background-image-hero: var(--theme-gradient-hero);
+  --background-image-header: var(--theme-gradient-header);
+  --background-image-footer: var(--theme-gradient-footer);
+  --background-image-card: var(--theme-surface-card);
+  --background-image-button: var(--theme-surface-button);
+  --background-image-badge: var(--theme-surface-badge);
+  --background-image-surface-secondary: var(--theme-surface-secondary);
+  --background-image-line-primary: var(--theme-gradient-line-primary);
+  --background-image-line-primary-strong: var(
+    --theme-gradient-line-primary-strong
+  );
+  --background-image-sheen: var(--theme-gradient-sheen);
+  --background-image-texture-stone-strong: var(
+    --theme-gradient-texture-stone-strong
+  );
+
+  --shadow-card: var(--theme-shadow-card);
+  --shadow-card-hover: var(--theme-shadow-card-hover);
+  --shadow-glow: var(--theme-shadow-glow);
+  --shadow-glow-strong: var(--theme-shadow-glow-strong);
+  --shadow-glow-subtle: var(--theme-shadow-glow-subtle);
+  --shadow-secondary: var(--theme-shadow-secondary);
+  --shadow-secondary-hover: var(--theme-shadow-secondary-hover);
+  --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
+  --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
+  --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-btn: var(--theme-shadow-btn);
+  --shadow-btn-hover: var(--theme-shadow-btn-hover);
+  --shadow-badge-contact: var(--theme-shadow-badge-contact);
+  --shadow-badge-contact-hover: var(--theme-shadow-badge-contact-hover);
+  --shadow-photo-frame: var(--theme-shadow-photo-frame);
+  --shadow-header: var(--theme-shadow-header);
+  --shadow-input: var(--theme-shadow-input);
+  --shadow-glow-success-12-a60: 0 0 12px rgba(96, 192, 96, 0.6);
+  --shadow-glow-success-8-a60: 0 0 8px rgba(96, 192, 96, 0.6);
+
+  --text-shadow-primary: var(--theme-text-shadow-primary);
+  --text-shadow-primary-soft: var(--theme-text-shadow-primary-soft);
+  --text-shadow-primary-strong: var(--theme-text-shadow-primary-strong);
+  --text-shadow-primary-glow: var(--theme-text-shadow-primary-glow);
+  --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
+  --text-shadow-secondary: var(--theme-text-shadow-secondary);
+  --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+
+  --text-hero-name: var(--font-size-hero-name);
+  --text-hero-title: var(--font-size-hero-title);
+  --text-hero-name-mobile: var(--font-size-hero-name-mobile);
+  --text-wow-xs: 9px;
+  --text-wow-sm: 10px;
+  --text-wow-md: 11px;
+  --text-wow-lg: 12px;
+  --text-wow-xl: 13px;
+  --text-5xl: var(--font-size-5xl);
+  --text-4xl: var(--font-size-4xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-xl: var(--font-size-xl);
+  --text-lg: var(--font-size-lg);
+  --text-md: var(--font-size-md);
+  --text-3xs: 7px;
+  --text-2xs: 8px;
+  --text-xs-plus: 10.5px;
+}
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   html {
     @apply font-sans;
+  }
+}
+
+@keyframes fx-shimmer-sweep {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pfc-shimmer {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pfc-hint-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes cf-shimmer {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes wow-btn-shimmer {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
   }
 }
