@@ -41,19 +41,23 @@ function CornerOrnament({ back = false }: { back?: boolean }) {
       <path
         d="M2 22 L2 2 L22 2"
         fill="none"
-        stroke="rgba(180,140,40,0.7)"
+        stroke="var(--alpha-a70)"
         strokeWidth="1"
       />
       <rect
-        x="0" y="0" width="7" height="7" rx="1"
-        fill="rgba(120,90,20,0.6)"
-        stroke="rgba(180,140,40,0.7)"
+        x="0"
+        y="0"
+        width="7"
+        height="7"
+        rx="1"
+        fill="var(--alpha-ornament-a60)"
+        stroke="var(--alpha-a70)"
         strokeWidth="0.8"
       />
       {!back && (
         <>
-          <circle cx="2"  cy="12" r="1.5" fill="rgba(180,140,40,0.3)" />
-          <circle cx="12" cy="2"  r="1.5" fill="rgba(180,140,40,0.3)" />
+          <circle cx="2" cy="12" r="1.5" fill="var(--alpha-a30)" />
+          <circle cx="12" cy="2" r="1.5" fill="var(--alpha-a30)" />
         </>
       )}
     </svg>
@@ -80,10 +84,18 @@ function CardShell({
       <div className="pfc-frame pfc-frame-inner" />
 
       {/* corners */}
-      <div className="pfc-corner pfc-corner-tl"><CornerOrnament back={back} /></div>
-      <div className="pfc-corner pfc-corner-tr"><CornerOrnament back={back} /></div>
-      <div className="pfc-corner pfc-corner-bl"><CornerOrnament back={back} /></div>
-      <div className="pfc-corner pfc-corner-br"><CornerOrnament back={back} /></div>
+      <div className="pfc-corner pfc-corner-tl">
+        <CornerOrnament back={back} />
+      </div>
+      <div className="pfc-corner pfc-corner-tr">
+        <CornerOrnament back={back} />
+      </div>
+      <div className="pfc-corner pfc-corner-bl">
+        <CornerOrnament back={back} />
+      </div>
+      <div className="pfc-corner pfc-corner-br">
+        <CornerOrnament back={back} />
+      </div>
 
       {children}
     </div>
@@ -98,7 +110,10 @@ function FrontFace({
   title,
   stats,
   imageSrc,
-}: Pick<ProfileFlipCardProps, "name" | "role" | "title" | "stats" | "imageSrc">) {
+}: Pick<
+  ProfileFlipCardProps,
+  "name" | "role" | "title" | "stats" | "imageSrc"
+>) {
   return (
     <CardShell>
       <div className="pfc-content">
@@ -164,7 +179,10 @@ function BackFace({
   backQuote,
   backInfo,
   backFooter,
-}: Pick<ProfileFlipCardProps, "backTitle" | "backQuote" | "backInfo" | "backFooter">) {
+}: Pick<
+  ProfileFlipCardProps,
+  "backTitle" | "backQuote" | "backInfo" | "backFooter"
+>) {
   return (
     <CardShell back>
       <div className="pfc-back-content">
@@ -184,9 +202,7 @@ function BackFace({
           ))}
         </div>
 
-        {backFooter && (
-          <div className="pfc-back-footer">✦ {backFooter} ✦</div>
-        )}
+        {backFooter && <div className="pfc-back-footer">✦ {backFooter} ✦</div>}
       </div>
     </CardShell>
   );
