@@ -26,19 +26,10 @@ function HeaderLogo() {
 
       {/* text */}
       <div>
-        <div
-          className="font-heading text-[15px] font-bold tracking-[0.12em] uppercase leading-none"
-          style={{
-            color: "#d4a830",
-            textShadow: "0 0 14px rgba(212,168,48,0.4)",
-          }}
-        >
+        <div className="font-heading text-[15px] font-bold tracking-[0.12em] uppercase leading-none text-primary text-shadow-primary-glow-soft">
           Mahmoud
         </div>
-        <div
-          className="font-heading text-[8px] tracking-[0.2em] uppercase mt-0.5 leading-none"
-          style={{ color: "#6b5828" }}
-        >
+        <div className="font-heading text-2xs tracking-[0.2em] uppercase mt-0.5 leading-none text-ink">
           Full-Stack Engineer
         </div>
       </div>
@@ -61,7 +52,9 @@ function NavLink({
       onClick={(e) => {
         e.preventDefault();
         onClick();
-        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(item.id)
+          ?.scrollIntoView({ behavior: "smooth" });
       }}
       className={cn("wow-nav-link", active && "wow-nav-link-active")}
     >
@@ -71,12 +64,7 @@ function NavLink({
 }
 
 function NavSep() {
-  return (
-    <div
-      className="w-px h-3 shrink-0"
-      style={{ background: "rgba(180,140,40,0.15)" }}
-    />
-  );
+  return <div className="w-px h-3 shrink-0 bg-alpha-a15" />;
 }
 
 function SocialIconBtn({ link }: { link: SocialLink }) {
@@ -109,12 +97,22 @@ function MobileNavLink({
       onClick={(e) => {
         e.preventDefault();
         onClick();
-        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(item.id)
+          ?.scrollIntoView({ behavior: "smooth" });
       }}
-      className={cn("wow-mobile-nav-link", active && "wow-mobile-nav-link-active")}
+      className={cn(
+        "wow-mobile-nav-link",
+        active && "wow-mobile-nav-link-active",
+      )}
     >
       {/* left gem indicator */}
-      <span className={cn("wow-mobile-nav-gem", active && "wow-mobile-nav-gem-active")} />
+      <span
+        className={cn(
+          "wow-mobile-nav-gem",
+          active && "wow-mobile-nav-gem-active",
+        )}
+      />
       {item.label}
     </Link>
   );
@@ -168,10 +166,11 @@ export function Header() {
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {mobileOpen
-            ? <X className="w-5 h-5" />
-            : <Menu className="w-5 h-5" />
-          }
+          {mobileOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </button>
 
         {/* bottom center ornament */}
