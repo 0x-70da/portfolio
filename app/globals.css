@@ -1,8 +1,4 @@
 @import "tailwindcss";
-@import "../components/layout/layout.css";
-@import "../components/sections/sections.css";
-@import "../components/feature-components/featureComponents.css";
-@import "../components/wow-components/Wow.css";
 
 @custom-variant dark (&:is(.dark *));
 
