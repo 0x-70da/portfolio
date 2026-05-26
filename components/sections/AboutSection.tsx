@@ -1,121 +1,102 @@
 import { SectionTitle } from "../wow-components/SectionTitle";
-import { WowDivider } from "../wow-components/wow-divider/WowDivider";
+import { WowDivider } from "../wow-components/WowDivider";
 import { ContactItem } from "@/lib/types";
 import { getIcon } from "@/lib/getIcon";
 import { about } from "@/lib/translation.json";
-import { factItems, contactItems } from "@/lib/data.json"
+import { factItems, contactItems } from "@/lib/data.json";
+import CardShell from "../wow-components/CardShell";
+import { GlowBadge } from "../wow-components/GlowBadge";
 
 function AboutCard() {
   return (
-    <div className="about-bio-card">
-      <div className="about-card-frame-o" />
-      <div className="about-card-frame-i" />
-      <AboutCorner /><AboutCorner tr /><AboutCorner bl /><AboutCorner br />
-
-      <div className="about-card-content">
-        {/* header */}
-        <div className="about-card-header">
-          <div className="about-card-label">
-            <span className="about-label-gem" />
-            {about.header}
+    <CardShell>
+      <div className="relative w-full h-full z-20 p-7">
+        <div className="mb-4.5 pb-3.5 border-b border-alpha-a20">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span className="w-0.75 h-0.75 rotate-45 shrink-0 inline-block bg-alpha-bright-a50" />
+            <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
+              {about.header}
+            </span>
           </div>
-          <h3 className="about-card-title">{about.title}</h3>
+
+          <h3 className="font-heading text-3xl font-bold tracking-widest uppercase text-primary text-shadow-primary-soft">
+            {about.title}
+          </h3>
         </div>
 
-        {/* bio paragraphs */}
-        {about.bio.map((paragraph, idx) => (
-          <p key={idx} className="about-bio-text">
-            {paragraph}
-          </p>
-        ))}
+        <div className="space-y-4">
+          {about.bio.map((paragraph, idx) => (
+            <p
+              key={idx}
+              className="font-heading text-xs-plus leading-loose text-body-muted tracking-wider italic"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         <WowDivider />
 
-        {/* facts */}
-        <div className="about-facts">
+        <div className="flex flex-col gap-2.5 mt-4">
           {factItems.map((fact) => (
-            <div key={fact.label} className="about-fact-row">
-              <div className="about-fact-icon">{getIcon(fact.icon)}</div>
-              <span className="about-fact-label">{fact.label}</span>
-              <span className="about-fact-value">{fact.value}</span>
+            <div key={fact.label} className="flex items-start gap-2.5">
+              <div className="text-accent w-4 h-4 shrink-0 mt-0.5 flex items-center justify-center">
+                {getIcon(fact.icon, { className: "w-4 h-4 shrink-0" })}
+              </div>
+              <span className="font-heading text-2xs tracking-[0.14em] uppercase text-ink-light w-18 shrink-0 pt-0.5">
+                {fact.label}
+              </span>
+              <span className="font-heading text-wow-sm text-soft tracking-wider leading-[1.6] ml-1">
+                {fact.value}
+              </span>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </CardShell>
   );
 }
-
-function ContactBadge({ item }: { item: ContactItem }) {
-  return (
-    <a
-      href={item.href}
-      target={item.href.startsWith("mailto") ? undefined : "_blank"}
-      rel="noopener noreferrer"
-      className="about-contact-badge"
-    >
-      <div className="about-contact-badge-icon">{getIcon(item.icon)}</div>
-      <div className="about-contact-badge-text">
-        <span className="about-contact-badge-label">{item.label}</span>
-        <span className="about-contact-badge-value">{item.value}</span>
-      </div>
-    </a>
-  );
-}
-
-function AvailabilityBadge() {
-  return (
-    <div className="about-avail">
-      <div className="about-avail-dot" />
-      <span className="about-avail-text">Available for new opportunities</span>
-    </div>
-  );
-}
-
-function AboutCorner({ tr, bl, br }: { tr?: boolean; bl?: boolean; br?: boolean }) {
-  return (
-    <div
-      className={[
-        "about-corner",
-        tr ? "about-corner-tr" : bl ? "about-corner-bl" : br ? "about-corner-br" : "about-corner-tl",
-      ].join(" ")}
-    >
-      <svg viewBox="0 0 20 20" className="w-full h-full overflow-visible">
-        <path d="M2 18 L2 2 L18 2" fill="none" stroke="rgba(180,140,40,0.7)" strokeWidth="1" />
-        <rect x="0" y="0" width="6" height="6" rx="1" fill="rgba(120,90,20,0.6)" stroke="rgba(180,140,40,0.7)" strokeWidth="0.8" />
-      </svg>
-    </div>
-  );
-}
-
-// ── Main ──────────────────────────────────────────────────────────────────────
 
 export function AboutSection() {
   return (
-    <section id="about" className="about-section">
-      <div className="about-bg" />
-
-      <div className="about-inner">
+    <section
+      id="about"
+      className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
+    >
+      <div className="relative z-10 w-full max-w-275 mx-auto">
         <SectionTitle title="About Me" />
 
-        <div className="about-grid">
-          {/* left — bio */}
-          <AboutCard />
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-6 md:gap-10 mt-10 md:mt-14 items-start">
+          <div>
+            <AboutCard />
+          </div>
 
-          {/* right — contact badges + availability */}
-          <div className="about-right">
-            <div className="about-contact-label">
-              <span className="about-label-gem" />
-              Contact Information
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-0.75 h-0.75 rotate-45 shrink-0 inline-block bg-alpha-bright-a50" />
+              <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
+                Contact Information
+              </span>
             </div>
 
-            <div className="about-contact-list">
-              {contactItems.map((item) => (
-                <ContactBadge key={item.label} item={item} />
+            <div className="space-y-3">
+              {contactItems.map((item: ContactItem) => (
+                <GlowBadge key={item.label} icon={item.icon} iconsSize="lg" variant="primary" className="w-full px-4 py-3" corners={false}>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" >
+                    {item.value}
+                  </a>
+                </GlowBadge>
               ))}
             </div>
 
-            <AvailabilityBadge />
+            <GlowBadge
+              variant="success"
+              corners={false}
+              className="tracking-widest px-4 py-2.5"
+            >
+              <span className="w-2 h-2 rounded-full bg-success shadow-glow-success-8-a60 animate-pulse" />
+                Available for new opportunities
+            </GlowBadge>
           </div>
         </div>
       </div>
