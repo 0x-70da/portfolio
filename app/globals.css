@@ -1554,15 +1554,6 @@
   }
 }
 
-@keyframes pfc-shimmer {
-  from {
-    background-position: -100% 0;
-  }
-  to {
-    background-position: 200% 0;
-  }
-}
-
 @keyframes pfc-hint-pulse {
   0%,
   100% {
@@ -1570,23 +1561,5 @@
   }
   50% {
     opacity: 0.9;
-  }
-}
-
-@keyframes cf-shimmer {
-  from {
-    background-position: -100% 0;
-  }
-  to {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes wow-btn-shimmer {
-  from {
-    background-position: -100% 0;
-  }
-  to {
-    background-position: 200% 0;
   }
 }

@@ -1,28 +1,7 @@
 import { SectionTitle } from "../wow-components/SectionTitle";
 import { experiences } from "@/lib/data.json";
 import type { Experience } from "@/lib/types";
-
-function CornerOrnament() {
-  return (
-    <svg viewBox="0 0 16 16" className="w-full h-full overflow-visible">
-      <path
-        d="M2 14 L2 2 L14 2"
-        fill="none"
-        stroke="var(--alpha-a70)"
-        strokeWidth="1"
-      />
-      <rect
-        x="0"
-        y="0"
-        width="5"
-        height="5"
-        rx="1"
-        className="fill-(--alpha-ornament-a60) stroke-(--alpha-a70)"
-        strokeWidth="0.8"
-      />
-    </svg>
-  );
-}
+import CardShell from "../wow-components/CardShell";
 
 // ── Type badge ────────────────────────────────────────────────────────────────
 
@@ -47,24 +26,7 @@ const badgeBase = "font-heading text-wow-xs px-2 py-0.5 rounded-sm border";
 
 function ExperienceCard({ item }: { item: Experience }) {
   return (
-    <div className="group relative rounded-md overflow-hidden border border-ink-dark bg-surface-card shadow-card transition-[border-color,box-shadow] duration-200 hover:border-alpha-a45 hover:shadow-card-hover">
-      <div className="absolute inset-0 rounded-md pointer-events-none z-0 bg-texture-stone-strong" />
-      <div className="absolute inset-1 pointer-events-none z-10 rounded-sm border border-alpha-a30" />
-      <div className="absolute inset-2 pointer-events-none z-10 rounded-[3px] border border-alpha-a10" />
-
-      <div className="absolute top-0.75 left-0.75 w-4 h-4 z-20 pointer-events-none">
-        <CornerOrnament />
-      </div>
-      <div className="absolute top-0.75 right-0.75 w-4 h-4 z-20 pointer-events-none scale-x-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-0.75 left-0.75 w-4 h-4 z-20 pointer-events-none scale-y-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-0.75 right-0.75 w-4 h-4 z-20 pointer-events-none scale-[-1]">
-        <CornerOrnament />
-      </div>
-
+    <CardShell>
       <div className="relative z-20 px-6 pt-5 pb-5.5">
         <div className="flex flex-wrap items-start justify-between gap-4 mb-2.5">
           <div>
@@ -115,7 +77,7 @@ function ExperienceCard({ item }: { item: Experience }) {
           ))}
         </div>
       </div>
-    </div>
+    </CardShell>
   );
 }
 
@@ -145,7 +107,6 @@ export function ExperienceSection() {
       id="experience"
       className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
     >
-      <div className="absolute inset-0 pointer-events-none bg-hero" />
 
       <div className="relative z-10 w-full max-w-225 mx-auto">
         <SectionTitle title="Experience" />

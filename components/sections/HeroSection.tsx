@@ -1,6 +1,6 @@
 import { WowButton } from "../wow-components/WowButton";
-import { ProfileFlipCard } from "../feature-components/ProfileFlipCard";
 import { hero } from "@/lib/translation.json";
+import { WowCard, WowCardBack, WowCardFront } from "../wow-components/WowCard";
 
 export function HeroSection() {
   return (
@@ -79,26 +79,35 @@ export function HeroSection() {
 
         {/* ── RIGHT: flip card ── */}
         <div className="w-full md:w-auto shrink-0 flex justify-center md:justify-start">
-          <ProfileFlipCard
-            name="Mahmoud"
-            role="Full-Stack Developer"
-            title="Artisan of the Web"
-            imageSrc="/profile.jpg"
-            stats={[
-              { label: "Years", value: "1+" },
-              { label: "Projects", value: "5" },
-              { label: "Language", value: "TS" },
-            ]}
-            backTitle="Chronicle of the Developer"
-            backQuote='"Forged in the fires of deadlines, tempered by a thousand console.log()"'
-            backInfo={[
-              { label: "City", value: "Luxor, Egypt" },
-              { label: "Class", value: "Full-Stack Developer" },
-              { label: "Spec", value: "React · TypeScript · Node" },
-              { label: "Guild", value: "Open to Opportunities" },
-              { label: "Status", value: "Seeking New Quests" },
-            ]}
-            backFooter="Click to return · Est. 2026"
+          <WowCard 
+            front={
+              <WowCardFront
+                name="Mahmoud"
+                role="Full-Stack Developer"
+                title="Artisan of the Web"
+                imageSrc="/x.jpg"
+                stats={[
+                  { label: "Years", value: "1+" },
+                  { label: "Projects", value: "5" },
+                  { label: "Language", value: "TS" },
+                ]}
+              />
+            }
+            back={
+              <WowCardBack 
+                title="Chronicle of the Developer"
+                quote='"Forged in the fires of deadlines, tempered by a thousand console.log()"'
+                info={[
+                  { label: "City", value: "Luxor, Egypt" },
+                  { label: "Class", value: "Full-Stack Developer" },
+                  { label: "Spec", value: "React · TypeScript · Node" },
+                  { label: "Guild", value: "Open to Opportunities" },
+                  { label: "Status", value: "Seeking New Quests" },
+                ]}
+                footer="Click to return · Est. 2026"
+              />
+            }
+            shimmer={true}
           />
         </div>
       </div>

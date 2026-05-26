@@ -4,56 +4,11 @@ import { ContactItem } from "@/lib/types";
 import { getIcon } from "@/lib/getIcon";
 import { about } from "@/lib/translation.json";
 import { factItems, contactItems } from "@/lib/data.json";
-
-type CornerPosition = "tl" | "tr" | "bl" | "br";
-
-const cornerPositionClasses: Record<CornerPosition, string> = {
-  tl: "top-1 left-1",
-  tr: "top-1 right-1 scale-x-[-1]",
-  bl: "bottom-1 left-1 scale-y-[-1]",
-  br: "bottom-1 right-1 scale-[-1]",
-};
-
-function AboutCorner({ position }: { position: CornerPosition }) {
-  return (
-    <div
-      className={`absolute w-5.5 h-5.5 z-20 pointer-events-none ${cornerPositionClasses[position]}`}
-    >
-      <svg viewBox="0 0 22 22" className="w-full h-full overflow-visible">
-        <path
-          d="M2 20 L2 2 L20 2"
-          fill="none"
-          stroke="var(--alpha-a70)"
-          strokeWidth="1"
-        />
-        <rect
-          x="0"
-          y="0"
-          width="6"
-          height="6"
-          rx="1"
-          fill="var(--alpha-ornament-a60)"
-          stroke="var(--alpha-a70)"
-          strokeWidth="0.8"
-        />
-        <circle cx="2" cy="11" r="1.5" fill="var(--alpha-a35)" />
-        <circle cx="11" cy="2" r="1.5" fill="var(--alpha-a35)" />
-      </svg>
-    </div>
-  );
-}
+import CardShell from "../wow-components/CardShell";
 
 function AboutCard() {
   return (
-    <div className="w-full h-full rounded-md relative border border-ink-dark overflow-hidden bg-surface-card shadow-card">
-      <div className="absolute inset-0 rounded-md pointer-events-none z-0 bg-texture-stone-strong" />
-      <div className="absolute pointer-events-none rounded-sm z-10 border border-alpha-a35 inset-1.25" />
-      <div className="absolute pointer-events-none rounded-[3px] z-10 border border-alpha-a10 inset-2" />
-      <AboutCorner position="tl" />
-      <AboutCorner position="tr" />
-      <AboutCorner position="bl" />
-      <AboutCorner position="br" />
-
+    <CardShell>
       <div className="relative w-full h-full z-20 p-7">
         <div className="mb-4.5 pb-3.5 border-b border-alpha-a20">
           <div className="flex items-center gap-1.5 mb-1.5">
@@ -97,7 +52,7 @@ function AboutCard() {
           ))}
         </div>
       </div>
-    </div>
+    </CardShell>
   );
 }
 
@@ -144,7 +99,6 @@ export function AboutSection() {
       id="about"
       className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
     >
-      <div className="absolute inset-0 pointer-events-none bg-hero" />
 
       <div className="relative z-10 w-full max-w-275 mx-auto">
         <SectionTitle title="About Me" />

@@ -20,7 +20,7 @@ interface WowButtonProps {
 
 const btnBase =
   "inline-flex items-center justify-center gap-2 font-heading text-[11px] font-semibold tracking-[0.14em] uppercase cursor-pointer border-none outline-none relative overflow-hidden no-underline px-6 h-11 rounded-[3px] whitespace-nowrap select-none transition-transform duration-150 active:scale-[0.97] " +
-  "after:content-[''] after:absolute after:inset-0 after:bg-sheen after:bg-size-[200%_100%] after:[background-position:-100%_0] after:opacity-0 after:transition-opacity after:duration-150 after:pointer-events-none hover:after:opacity-100 hover:after:animate-[wow-btn-shimmer_0.8s_ease_forwards]";
+  "after:content-[''] after:absolute after:inset-0 after:bg-sheen after:bg-size-[200%_100%] after:[background-position:-100%_0] after:opacity-0 after:transition-opacity after:duration-150 after:pointer-events-none hover:after:opacity-100 hover:after:animate-[fx-shimmer-sweep_0.8s_ease_forwards]";
 
 const variantStyles: Record<WowButtonVariant, string> = {
   primary:

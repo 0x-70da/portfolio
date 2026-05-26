@@ -6,6 +6,7 @@ import { z } from "zod";
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import CardShell from "../wow-components/CardShell";
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -19,28 +20,6 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 // ── Sub-components ────────────────────────────────────────────────────────────
-
-function CornerOrnament() {
-  return (
-    <svg viewBox="0 0 20 20" className="w-full h-full overflow-visible">
-      <path
-        d="M2 18 L2 2 L18 2"
-        fill="none"
-        className="stroke-(--alpha-a70)"
-        strokeWidth="1"
-      />
-      <rect
-        x="0"
-        y="0"
-        width="6"
-        height="6"
-        rx="1"
-        className="fill-(--alpha-ornament-a60) stroke-(--alpha-a70)"
-        strokeWidth="0.8"
-      />
-    </svg>
-  );
-}
 
 function FieldLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -101,23 +80,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-md border border-ink-dark bg-surface-card shadow-card px-8 pt-7 pb-8 before:content-[''] before:absolute before:inset-0 before:rounded-md before:pointer-events-none before:z-0 before:bg-[repeating-linear-gradient(0deg,transparent,transparent_3px,var(--alpha-white-a012)_3px,var(--alpha-white-a012)_4px),repeating-linear-gradient(90deg,transparent,transparent_3px,var(--alpha-white-a008)_3px,var(--alpha-white-a008)_4px)]">
-      <div className="absolute inset-1.25 rounded-sm pointer-events-none z-10 border border-alpha-a45" />
-      <div className="absolute inset-2 rounded-[3px] pointer-events-none z-10 border border-alpha-a10" />
-
-      <div className="absolute top-1 left-1 w-5 h-5 z-20 pointer-events-none">
-        <CornerOrnament />
-      </div>
-      <div className="absolute top-1 right-1 w-5 h-5 z-20 pointer-events-none scale-x-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-1 left-1 w-5 h-5 z-20 pointer-events-none scale-y-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-1 right-1 w-5 h-5 z-20 pointer-events-none scale-[-1]">
-        <CornerOrnament />
-      </div>
-
+    <CardShell className="p-8">
       <div className="relative z-20">
         {submitted ? (
           <SuccessState />
@@ -206,6 +169,6 @@ export function ContactForm() {
           </form>
         )}
       </div>
-    </div>
+    </CardShell>
   );
 }

@@ -3,28 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { Github } from "@/lib/data";
 import type { Project } from "@/lib/types";
 import { cn } from "@/lib/utils";
-
-function CornerOrnament() {
-  return (
-    <svg viewBox="0 0 20 20" className="h-full w-full overflow-visible">
-      <path
-        d="M2 18 L2 2 L18 2"
-        fill="none"
-        className="stroke-(--alpha-a70)"
-        strokeWidth="1"
-      />
-      <rect
-        x="0"
-        y="0"
-        width="6"
-        height="6"
-        rx="1"
-        className="fill-(--alpha-ornament-a60) stroke-(--alpha-a70)"
-        strokeWidth="0.8"
-      />
-    </svg>
-  );
-}
+import CardShell from "../wow-components/CardShell";
 
 function StatusBadge({ status }: { status: Project["status"] }) {
   const isLive = status === "live";
@@ -59,24 +38,8 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
   const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
   return (
-    <div className="group relative h-full w-full overflow-hidden rounded-md border border-ink-dark bg-surface-card shadow-card before:content-[''] before:absolute before:inset-0 before:rounded-[inherit] before:pointer-events-none before:z-10 before:bg-[repeating-linear-gradient(0deg,transparent,transparent_3px,var(--alpha-white-a012)_3px,var(--alpha-white-a012)_4px),repeating-linear-gradient(90deg,transparent,transparent_3px,var(--alpha-white-a008)_3px,var(--alpha-white-a008)_4px)]">
-      <div className="absolute inset-1.25 z-20 pointer-events-none rounded-sm border border-alpha-a40" />
-      <div className="absolute inset-2 z-20 pointer-events-none rounded-[3px] border border-alpha-a10" />
-
-      <div className="absolute left-1 top-1 z-30 h-5 w-5 pointer-events-none">
-        <CornerOrnament />
-      </div>
-      <div className="absolute right-1 top-1 z-30 h-5 w-5 pointer-events-none scale-x-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-1 left-1 z-30 h-5 w-5 pointer-events-none scale-y-[-1]">
-        <CornerOrnament />
-      </div>
-      <div className="absolute bottom-1 right-1 z-30 h-5 w-5 pointer-events-none scale-[-1]">
-        <CornerOrnament />
-      </div>
-
-      <div className="relative z-10 h-50 w-full overflow-hidden border-b border-alpha-a20">
+    <CardShell>
+      <div className="relative z-1 h-50 w-full overflow-hidden border-b border-alpha-a20">
         {project.imageSrc ? (
           <Image
             src={project.imageSrc}
@@ -144,6 +107,6 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </div>
+    </CardShell>
   );
 }
