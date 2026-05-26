@@ -2,16 +2,7 @@ import { SectionTitle } from "../wow-components/SectionTitle";
 import { experiences } from "@/lib/data.json";
 import type { Experience } from "@/lib/types";
 import CardShell from "../wow-components/CardShell";
-
-// ── Type badge ────────────────────────────────────────────────────────────────
-
-const TYPE_STYLES: Record<Experience["type"], string> = {
-  fulltime:
-    "bg-success-surface-a80 border-success-border-a30 text-success-text-muted",
-  freelance: "bg-alpha-a12 border-alpha-a30 text-muted",
-  parttime: "bg-surface-secondary border-secondary-border text-secondary-text",
-  internship: "bg-intern-surface-a80 border-intern-border-a30 text-intern-text",
-};
+import { GlowBadge } from "../wow-components/GlowBadge";
 
 const TYPE_LABELS: Record<Experience["type"], string> = {
   fulltime: "Full-time",
@@ -19,10 +10,6 @@ const TYPE_LABELS: Record<Experience["type"], string> = {
   parttime: "Part-time",
   internship: "Internship",
 };
-
-const badgeBase = "font-heading text-wow-xs px-2 py-0.5 rounded-sm border";
-
-// ── Experience card ───────────────────────────────────────────────────────────
 
 function ExperienceCard({ item }: { item: Experience }) {
   return (
@@ -43,9 +30,7 @@ function ExperienceCard({ item }: { item: Experience }) {
             <span className="font-heading text-2xs tracking-[0.14em] uppercase text-muted whitespace-nowrap">
               {item.date}
             </span>
-            <span className={`${badgeBase} ${TYPE_STYLES[item.type]}`}>
-              {TYPE_LABELS[item.type]}
-            </span>
+            <GlowBadge variant={item.type === "fulltime" ? "success" : "primary"} corners={false} label={TYPE_LABELS[item.type]} className="px-0 py-0.75 text-2xs tracking-[0.16em]" />
           </div>
         </div>
 

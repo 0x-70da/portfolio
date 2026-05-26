@@ -2,25 +2,8 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Github } from "@/lib/data";
 import type { Project } from "@/lib/types";
-import { cn } from "@/lib/utils";
 import CardShell from "../wow-components/CardShell";
-
-function StatusBadge({ status }: { status: Project["status"] }) {
-  const isLive = status === "live";
-
-  return (
-    <span
-      className={cn(
-        "absolute right-3 top-3 z-20 rounded-xs border px-2 py-0.75 font-heading text-2xs tracking-[0.16em] uppercase",
-        isLive
-          ? "border-success-border-a30 bg-success-surface-a80 text-success-text-muted"
-          : "border-alpha-a40 bg-surface-badge text-primary",
-      )}
-    >
-      {isLive ? "Live" : "In Progress"}
-    </span>
-  );
-}
+import { GlowBadge } from "../wow-components/GlowBadge";
 
 interface ProjectCardProps {
   project: Project;
@@ -55,7 +38,12 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
         )}
 
         <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,transparent_40%,var(--black-a60)_100%)]" />
-        <StatusBadge status={project.status} />
+        <GlowBadge
+          variant={project.status === "live" ? "success" : "primary"}
+          corners={false}
+          label={project.status === "live" ? "Live" : "In Progress"}
+          className="absolute right-3 top-3 z-20 px-3 py-0.75 text-2xs tracking-[0.16em]"
+        />
       </div>
 
       <div className="relative z-20 flex flex-col gap-2.5 px-5 pb-5 pt-4">

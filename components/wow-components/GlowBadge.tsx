@@ -1,26 +1,40 @@
 import { getIcon } from "@/lib/getIcon";
 import { cn } from "@/lib/utils";
 
+type IconSize = "xs" | "sm" | "md" | "lg" | "xl";
+
 interface GlowBadgeProps {
-  label: string;
+  children?: React.ReactNode;
+  label?: string;
   variant?: string;
   icon?: string;
+  iconsSize?: IconSize;
+  corners?: boolean;
   className?: string;
 }
 
+const iconSizes: Record<IconSize, string> = {
+  xs: "w-[14px] h-[14px]",
+  sm: "w-[16px] h-[16px]",
+  md: "w-[18px] h-[18px]",
+  lg: "w-[20px] h-[20px]",
+  xl: "w-[24px] h-[24px]",
+};
+
 const baseStyles =
-  "inline-flex items-center gap-[6px] px-[12px] py-[5px] rounded-[2px] select-none whitespace-nowrap font-heading uppercase text-[10px] font-semibold transition-[box-shadow,border-color,text-shadow,color] duration-200 relative" +
-  " before:content-[''] before:absolute before:w-[4px] before:h-[4px] before:rotate-45 before:top-[-2px] before:left-[-2px] after:content-[''] after:absolute after:w-[4px] after:h-[4px] after:rotate-45 after:bottom-[-2px] after:right-[-2px]";
+  "inline-flex items-center gap-[6px] px-[12px] py-[5px] rounded-[2px] select-none whitespace-nowrap font-heading uppercase text-[10px] font-semibold transition-[box-shadow,border-color,text-shadow,color] duration-200 relative";
+
+const cornerGems =
+  "before:content-[''] before:absolute before:w-[4px] before:h-[4px] before:rotate-45 before:top-[-2px] before:left-[-2px] after:content-[''] after:absolute after:w-[4px] after:h-[4px] after:rotate-45 after:bottom-[-2px] after:right-[-2px]";
 
 const variantStyles: Record<string, string> = {
-  // keep old & new variant names in sync
-  gold:
-    // Gold / parchment look (alias for primary)
-    "text-primary text-shadow-primary bg-[linear-gradient(135deg,#1e1808_0%,#2a2210_100%)] border border-[rgba(180,140,40,0.35)] shadow-[inset_0_0_0_1px_rgba(180,140,40,0.08),0_2px_8px_rgba(0,0,0,0.5)] before:bg-[rgba(180,140,40,0.6)] after:bg-[rgba(180,140,40,0.6)] hover:text-shadow-primary-glow hover:border-[rgba(180,140,40,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(180,140,40,0.12),0_2px_12px_rgba(0,0,0,0.5),0_0_10px_rgba(180,140,40,0.2)]",
+  none: "text-ink-light bg-surface-card border border-alpha-a20 shadow-badge-contact before:bg-alpha-a20 after:bg-alpha-a20 hover:border-alpha-a50 hover:shadow-badge-contact-hover",
+
+  success:
+    "text-success-text-muted bg-success-surface-a80 border border-success-border-a30 shadow-[inset_0_0_0_1px_rgba(64,128,92,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-success after:bg-success hover:border-success-border-a30 hover:shadow-[inset_0_0_0_1px_rgba(64,128,92,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(64,128,92,0.2)]",
 
   primary:
-    // Gold / parchment look
-    "text-primary text-shadow-primary bg-[linear-gradient(135deg,#1e1808_0%,#2a2210_100%)] border border-[rgba(180,140,40,0.35)] shadow-[inset_0_0_0_1px_rgba(180,140,40,0.08),0_2px_8px_rgba(0,0,0,0.5)] before:bg-[rgba(180,140,40,0.6)] after:bg-[rgba(180,140,40,0.6)] hover:text-shadow-primary-glow hover:border-[rgba(180,140,40,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(180,140,40,0.12),0_2px_12px_rgba(0,0,0,0.5),0_0_10px_rgba(180,140,40,0.2)]",
+    "text-ink-light text-shadow-badge-contact bg-surface-badge border border-alpha-a20 shadow-badge-contact before:bg-alpha-a60 after:bg-alpha-a60 hover:text-primary hover:text-shadow-primary-glow hover:border-primary hover:shadow-badge-contact-hover",
 
   arcane:
     // Arcane (alias for secondary)
@@ -40,15 +54,25 @@ const variantStyles: Record<string, string> = {
 };
 
 export function GlowBadge({
+  children,
   label,
   variant = "primary",
   icon = "null",
+  iconsSize = "xs",
+  corners = true,
   className,
 }: GlowBadgeProps) {
   return (
-    <span className={cn(baseStyles, variantStyles[variant], className)}>
-      {getIcon(icon, { className: "w-[14px] h-[14px] shrink-0" })}
-      {label}
-    </span>
+    <div
+      className={cn(
+        baseStyles,
+        variantStyles[variant],
+        corners ? cornerGems : "",
+        className,
+      )}
+    >
+      {getIcon(icon, { className: `${iconSizes[iconsSize]} shrink-0` })}
+      {children || label}
+    </div>
   );
 }

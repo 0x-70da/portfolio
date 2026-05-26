@@ -5,6 +5,7 @@ import { getIcon } from "@/lib/getIcon";
 import { about } from "@/lib/translation.json";
 import { factItems, contactItems } from "@/lib/data.json";
 import CardShell from "../wow-components/CardShell";
+import { GlowBadge } from "../wow-components/GlowBadge";
 
 function AboutCard() {
   return (
@@ -56,50 +57,12 @@ function AboutCard() {
   );
 }
 
-function ContactBadge({ item }: { item: ContactItem }) {
-  return (
-    <a
-      href={item.href}
-      target={item.href.startsWith("mailto") ? undefined : "_blank"}
-      rel="noopener noreferrer"
-      className="group relative overflow-hidden flex items-center gap-3 px-4 py-3 rounded-sm border border-alpha-a20 bg-surface-card shadow-badge-contact hover:border-alpha-a50 hover:shadow-badge-contact-hover transition-[border-color,box-shadow] duration-200 no-underline"
-    >
-      <span className="pointer-events-none absolute -top-px -left-px -right-px h-px bg-line-primary" />
-
-      <div className="w-8 h-8 rounded-xs border border-alpha-a20 bg-black-a40 flex items-center justify-center shrink-0 text-muted group-hover:text-primary transition-colors duration-200">
-        {getIcon(item.icon, { className: "w-5 h-5 shrink-0" })}
-      </div>
-
-      <div className="flex flex-col">
-        <span className="font-heading text-2xs tracking-[0.14em] uppercase text-ink-dark">
-          {item.label}
-        </span>
-        <span className="font-heading text-wow-sm text-muted-soft tracking-[0.06em] group-hover:text-primary transition-colors duration-200">
-          {item.value}
-        </span>
-      </div>
-    </a>
-  );
-}
-
-function AvailabilityBadge() {
-  return (
-    <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm border border-success-border-a30 bg-success-surface-a80 mt-1">
-      <span className="w-2 h-2 rounded-full bg-success shadow-glow-success-8-a60 animate-pulse" />
-      <span className="font-heading text-wow-xs tracking-[0.14em] uppercase text-success-text-muted">
-        Available for new opportunities
-      </span>
-    </div>
-  );
-}
-
 export function AboutSection() {
   return (
     <section
       id="about"
       className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
     >
-
       <div className="relative z-10 w-full max-w-275 mx-auto">
         <SectionTitle title="About Me" />
 
@@ -117,12 +80,23 @@ export function AboutSection() {
             </div>
 
             <div className="space-y-3">
-              {contactItems.map((item) => (
-                <ContactBadge key={item.label} item={item} />
+              {contactItems.map((item: ContactItem) => (
+                <GlowBadge key={item.label} icon={item.icon} iconsSize="lg" variant="primary" className="w-full px-4 py-3" corners={false}>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" >
+                    {item.value}
+                  </a>
+                </GlowBadge>
               ))}
             </div>
 
-            <AvailabilityBadge />
+            <GlowBadge
+              variant="success"
+              corners={false}
+              className="tracking-widest px-4 py-2.5"
+            >
+              <span className="w-2 h-2 rounded-full bg-success shadow-glow-success-8-a60 animate-pulse" />
+                Available for new opportunities
+            </GlowBadge>
           </div>
         </div>
       </div>

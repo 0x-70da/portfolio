@@ -4,7 +4,7 @@
       "id":       "frontend",
       "title":    "Frontend",
       "subtitle": "The Art of the Interface",
-      "variant":  "gold",
+      "variant":  "primary",
       "icon":     "Code2",
       "skills":   ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "shadcn/ui"]
     },
