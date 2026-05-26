@@ -113,18 +113,18 @@ function SocialIconBtn({ link }: { link: SocialLink }) {
 function ThemeMenuButton() {
   const menuRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [activeTheme, setActiveTheme] = useState<ThemeOption>(() => {
+  const [activeTheme, setActiveTheme] = useState<ThemeOption>("gold");
+
+  useEffect(() => {
     const root = document.documentElement;
     const mode = root.dataset.themeMode;
     const theme = (root.dataset.theme as Theme | undefined) ?? "gold";
-
-    return mode === "rgb" ? "rgb" : theme;
-  });
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveTheme(mode === "rgb" ? "rgb" : theme);
+  }, []);
 
   useEffect(() => {
-    if (!open) {
-      return;
-    }
+    if (!open) return;
 
     const handlePointerDown = (event: PointerEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -133,9 +133,7 @@ function ThemeMenuButton() {
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
+      if (event.key === "Escape") setOpen(false);
     };
 
     document.addEventListener("pointerdown", handlePointerDown);
@@ -153,9 +151,7 @@ function ThemeMenuButton() {
     setOpen(false);
   };
 
-  const activeOption = THEME_OPTIONS.find(
-    (option) => option.id === activeTheme,
-  );
+  const activeOption = THEME_OPTIONS.find((option) => option.id === activeTheme);
 
   return (
     <div ref={menuRef} className="relative">
@@ -223,7 +219,6 @@ function ThemeMenuButton() {
     </div>
   );
 }
-
 // mobile nav link
 function MobileNavLink({
   item,
