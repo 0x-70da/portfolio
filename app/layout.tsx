@@ -14,18 +14,19 @@ const cinzel = Cinzel({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mahmoudabdelnasser.me"),
 
   title: {
-    default: "Mahmoud Abdelnasser | Full Stack Developer",
+    default: "Mahmoud Abdelnasser | Full Stack Developer Egypt",
     template: "%s | Mahmoud Abdelnasser",
   },
 
   description:
-    "Mahmoud Abdelnasser is a Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, Express.js, and PostgreSQL. Building scalable, performant, and modern web applications.",
+    "Looking to hire a Full Stack Developer in Egypt? Mahmoud Abdelnasser is a Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, Express.js, and PostgreSQL. Building scalable, performant, and modern web applications.",
 
   keywords: [
     "Mahmoud Abdelnasser",
@@ -38,9 +39,12 @@ export const metadata: Metadata = {
     "PostgreSQL",
     "TailwindCSS",
     "Web Developer Egypt",
+    "Software Engineer Egypt",
     "Frontend Developer",
     "Backend Developer",
     "JavaScript Developer",
+    "Freelance Full Stack Developer Egypt",
+    "Hire Full Stack Developer Egypt",
     "Portfolio",
   ],
 
@@ -124,23 +128,29 @@ export default function RootLayout({
 
               url: "https://mahmoudabdelnasser.me",
 
-              image: "https://mahmoudabdelnasser.me/og-image.png",
+              image: ["https://mahmoudabdelnasser.me/og-image.png"],
 
               sameAs: [
                 "https://github.com/0x-70da",
                 "https://www.linkedin.com/in/mahmoud-abdelnasser-a7b246332/",
+                "https://x.com/MahmoudCanCode"
               ],
 
               jobTitle: "Full Stack Developer",
 
               alumniOf: {
                 "@type": "CollegeOrUniversity",
-                name: "Luxor University",
+                name: "Luxor University"
               },
 
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "Egypt",
+                addressCountry: "Egypt"
+              },
+
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance / Self-employed"
               },
 
               knowsAbout: [
@@ -155,7 +165,9 @@ export default function RootLayout({
                 "Zustand",
                 "Prisma ORM",
                 "Drizzle ORM",
-              ],
+                "Supabase",
+                "Git"
+              ]
             }),
           }}
         />
