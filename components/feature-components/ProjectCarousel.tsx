@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import type { Project } from "@/lib/types";
@@ -11,9 +11,45 @@ interface ProjectCarouselProps {
 
 export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const [current, setCurrent] = useState(0);
+  const dragStartX = useRef<number | null>(null);
+  const dragEndX = useRef<number | null>(null);
 
   const goTo = (index: number) => {
     setCurrent(index);
+  };
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    dragStartX.current = event.clientX;
+    dragEndX.current = event.clientX;
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (dragStartX.current === null) return;
+    dragEndX.current = event.clientX;
+  };
+
+  const handlePointerUp = () => {
+    if (dragStartX.current === null || dragEndX.current === null) return;
+
+    const deltaX = dragEndX.current - dragStartX.current;
+
+    if (Math.abs(deltaX) > 40) {
+      if (deltaX < 0 && current < projects.length - 1) {
+        goTo(current + 1);
+      }
+
+      if (deltaX > 0 && current > 0) {
+        goTo(current - 1);
+      }
+    }
+
+    dragStartX.current = null;
+    dragEndX.current = null;
+  };
+
+  const handlePointerCancel = () => {
+    dragStartX.current = null;
+    dragEndX.current = null;
   };
 
   const prev = () => {
@@ -31,15 +67,23 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         <button
           onClick={prev}
           disabled={current === 0}
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 max-md:h-9 max-md:w-9"
+          className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 md:inline-flex max-md:h-9 max-md:w-9"
           aria-label="Previous project"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
 
         {/* animated card */}
-        <div className="flex-1 relative min-h-115 md:min-h-100">
-          <div className="absolute inset-0">
+        <div className="flex-1 relative min-h-115 touch-pan-y">
+          <div
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerCancel}
+            onPointerLeave={handlePointerCancel}
+            style={{ touchAction: "pan-y" }}
+          >
             <ProjectCard
               project={projects[current]}
               index={current}
@@ -52,7 +96,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         <button
           onClick={next}
           disabled={current === projects.length - 1}
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 max-md:h-9 max-md:w-9"
+          className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 md:inline-flex max-md:h-9 max-md:w-9"
           aria-label="Next project"
         >
           <ChevronRight className="h-5 w-5" />

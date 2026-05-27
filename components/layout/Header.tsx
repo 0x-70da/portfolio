@@ -40,7 +40,7 @@ function HeaderLogo() {
   return (
     <Link
       href="#home"
-      className="flex items-center gap-2.5 shrink-0 group"
+      className="flex mr-auto items-center gap-2.5 shrink-0 group"
       onClick={(e) => {
         e.preventDefault();
         document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
@@ -151,7 +151,9 @@ function ThemeMenuButton() {
     setOpen(false);
   };
 
-  const activeOption = THEME_OPTIONS.find((option) => option.id === activeTheme);
+  const activeOption = THEME_OPTIONS.find(
+    (option) => option.id === activeTheme,
+  );
 
   return (
     <div ref={menuRef} className="relative">
@@ -277,7 +279,7 @@ export function Header() {
         <HeaderLogo />
 
         {/* Desktop nav — hidden on mobile */}
-        <nav className="mx-auto hidden items-center gap-0 md:flex">
+        <nav className="mx-auto hidden items-center gap-0 min-[851px]:flex">
           {navItems.map((item, i) => (
             <div key={item.id} className="flex items-center">
               {i > 0 && <NavSep />}
@@ -291,9 +293,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-1.5">
+        <div className="flex ml-auto items-center gap-1 md:gap-1.5">
           {/* Socials — hidden on mobile */}
-          <div className="hidden shrink-0 items-center gap-1 md:flex">
+          <div className="hidden shrink-0 items-center gap-1 min-[961px]:flex">
             {socialLinks.map((link) => (
               <SocialIconBtn key={link.label} link={link} />
             ))}
@@ -303,7 +305,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xs border border-alpha-a20 bg-transparent text-ink transition-[color,border-color] duration-200 hover:border-alpha-a45 hover:text-primary md:hidden"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xs border border-alpha-a20 bg-transparent text-ink transition-[color,border-color] duration-200 hover:border-alpha-a45 hover:text-primary min-[961px]:hidden"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >

@@ -27,7 +27,12 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
 
         <div className="flex flex-wrap gap-2">
           {category.skills.map((skill) => (
-            <GlowBadge key={skill} label={skill} variant={category.variant} />
+            <GlowBadge
+              key={skill.label}
+              label={skill.label}
+              icon={skill.icon}
+              variant={category.variant}
+            />
           ))}
         </div>
       </div>
@@ -43,7 +48,6 @@ export function SkillsSection() {
       id="skills"
       className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
     >
-
       <div className="relative z-10 w-full max-w-275 mx-auto">
         <SectionTitle title="Skills" />
 
