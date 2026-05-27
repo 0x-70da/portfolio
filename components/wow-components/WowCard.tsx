@@ -34,7 +34,7 @@ export function WowCardFront({
       </div>
 
       {/* Photo */}
-      <div className="w-37 h-37 mx-auto rounded-lg mb-2.5 overflow-hidden flex items-center justify-center bg-stone-1 border border-alpha-a50 shadow-photo-frame">
+      <div className="relative w-37 h-37 mx-auto rounded-lg mb-2.5 overflow-hidden flex items-center justify-center bg-stone-1 border border-alpha-a50 shadow-photo-frame ">
         {imageSrc ? (
           <Image
             src={imageSrc}
@@ -49,6 +49,8 @@ export function WowCardFront({
             <div className="w-9 h-9 rounded-full bg-alpha-a20 border border-alpha-a30" />
           </div>
         )}
+
+        <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-br from-alpha-a50 to-transparent" />
       </div>
 
       {/* Title row */}

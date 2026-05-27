@@ -85,7 +85,7 @@ export function HeroSection() {
                 name="Mahmoud"
                 role="Full-Stack Developer"
                 title="Artisan of the Web"
-                imageSrc="/x.jpg"
+                imageSrc="/pro.jpg"
                 stats={[
                   { label: "Years", value: "1+" },
                   { label: "Projects", value: "5" },
