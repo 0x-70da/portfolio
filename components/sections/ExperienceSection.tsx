@@ -3,6 +3,7 @@ import { experiences } from "@/lib/data.json";
 import type { Experience } from "@/lib/types";
 import CardShell from "../wow-components/CardShell";
 import { GlowBadge } from "../wow-components/GlowBadge";
+import { getIcon } from "@/lib/getIcon";
 
 const TYPE_LABELS: Record<Experience["type"], string> = {
   fulltime: "Full-time",
@@ -30,7 +31,12 @@ function ExperienceCard({ item }: { item: Experience }) {
             <span className="font-heading text-2xs tracking-[0.14em] uppercase text-muted whitespace-nowrap">
               {item.date}
             </span>
-            <GlowBadge variant={item.type === "fulltime" ? "success" : "primary"} corners={false} label={TYPE_LABELS[item.type]} className="px-0 py-0.75 text-2xs tracking-[0.16em]" />
+            <GlowBadge
+              variant={item.type === "fulltime" ? "success" : "primary"}
+              corners={false}
+              label={TYPE_LABELS[item.type]}
+              className="px-0 py-0.75 text-2xs tracking-[0.16em]"
+            />
           </div>
         </div>
 
@@ -54,10 +60,11 @@ function ExperienceCard({ item }: { item: Experience }) {
         <div className="flex flex-wrap gap-1.5 mt-3">
           {item.tags.map((tag) => (
             <span
-              key={tag}
-              className="font-heading text-2xs tracking-widest uppercase px-2 py-0.75 rounded-xs border border-alpha-a30 bg-surface-badge text-accent"
+              key={tag.label}
+              className="inline-flex items-center gap-1 font-heading text-2xs tracking-widest uppercase px-2 py-0.75 rounded-xs border border-alpha-a30 bg-surface-badge text-accent"
             >
-              {tag}
+              {getIcon(tag.icon, { className: "h-2.5 w-2.5 shrink-0" })}
+              {tag.label}
             </span>
           ))}
         </div>
@@ -92,7 +99,6 @@ export function ExperienceSection() {
       id="experience"
       className="relative overflow-hidden px-5 py-16 md:px-8 md:py-24"
     >
-
       <div className="relative z-10 w-full max-w-225 mx-auto">
         <SectionTitle title="Experience" />
 
