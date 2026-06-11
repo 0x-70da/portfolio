@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mahmoudabdelnasser.me"),
 
   title: {
-    default: "Mahmoud Abdelnasser | Full Stack Developer Egypt",
+    default: "Mahmoud Abdelnasser | Full Stack Developer",
     template: "%s | Mahmoud Abdelnasser",
   },
 
   description:
-    "Looking to hire a Full Stack Developer in Egypt? Mahmoud Abdelnasser is a Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, Express.js, and PostgreSQL. Building scalable, performant, and modern web applications.",
+    "Looking to hire a Full Stack Developer? Mahmoud Abdelnasser is a Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, Express.js, and PostgreSQL. Building scalable, performant, and modern web applications.",
 
   keywords: [
     "Mahmoud Abdelnasser",
@@ -39,12 +39,9 @@ export const metadata: Metadata = {
     "PostgreSQL",
     "TailwindCSS",
     "Web Developer Egypt",
-    "Software Engineer Egypt",
     "Frontend Developer",
     "Backend Developer",
     "JavaScript Developer",
-    "Freelance Full Stack Developer Egypt",
-    "Hire Full Stack Developer Egypt",
     "Portfolio",
   ],
 
@@ -133,7 +130,10 @@ export default function RootLayout({
               sameAs: [
                 "https://github.com/0x-70da",
                 "https://www.linkedin.com/in/mahmoud-abdelnasser-a7b246332/",
-                "https://x.com/MahmoudCanCode"
+                "https://x.com/MahmoudCanCode",
+                "https://mostaql.com/u/MahmoudTheDev",
+                "https://khamsat.com/user/mahmoudthedev",
+                "https://nafezly.com/u/mahmoud_abdelnasser"
               ],
 
               jobTitle: "Full Stack Developer",
