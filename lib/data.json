@@ -74,7 +74,7 @@
         { "label": "TanStack Query", "icon": "ReactQuery" },
         { "label": "Zod", "icon": "Zod" }
       ],
-      "status": "live",
+      "status": "completed",
       "githubUrl": "https://github.com/0x-70da/horus-shop-v2",
       "liveUrl": "https://horustechstore.netlify.app",
       "imageSrc": "/projects/tech-store.png"
@@ -88,7 +88,7 @@
         { "label": "Javascript", "icon": "JavaScript" },
         { "label": "Tailwind", "icon": "TailwindCss" }
       ],
-      "status": "wip",
+      "status": "completed",
       "githubUrl": "https://github.com/0x-70da/To-Do-App",
       "liveUrl": "",
       "imageSrc": "/projects/todo.png"
@@ -103,7 +103,7 @@
         { "label": "OpenWeatherMap API", "icon": "Eye" },
         { "label": "Tailwind", "icon": "TailwindCss" }
       ],
-      "status": "wip",
+      "status": "completed",
       "githubUrl": "https://github.com/0x-70da/Weather-Application-v2",
       "liveUrl": "",
       "imageSrc": "/projects/weather-app.png"
@@ -235,7 +235,6 @@
     { "label": "About", "id": "about" },
     { "label": "Skills", "id": "skills" },
     { "label": "Projects", "id": "projects" },
-    { "label": "Experience", "id": "experience" },
     { "label": "Contact", "id": "contact" }
   ],
   "socialLinks": [

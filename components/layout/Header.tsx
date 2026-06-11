@@ -164,6 +164,7 @@ function ThemeMenuButton() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Select theme"
+        title="Select Theme"
       >
         <span
           className="h-2.5 w-2.5 shrink-0 rounded-xs border border-alpha-a20"
@@ -188,6 +189,7 @@ function ThemeMenuButton() {
               return (
                 <button
                   key={option.id}
+                  title={option.label}
                   type="button"
                   onClick={() => handleThemeSelect(option.id)}
                   className={cn(

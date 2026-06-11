@@ -69,10 +69,10 @@ export function HeroSection() {
             <WowButton
               variant="secondary"
               icon="BookText"
-              href="/resume.pdf"
+              href="/cv.pdf"
               className="max-[480px]:w-full"
             >
-              {hero.ctas.resume}
+              {hero.ctas.cv}
             </WowButton>
           </div>
         </div>
@@ -84,7 +84,7 @@ export function HeroSection() {
               <WowCardFront
                 name="Mahmoud"
                 role="Full-Stack Developer"
-                title="Artisan of the Web"
+                title="Master of the Web"
                 imageSrc="/pro.jpg"
                 stats={[
                   { label: "Years", value: "1+" },
@@ -95,14 +95,14 @@ export function HeroSection() {
             }
             back={
               <WowCardBack 
-                title="Chronicle of the Developer"
+                title="About this developer"
                 quote='"Forged in the fires of deadlines, tempered by a thousand console.log()"'
                 info={[
-                  { label: "City", value: "Luxor, Egypt" },
+                  { label: "City", value: "Aswan, Egypt" },
                   { label: "Class", value: "Full-Stack Developer" },
                   { label: "Spec", value: "React · TypeScript · Node" },
                   { label: "Guild", value: "Open to Opportunities" },
-                  { label: "Status", value: "Seeking New Quests" },
+                  { label: "Status", value: "Seeking New Challenges" },
                 ]}
                 footer="Click to return · Est. 2026"
               />

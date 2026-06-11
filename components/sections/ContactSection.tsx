@@ -3,13 +3,14 @@ import { SectionTitle } from "../wow-components/SectionTitle";
 import { ContactForm } from "../feature-components/ContactForm";
 import { infoPanel } from "@/lib/translation.json";
 import { GlowBadge } from "../wow-components/GlowBadge";
+import Gem from "../wow-components/Gem";
 
 function InfoPanel() {
   return (
     <div className="flex flex-col gap-3.5">
       <div className="flex flex-col gap-0">
         <div className="flex items-center gap-1.5 font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark mb-1.5">
-          <span className="w-0.75 h-0.75 rotate-45 shrink-0 inline-block bg-alpha-bright-a50" />
+          <Gem size="xs" backgroundColor="muted"/>
           {infoPanel.header}
         </div>
         <h3 className="font-heading text-[15px] font-bold leading-[1.3] tracking-widest uppercase text-primary text-shadow-primary-soft mb-2.5">
@@ -24,18 +25,17 @@ function InfoPanel() {
 
       <div className="flex flex-col gap-2.5">
         {contactItems.map((item) => (
-          <GlowBadge
-            key={item.label}
-            icon={item.icon}
-            iconsSize="lg"
-            variant="primary"
-            className="w-full px-4 py-3"
-            corners={false}
-          >
-            <a href={item.href} target="_blank" rel="noopener noreferrer">
+          <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
+            <GlowBadge
+              icon={item.icon}
+              iconsSize="lg"
+              variant="none"
+              className="w-full px-4 py-3"
+              corners={false}
+            >
               {item.value}
-            </a>
-          </GlowBadge>
+            </GlowBadge>
+          </a>
         ))}
       </div>
 

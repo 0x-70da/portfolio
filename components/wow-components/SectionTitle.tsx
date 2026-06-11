@@ -10,7 +10,7 @@ export function SectionTitle({ title }: SectionTitleProps) {
       <WowDivider
         gems={1}
         direction="middle"
-        backgroundColor="primary"
+        backgroundColor="muted"
         length={6}
         className="mb-2.5"
       />
@@ -20,7 +20,7 @@ export function SectionTitle({ title }: SectionTitleProps) {
       <WowDivider
         gems={3}
         direction="middle"
-        backgroundColor="primary"
+        backgroundColor="muted"
         length="full"
         className="mt-3"
       />

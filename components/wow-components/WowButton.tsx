@@ -24,13 +24,13 @@ const btnBase =
 
 const variantStyles: Record<WowButtonVariant, string> = {
   primary:
-    "bg-surface-button text-primary border border-ink-dark shadow-btn text-shadow-primary " +
+    "bg-(image:--surface-button) text-primary border border-ink-dark shadow-btn text-shadow-primary " +
     "hover:border-muted hover:shadow-btn-hover hover:text-shadow-primary-glow",
   ghost:
     "bg-transparent text-muted-soft border border-alpha-a30 shadow-[inset_0_0_0_1px_var(--alpha-a06),0_2px_8px_var(--black-a30)] " +
     "hover:text-primary hover:border-alpha-a60 hover:shadow-[inset_0_0_0_1px_var(--alpha-a10),0_2px_12px_var(--black-a40),0_0_12px_var(--alpha-bright-a15)] hover:text-shadow-primary-glow-soft",
   secondary:
-    "bg-surface-secondary text-secondary-text border border-secondary-border shadow-secondary text-shadow-secondary " +
+    "bg-(image:--surface-secondary) text-secondary-text border border-secondary-border shadow-secondary text-shadow-secondary " +
     "hover:border-secondary-border-strong hover:shadow-secondary-hover hover:text-shadow-secondary-strong",
 };
 

@@ -31,6 +31,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
             fill
             className="object-cover brightness-[0.85] saturate-[0.8] transition-[filter] duration-300 group-hover:brightness-[0.95] group-hover:saturate-[0.9]"
             sizes="(max-width: 768px) 100vw, 700px"
+            title={project.title}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-ink-dark to-black-a60">
@@ -38,11 +39,11 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
           </div>
         )}
 
-        <div className="absolute inset-0 z-10 bg-linear-to-br from-alpha-a50 to-transparent" />
+        <div className="absolute inset-0 z-10 bg-linear-to-br from-alpha-a50 to-transparent pointer-events-none" />
         <GlowBadge
-          variant={project.status === "live" ? "success" : "primary"}
+          variant={project.status === "completed" ? "success" : "primary"}
           corners={false}
-          label={project.status === "live" ? "Live" : "In Progress"}
+          label={project.status === "completed" ? "Completed" : "In Progress"}
           className="absolute right-3 top-3 z-20 px-3 py-0.75 text-2xs tracking-[0.16em]"
         />
       </div>
