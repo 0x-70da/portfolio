@@ -4,6 +4,7 @@ import { GlowBadge } from "../wow-components/GlowBadge";
 import { getIcon } from "@/lib/getIcon";
 import { skills } from "@/lib/data.json";
 import CardShell from "../wow-components/CardShell";
+import WowDivider from "../wow-components/WowDivider";
 
 // ── Category card ─────────────────────────────────────────────────────────────
 
@@ -24,6 +25,8 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
             </div>
           </div>
         </div>
+
+        <WowDivider backgroundColor="muted-strong" gems={0} noGradient={true} thickness={0.5}  />
 
         <div className="flex flex-wrap gap-2">
           {category.skills.map((skill) => (

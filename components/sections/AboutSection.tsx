@@ -6,6 +6,7 @@ import { about } from "@/lib/translation.json";
 import { factItems, contactItems } from "@/lib/data.json";
 import CardShell from "../wow-components/CardShell";
 import { GlowBadge } from "../wow-components/GlowBadge";
+import Gem from "../wow-components/Gem";
 
 function AboutCard() {
   return (
@@ -13,7 +14,7 @@ function AboutCard() {
       <div className="relative w-full h-full z-20 p-7">
         <div className="mb-4.5 pb-3.5 border-b border-alpha-a20">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <span className="w-0.75 h-0.75 rotate-45 shrink-0 inline-block bg-alpha-bright-a50" />
+            <Gem size="xs" backgroundColor="muted"/>
             <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
               {about.header}
             </span>
@@ -35,7 +36,7 @@ function AboutCard() {
           ))}
         </div>
 
-        <WowDivider />
+        <WowDivider backgroundColor="muted" className="my-4" />
 
         <div className="flex flex-col gap-2.5 mt-4">
           {factItems.map((fact) => (
@@ -73,19 +74,19 @@ export function AboutSection() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-1.5 mb-1">
-              <span className="w-0.75 h-0.75 rotate-45 shrink-0 inline-block bg-alpha-bright-a50" />
+              <Gem size="xs" backgroundColor="muted"/>
               <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
                 Contact Information
               </span>
             </div>
 
-            <div className="space-y-3">
+            <div className="flex flex-col gap-2.5">
               {contactItems.map((item: ContactItem) => (
-                <GlowBadge key={item.label} icon={item.icon} iconsSize="lg" variant="primary" className="w-full px-4 py-3" corners={false}>
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" >
+                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" >
+                  <GlowBadge  icon={item.icon} iconsSize="lg" variant="none" className="w-full px-4 py-3" corners={false}>
                     {item.value}
-                  </a>
-                </GlowBadge>
+                  </GlowBadge>
+                </a>
               ))}
             </div>
 
