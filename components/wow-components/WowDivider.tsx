@@ -25,8 +25,8 @@ interface DividerLineProps {
 
 const backgroundColors: Record<BackgroundColor, string> = {
   primary: "var(--color-primary)",
-  muted: "var(--color-muted)",
-  "muted-strong": "var(--color-muted-strong)",
+  muted: "var(--theme-color-ink)",
+  "muted-strong": "var(--theme-color-ink-dark)",
 };
 
 const gemInfo: Record<
@@ -65,7 +65,7 @@ function DividerLine({
   direction,
   backgroundColor,
   thickness,
-  noGradient = false,
+  noGradient,
 }: DividerLineProps) {
   const background = noGradient
     ? backgroundColors[backgroundColor]
@@ -76,7 +76,7 @@ function DividerLine({
         : `linear-gradient(90deg, transparent, ${backgroundColors[backgroundColor]})`;
   return (
     <div
-      className="relative h-px flex-1 top-0.75 after:absolute after:inset-0 after:rounded-full after:opacity-70"
+      className="relative flex-1 top-0.75 after:absolute after:inset-0 after:rounded-full after:opacity-70"
       style={{
         height: `${thickness}px`,
         background: background,

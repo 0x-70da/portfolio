@@ -28,13 +28,13 @@ const cornerGems =
   "before:content-[''] before:absolute before:w-[4px] before:h-[4px] before:rotate-45 before:top-[-2px] before:left-[-2px] after:content-[''] after:absolute after:w-[4px] after:h-[4px] after:rotate-45 after:bottom-[-2px] after:right-[-2px]";
 
 const variantStyles: Record<string, string> = {
-  none: "text-ink-light bg-surface-card border border-alpha-a20 shadow-badge-contact before:bg-alpha-a20 after:bg-alpha-a20 hover:border-alpha-a50 hover:shadow-badge-contact-hover",
+  none: "text-ink-light bg-surface-card border border-alpha-a20 shadow-badge-contact before:bg-alpha-a20 after:bg-alpha-a20 hover:text-primary hover:border-primary hover:shadow-badge-contact-hover",
 
   success:
     "text-success-text-muted bg-success-surface-a80 border border-success-border-a30 shadow-[inset_0_0_0_1px_rgba(64,128,92,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-success after:bg-success hover:border-success-border-a30 hover:shadow-[inset_0_0_0_1px_rgba(64,128,92,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(64,128,92,0.2)]",
 
   primary:
-    "text-ink-light text-shadow-badge-contact bg-surface-badge border border-alpha-a20 shadow-badge-contact before:bg-alpha-a60 after:bg-alpha-a60 hover:text-primary hover:text-shadow-primary-glow hover:border-primary hover:shadow-badge-contact-hover",
+    "text-primary text-shadow-primary bg-(image:--surface-badge) border border-alpha-a30 shadow-badge-contact before:bg-alpha-a60 after:bg-alpha-a60 hover:text-shadow-primary-glow hover:border-alpha-a50 hover:shadow-badge-contact-hover",
 
   arcane:
     // Arcane (alias for secondary)

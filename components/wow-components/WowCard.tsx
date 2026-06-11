@@ -43,6 +43,7 @@ export function WowCardFront({
             height={150}
             loading="eager"
             className="w-full h-full object-cover"
+            title="Mahmoud Abdelnasser Full Stack Developer"
           />
         ) : (
           <div className="w-20 h-20 rounded-full flex items-center justify-center bg-photo-placeholder border border-alpha-a30">
@@ -165,7 +166,7 @@ export function WowCard({ front, back, shimmer, className }: WowCardProps) {
         style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
         {/* Front */}
-        <div className="absolute inset-0 backface-hidden rounded-md">
+        <div className="absolute inset-0 backface-hidden rounded-md transform-[rotateY(0deg)]">
           <CardShell className="p-4" shimmer={shimmer}>
             {front}
           </CardShell>

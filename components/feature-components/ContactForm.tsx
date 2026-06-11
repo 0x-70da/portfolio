@@ -12,7 +12,7 @@ import CardShell from "../wow-components/CardShell";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Your name must be at least 2 characters"),
-  email: z.string().email("A valid scroll address is required"),
+  email: z.string().email("A valid email address is required"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(20, "Your message must be at least 20 characters"),
 });
@@ -44,10 +44,10 @@ function SuccessState() {
     <div className="flex flex-col items-center gap-2.5 px-5 py-8 text-center">
       <div className="w-2.5 h-2.5 rotate-45 bg-success shadow-glow-success-12-a60" />
       <p className="font-heading text-wow-xl font-bold tracking-widest uppercase text-success-text-muted [text-shadow:0_0_10px_var(--color-success-text-muted)]">
-        Your scroll has been dispatched!
+        Your message has been sent!
       </p>
       <p className="font-heading text-wow-xs tracking-widest italic text-success-text-muted/80">
-        I shall respond within 1–2 business days, brave adventurer.
+        I shall respond within 1–2 business days.
       </p>
     </div>
   );
@@ -93,7 +93,7 @@ export function ContactForm() {
                 <input
                   {...register("name")}
                   type="text"
-                  placeholder="Sir Adventurer"
+                  placeholder="Mahmoud Abdelnasser"
                   className={cn(
                     fieldClassName,
                     errors.name
@@ -109,7 +109,7 @@ export function ContactForm() {
                 <input
                   {...register("email")}
                   type="email"
-                  placeholder="mage@realm.com"
+                  placeholder="mahmoud@gmail.com"
                   className={cn(
                     fieldClassName,
                     errors.email
@@ -127,7 +127,7 @@ export function ContactForm() {
               <input
                 {...register("subject")}
                 type="text"
-                placeholder="Quest proposal, alliance offer..."
+                placeholder="I want to hire you for my project"
                 className={cn(
                   fieldClassName,
                   errors.subject
@@ -143,7 +143,7 @@ export function ContactForm() {
               <FieldLabel>Message</FieldLabel>
               <textarea
                 {...register("message")}
-                placeholder="Describe your quest in detail, brave adventurer..."
+                placeholder="Describe your message in detail"
                 className={cn(
                   fieldClassName,
                   "resize-y min-h-30",
@@ -164,7 +164,7 @@ export function ContactForm() {
               className={submitClassName}
             >
               <Send className="w-3.5 h-3.5 shrink-0" />
-              {isSubmitting ? "Dispatching..." : "Dispatch the Message"}
+              {isSubmitting ? "Sending..." : "Send the Message"}
             </button>
           </form>
         )}
