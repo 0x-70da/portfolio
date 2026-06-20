@@ -7,12 +7,12 @@
       "variant": "primary",
       "icon": "Code2",
       "skills": [
-        { "label": "React.js", "icon": "React" },
-        { "label": "Next.js", "icon": "NextJs" },
-        { "label": "TypeScript", "icon": "TypeScript" },
-        { "label": "Tailwind CSS", "icon": "TailwindCss" },
-        { "label": "Framer Motion", "icon": "Framer" },
-        { "label": "shadcn/ui", "icon": "ShadcnUi" }
+        { "label": "React.js", "color": "cyan" },
+        { "label": "Next.js", "color": "white" },
+        { "label": "TypeScript", "color": "blue" },
+        { "label": "Tailwind CSS", "color": "cyan" },
+        { "label": "Framer Motion", "color": "purple" },
+        { "label": "Shadcn UI", "color": "white" }
       ]
     },
     {
@@ -22,10 +22,10 @@
       "variant": "crimson",
       "icon": "Server",
       "skills": [
-        { "label": "Node.js", "icon": "NodeJs" },
-        { "label": "Express.js", "icon": "Express" },
-        { "label": "PostgreSQL", "icon": "Postgresql" },
-        { "label": "Zod", "icon": "Zod" }
+        { "label": "Node.js", "color": "green" },
+        { "label": "Express.js", "color": "white" },
+        { "label": "PostgreSQL", "color": "blue" },
+        { "label": "Zod", "color": "purple" }
       ]
     },
     {
@@ -35,10 +35,10 @@
       "variant": "arcane",
       "icon": "Database",
       "skills": [
-        { "label": "TanStack Query", "icon": "ReactQuery" },
-        { "label": "Zustand", "icon": "Database" },
-        { "label": "React Hook Form", "icon": "ReactHookForm" },
-        { "label": "Context API", "icon": "BookText" }
+        { "label": "TanStack Query", "color": "yellow" },
+        { "label": "Zustand", "color": "green" },
+        { "label": "React Hook Form", "color": "blue" },
+        { "label": "Context API", "color": "white" }
       ]
     },
     {
@@ -48,13 +48,13 @@
       "variant": "stone",
       "icon": "Wrench",
       "skills": [
-        { "label": "Git", "icon": "BookText" },
-        { "label": "GitHub", "icon": "Github" },
-        { "label": "pnpm", "icon": "Wrench" },
-        { "label": "Vite", "icon": "Eye" },
-        { "label": "ESLint", "icon": "Wrench" },
-        { "label": "Prettier", "icon": "Wrench" },
-        { "label": "Vercel", "icon": "Eye" }
+        { "label": "Git", "color": "red" },
+        { "label": "Github", "color": "white" },
+        { "label": "pnpm", "color": "red" },
+        { "label": "Vite", "color": "purple" },
+        { "label": "ESLint", "color": "blue" },
+        { "label": "Prettier", "color": "white" },
+        { "label": "Vercel", "color": "white" }
       ]
     }
   ],
@@ -64,15 +64,15 @@
       "title": "Horus Shop",
       "description": "A full-stack e-commerce platform built with React and Express.js, featuring JWT auth, product filtering, and a Supabase-powered database.",
       "badges": [
-        { "label": "React", "icon": "React" },
-        { "label": "TypeScript", "icon": "TypeScript" },
-        { "label": "Node.js", "icon": "NodeJs" },
-        { "label": "Supabase", "icon": "Supabase" },
-        { "label": "Tailwind", "icon": "TailwindCss" },
-        { "label": "Express.js", "icon": "Express" },
-        { "label": "JWT Auth", "icon": "Jwt" },
-        { "label": "TanStack Query", "icon": "ReactQuery" },
-        { "label": "Zod", "icon": "Zod" }
+        { "label": "React.js", "color": "cyan" },
+        { "label": "TypeScript", "color": "blue" },
+        { "label": "Node.js", "color": "green" },
+        { "label": "Supabase", "color": "green" },
+        { "label": "Tailwind CSS", "color": "cyan" },
+        { "label": "Express.js", "color": "white" },
+        { "label": "JWT", "color": "red" },
+        { "label": "TanStack Query", "color": "yellow" },
+        { "label": "Zod", "color": "purple" }
       ],
       "status": "completed",
       "githubUrl": "https://github.com/0x-70da/horus-shop-v2",
@@ -84,9 +84,9 @@
       "title": "To-Do App",
       "description": "A simple to-do application built with React, allowing users to manage their tasks with a clean interface and local storage persistence.",
       "badges": [
-        { "label": "React", "icon": "React" },
-        { "label": "Javascript", "icon": "JavaScript" },
-        { "label": "Tailwind", "icon": "TailwindCss" }
+        { "label": "React.js", "color": "cyan" },
+        { "label": "JavaScript", "color": "yellow" },
+        { "label": "Tailwind CSS", "color": "cyan" }
       ],
       "status": "completed",
       "githubUrl": "https://github.com/0x-70da/To-Do-App",
@@ -98,10 +98,10 @@
       "title": "Weather Application",
       "description": "A weather application built with React and OpenWeatherMap API, providing real-time forecasts and dynamic backgrounds that change with the weather.",
       "badges": [
-        { "label": "React", "icon": "React" },
-        { "label": "Javascript", "icon": "JavaScript" },
-        { "label": "OpenWeatherMap API", "icon": "Eye" },
-        { "label": "Tailwind", "icon": "TailwindCss" }
+        { "label": "React.js", "color": "cyan" },
+        { "label": "JavaScript", "color": "yellow" },
+        { "label": "OpenWeatherMap API", "color": "blue" },
+        { "label": "Tailwind CSS", "color": "cyan" }
       ],
       "status": "completed",
       "githubUrl": "https://github.com/0x-70da/Weather-Application-v2",
@@ -113,12 +113,12 @@
       "title": "College Web Project",
       "description": "A college project website built with Next.js, showcasing a responsive design and interactive features to demonstrate web development skills.",
       "badges": [
-        { "label": "Next.js", "icon": "NextJs" },
-        { "label": "TypeScript", "icon": "TypeScript" },
-        { "label": "Tailwind", "icon": "TailwindCss" },
-        { "label": "shadcn/ui", "icon": "ShadcnUi" },
-        { "label": "Prisma", "icon": "Prisma" },
-        { "label": "JWT Auth", "icon": "Jwt" }
+        { "label": "Next.js", "color": "white" },
+        { "label": "TypeScript", "color": "blue" },
+        { "label": "Tailwind CSS", "color": "cyan" },
+        { "label": "Shadcn UI", "color": "white" },
+        { "label": "Prisma", "color": "white" },
+        { "label": "JWT", "color": "red" }
       ],
       "status": "wip",
       "githubUrl": "https://github.com/0x-70da/web-project-nextjs",
@@ -130,11 +130,11 @@
       "title": "Admin Dashboard",
       "description": "An admin dashboard built with Next.js, featuring data visualization, user management, and responsive design for seamless administration.",
       "badges": [
-        { "label": "Next.js", "icon": "NextJs" },
-        { "label": "Javascript", "icon": "JavaScript" },
-        { "label": "Tailwind", "icon": "TailwindCss" },
-        { "label": "Recharts", "icon": "ChartJs" },
-        { "label": "Framer Motion", "icon": "Framer" }
+        { "label": "Next.js", "color": "white" },
+        { "label": "JavaScript", "color": "yellow" },
+        { "label": "Tailwind CSS", "color": "cyan" },
+        { "label": "Recharts", "color": "blue" },
+        { "label": "Framer Motion", "color": "purple" }
       ],
       "status": "wip",
       "githubUrl": "https://github.com/0x-70da/admin-dashboard",
@@ -157,10 +157,10 @@
         "Maintained long-term relationships with 5+ recurring clients"
       ],
       "tags": [
-        { "label": "React", "icon": "React" },
-        { "label": "Node.js", "icon": "NodeJs" },
-        { "label": "TypeScript", "icon": "TypeScript" },
-        { "label": "Supabase", "icon": "Supabase" }
+        { "label": "React", "color": "cyan" },
+        { "label": "Node.js", "color": "green" },
+        { "label": "TypeScript", "color": "blue" },
+        { "label": "Supabase", "color": "green" }
       ]
     },
     {
@@ -176,9 +176,9 @@
         "Reduced bundle size by 40% through code splitting and lazy loading"
       ],
       "tags": [
-        { "label": "React", "icon": "React" },
-        { "label": "TypeScript", "icon": "TypeScript" },
-        { "label": "Tailwind", "icon": "TailwindCss" }
+        { "label": "React", "color": "cyan" },
+        { "label": "TypeScript", "color": "blue" },
+        { "label": "Tailwind CSS", "color": "cyan" }
       ]
     }
   ],
@@ -187,25 +187,29 @@
       "label": "Email",
       "value": "mahmoud.abdelnasser.dev@email.com",
       "href": "mailto:mahmoud.abdelnasser.dev@email.com",
-      "icon": "Mail"
+      "icon": "Mail",
+      "color": "red"
     },
     {
       "label": "GitHub",
       "value": "github.com/0x-70da",
       "href": "https://github.com/0x-70da",
-      "icon": "Github"
+      "icon": "Github",
+      "color": "arcane"
     },
     {
       "label": "LinkedIn",
       "value": "linkedin.com/in/mahmoud-abdelnasser-a7b246332",
       "href": "https://linkedin.com/in/mahmoud-abdelnasser-a7b246332",
-      "icon": "Linkedin"
+      "icon": "Linkedin",
+      "color": "cyan"
     },
     {
       "label": "X (Twitter)",
       "value": "@MahmoudCanCode",
       "href": "https://x.com/MahmoudCanCode",
-      "icon": "Twitter"
+      "icon": "Twitter",
+      "color": "white"
     }
   ],
   "factItems": [
@@ -241,22 +245,26 @@
     {
       "label": "GitHub",
       "href": "https://github.com/0x-70da",
-      "icon": "Github"
+      "icon": "Github",
+      "color": "arcane"
     },
     {
       "label": "LinkedIn",
       "href": "https://linkedin.com/in/mahmoud-abdelnasser-a7b246332",
-      "icon": "Linkedin"
+      "icon": "Linkedin",
+      "color": "cyan"
     },
     {
       "label": "Email",
       "href": "mailto:mahmoud.abdelnasser.dev@email.com",
-      "icon": "Mail"
+      "icon": "Mail",
+      "color": "red"
     },
     {
       "label": "Twitter",
       "href": "https://x.com/MahmoudCanCode",
-      "icon": "Twitter"
+      "icon": "Twitter",
+      "color": "white"
     }
   ]
 }
