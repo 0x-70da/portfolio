@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { socialLinks, navItems } from "@/lib/data.json";
 import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -10,6 +9,7 @@ import { NavItem } from "@/lib/types";
 import Gem from "../wow-components/Gem";
 import { setTheme, Theme } from "@/lib/toggleDataTheme";
 import { SocialIconBtn } from "./SocialIconBtn";
+import { IoClose, IoMenu } from "react-icons/io5";
 
 const typedSocialLinks = socialLinks as import("@/lib/types").SocialLink[];
 
@@ -300,9 +300,9 @@ export function Header() {
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <X className="h-5 w-5" />
+              <IoClose className="h-5 w-5" />
             ) : (
-              <Menu className="h-5 w-5" />
+              <IoMenu className="h-5 w-5" />
             )}
           </button>
         </div>

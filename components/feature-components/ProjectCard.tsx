@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
-import { Github } from "@/lib/data";
 import type { Project } from "@/lib/types";
 import CardShell from "../wow-components/CardShell";
 import { GlowBadge } from "../wow-components/GlowBadge";
 import { getIcon } from "@/lib/getIcon";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectCardProps {
   project: Project;
@@ -88,7 +87,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
               rel="noopener noreferrer"
               className={linkClassName}
             >
-              <Github className="h-2.75 w-2.75" />
+              {getIcon("Github", { className: "h-2.75 w-2.75" })}
               GitHub
             </a>
           )}
@@ -99,7 +98,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
               rel="noopener noreferrer"
               className={linkClassName}
             >
-              <ExternalLink className="h-2.75 w-2.75" />
+              <FaExternalLinkAlt className="h-2.75 w-2.75" />
               Live Demo
             </a>
           )}

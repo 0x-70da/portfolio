@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import type { Project } from "@/lib/types";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -70,7 +70,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 md:inline-flex max-md:h-9 max-md:w-9"
           aria-label="Previous project"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <FaChevronLeft className="h-5 w-5" />
         </button>
 
         {/* animated card */}
@@ -99,7 +99,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xs border border-alpha-a30 bg-surface-button text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_12px_var(--alpha-bright-a15)] disabled:pointer-events-none disabled:opacity-30 md:inline-flex max-md:h-9 max-md:w-9"
           aria-label="Next project"
         >
-          <ChevronRight className="h-5 w-5" />
+          <FaChevronRight className="h-5 w-5" />
         </button>
       </div>
 

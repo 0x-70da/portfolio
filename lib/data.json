@@ -50,9 +50,9 @@
       "skills": [
         { "label": "Git", "color": "red" },
         { "label": "Github", "color": "white" },
-        { "label": "pnpm", "color": "red" },
+        { "label": "Pnpm", "color": "red" },
         { "label": "Vite", "color": "purple" },
-        { "label": "ESLint", "color": "blue" },
+        { "label": "EsLint", "color": "blue" },
         { "label": "Prettier", "color": "white" },
         { "label": "Vercel", "color": "white" }
       ]

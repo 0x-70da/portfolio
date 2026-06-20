@@ -3,10 +3,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import CardShell from "../wow-components/CardShell";
+import { IoSend } from "react-icons/io5";
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -163,7 +163,7 @@ export function ContactForm() {
               disabled={isSubmitting}
               className={submitClassName}
             >
-              <Send className="w-3.5 h-3.5 shrink-0" />
+              <IoSend className="w-3.5 h-3.5 shrink-0" />
               {isSubmitting ? "Sending..." : "Send the Message"}
             </button>
           </form>
