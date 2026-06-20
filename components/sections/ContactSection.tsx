@@ -5,12 +5,14 @@ import { infoPanel } from "@/lib/translation.json";
 import { GlowBadge } from "../wow-components/GlowBadge";
 import Gem from "../wow-components/Gem";
 
+const typedContactItems = contactItems as import("@/lib/types").ContactItem[];
+
 function InfoPanel() {
   return (
     <div className="flex flex-col gap-3.5">
       <div className="flex flex-col gap-0">
         <div className="flex items-center gap-1.5 font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark mb-1.5">
-          <Gem size="xs" backgroundColor="muted"/>
+          <Gem size="xs" backgroundColor="muted" />
           {infoPanel.header}
         </div>
         <h3 className="font-heading text-[15px] font-bold leading-[1.3] tracking-widest uppercase text-primary text-shadow-primary-soft mb-2.5">
@@ -24,12 +26,17 @@ function InfoPanel() {
       <div className="w-full h-px bg-line-primary" />
 
       <div className="flex flex-col gap-2.5">
-        {contactItems.map((item) => (
-          <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
+        {typedContactItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GlowBadge
               icon={item.icon}
               iconsSize="lg"
-              variant="none"
+              variant={item.color}
               className="w-full px-4 py-3"
               corners={false}
             >

@@ -59,13 +59,17 @@ function ExperienceCard({ item }: { item: Experience }) {
 
         <div className="flex flex-wrap gap-1.5 mt-3">
           {item.tags.map((tag) => (
-            <span
+            <GlowBadge
               key={tag.label}
-              className="inline-flex items-center gap-1 font-heading text-2xs tracking-widest uppercase px-2 py-0.75 rounded-xs border border-alpha-a30 bg-surface-badge text-accent"
-            >
-              {getIcon(tag.icon, { className: "h-2.5 w-2.5 shrink-0" })}
-              {tag.label}
-            </span>
+              label={tag.label}
+              icon={getIcon(tag.label, {
+                className: "w-[14px] h-[14px] shrink-0",
+              })}
+              variant={tag.color}
+              corners={false}
+              iconsSize="xs"
+              className="px-2 py-0.75 text-2xs tracking-widest"
+            />
           ))}
         </div>
       </div>
@@ -103,9 +107,9 @@ export function ExperienceSection() {
         <SectionTitle title="Experience" />
 
         <div className="relative mt-14 flex flex-col gap-0 before:content-[''] before:absolute before:left-6 before:top-0 before:bottom-0 before:w-px before:bg-line-primary before:pointer-events-none before:z-0">
-          {experiences.map((item) => (
+          {/* {experiences.map((item) => (
             <TimelineItem key={item.id} item={item} />
-          ))}
+          ))} */}
         </div>
       </div>
     </section>

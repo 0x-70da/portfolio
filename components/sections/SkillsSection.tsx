@@ -6,6 +6,8 @@ import { skills } from "@/lib/data.json";
 import CardShell from "../wow-components/CardShell";
 import WowDivider from "../wow-components/WowDivider";
 
+const skillCategories = skills as SkillCategory[];
+
 // ── Category card ─────────────────────────────────────────────────────────────
 
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
@@ -26,15 +28,22 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
           </div>
         </div>
 
-        <WowDivider backgroundColor="muted-strong" gems={0} noGradient={true} thickness={0.5}  />
+        <WowDivider
+          backgroundColor="muted-strong"
+          gems={0}
+          noGradient={true}
+          thickness={0.5}
+        />
 
         <div className="flex flex-wrap gap-2">
           {category.skills.map((skill) => (
             <GlowBadge
               key={skill.label}
               label={skill.label}
-              icon={skill.icon}
-              variant={category.variant}
+              icon={getIcon(skill.label, {
+                className: "w-[14px] h-[14px] shrink-0",
+              })}
+              variant={skill.color}
             />
           ))}
         </div>
@@ -55,7 +64,7 @@ export function SkillsSection() {
         <SectionTitle title="Skills" />
 
         <div className="grid sm:grid-cols-2 gap-6 mt-12">
-          {skills.map((category) => (
+          {skillCategories.map((category) => (
             <SkillCategoryCard key={category.id} category={category} />
           ))}
         </div>

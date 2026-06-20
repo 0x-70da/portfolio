@@ -8,13 +8,15 @@ import CardShell from "../wow-components/CardShell";
 import { GlowBadge } from "../wow-components/GlowBadge";
 import Gem from "../wow-components/Gem";
 
+const typedContactItems = contactItems as ContactItem[];
+
 function AboutCard() {
   return (
     <CardShell>
       <div className="relative w-full h-full z-20 p-7">
         <div className="mb-4.5 pb-3.5 border-b border-alpha-a20">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <Gem size="xs" backgroundColor="muted"/>
+            <Gem size="xs" backgroundColor="muted" />
             <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
               {about.header}
             </span>
@@ -74,16 +76,27 @@ export function AboutSection() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-1.5 mb-1">
-              <Gem size="xs" backgroundColor="muted"/>
+              <Gem size="xs" backgroundColor="muted" />
               <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
                 Contact Information
               </span>
             </div>
 
             <div className="flex flex-col gap-2.5">
-              {contactItems.map((item: ContactItem) => (
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" >
-                  <GlowBadge  icon={item.icon} iconsSize="lg" variant="none" className="w-full px-4 py-3" corners={false}>
+              {typedContactItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GlowBadge
+                    icon={item.icon}
+                    iconsSize="lg"
+                    variant={item.color}
+                    className="w-full px-4 py-3"
+                    corners={false}
+                  >
                     {item.value}
                   </GlowBadge>
                 </a>
@@ -96,7 +109,7 @@ export function AboutSection() {
               className="tracking-widest px-4 py-2.5"
             >
               <span className="w-2 h-2 rounded-full bg-success shadow-glow-success-8-a60 animate-pulse" />
-                Available for new opportunities
+              Available for new opportunities
             </GlowBadge>
           </div>
         </div>
