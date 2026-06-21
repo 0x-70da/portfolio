@@ -1,8 +1,9 @@
-import { WowButton } from "../wow-components/WowButton";
 import { hero } from "@/lib/translation.json";
 import { WowCard, WowCardBack, WowCardFront } from "../wow-components/WowCard";
+import HeroCTAs from "../motion-components/HeroCTAs";
 
 export function HeroSection() {
+
   return (
     <section
       id="home"
@@ -49,32 +50,7 @@ export function HeroSection() {
           <div className="w-full h-px bg-line-primary my-3" />
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 max-[480px]:flex-col max-[480px]:w-full">
-            <WowButton
-              variant="primary"
-              icon="Eye"
-              href="#projects"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.projects}
-            </WowButton>
-            <WowButton
-              variant="ghost"
-              icon="Mail"
-              href="#contact"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.contact}
-            </WowButton>
-            <WowButton
-              variant="secondary"
-              icon="BookText"
-              href="/cv.pdf"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.cv}
-            </WowButton>
-          </div>
+          <HeroCTAs />
         </div>
 
         {/* ── RIGHT: flip card ── */}
