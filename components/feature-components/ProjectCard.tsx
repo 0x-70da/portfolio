@@ -28,6 +28,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
             className="object-cover brightness-[0.85] saturate-[0.8] transition-[filter] duration-300 group-hover:brightness-[0.95] group-hover:saturate-[0.9]"
             sizes="(max-width: 768px) 100vw, 700px"
             title={project.title}
+            loading="eager"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-ink-dark to-black-a60">
