@@ -1,56 +1,9 @@
 import { SectionTitle } from "../wow-components/SectionTitle";
 import type { SkillCategory } from "@/lib/types";
-import { GlowBadge } from "../wow-components/GlowBadge";
-import { getIcon } from "@/lib/getIcon";
 import { skills } from "@/lib/data.json";
-import CardShell from "../wow-components/CardShell";
-import WowDivider from "../wow-components/WowDivider";
+import SkillCategoryCard from "../motion-components/SkillCategoryCard";
 
 const skillCategories = skills as SkillCategory[];
-
-// ── Category card ─────────────────────────────────────────────────────────────
-
-function SkillCategoryCard({ category }: { category: SkillCategory }) {
-  return (
-    <CardShell>
-      <div className="relative w-full h-full z-20 p-5 space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-[3px] border border-alpha-a20 bg-black-a40 flex items-center justify-center shrink-0 text-primary">
-            {getIcon(category.icon, { className: "w-6 h-6 shrink-0" })}
-          </div>
-          <div>
-            <div className="font-heading text-wow-md font-bold tracking-widest uppercase text-primary">
-              {category.title}
-            </div>
-            <div className="font-heading text-wow-xs tracking-[0.22em] uppercase text-ink-dark">
-              {category.subtitle}
-            </div>
-          </div>
-        </div>
-
-        <WowDivider
-          backgroundColor="muted-strong"
-          gems={0}
-          noGradient={true}
-          thickness={0.5}
-        />
-
-        <div className="flex flex-wrap gap-2">
-          {category.skills.map((skill) => (
-            <GlowBadge
-              key={skill.label}
-              label={skill.label}
-              icon={getIcon(skill.label, {
-                className: "w-[14px] h-[14px] shrink-0",
-              })}
-              variant={skill.color}
-            />
-          ))}
-        </div>
-      </div>
-    </CardShell>
-  );
-}
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -64,8 +17,12 @@ export function SkillsSection() {
         <SectionTitle title="Skills" />
 
         <div className="grid sm:grid-cols-2 gap-6 mt-12">
-          {skillCategories.map((category) => (
-            <SkillCategoryCard key={category.id} category={category} />
+          {skillCategories.map((category, index) => (
+            <SkillCategoryCard
+              key={category.id}
+              category={category}
+              index={index}
+            />
           ))}
         </div>
       </div>

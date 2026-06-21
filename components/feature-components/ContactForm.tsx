@@ -3,10 +3,12 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import CardShell from "../wow-components/CardShell";
 import { IoSend } from "react-icons/io5";
+import { motion, useInView } from "framer-motion";
+import { fadeIn } from "@/lib/animations";
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -63,6 +65,8 @@ const submitClassName =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const {
     register,
@@ -80,95 +84,103 @@ export function ContactForm() {
   };
 
   return (
-    <CardShell className="p-8">
-      <div className="relative z-20">
-        {submitted ? (
-          <SuccessState />
-        ) : (
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            {/* name + email */}
-            <div className="grid grid-cols-2 max-[480px]:grid-cols-1 gap-4 mb-4">
+    <motion.div
+      ref={ref}
+      variants={fadeIn}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      custom={0}
+    >
+      <CardShell className="p-8">
+        <div className="relative z-20">
+          {submitted ? (
+            <SuccessState />
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+              {/* name + email */}
+              <div className="grid grid-cols-2 max-[480px]:grid-cols-1 gap-4 mb-4">
+                <div className="flex flex-col gap-1.5 mb-4">
+                  <FieldLabel>Your Name</FieldLabel>
+                  <input
+                    {...register("name")}
+                    type="text"
+                    placeholder="Mahmoud Abdelnasser"
+                    className={cn(
+                      fieldClassName,
+                      errors.name
+                        ? "border-intern-border-a30"
+                        : "border-alpha-a20",
+                    )}
+                  />
+                  <FieldError message={errors.name?.message} />
+                </div>
+
+                <div className="flex flex-col gap-1.5 mb-4">
+                  <FieldLabel>Your Email</FieldLabel>
+                  <input
+                    {...register("email")}
+                    type="email"
+                    placeholder="mahmoud@gmail.com"
+                    className={cn(
+                      fieldClassName,
+                      errors.email
+                        ? "border-intern-border-a30"
+                        : "border-alpha-a20",
+                    )}
+                  />
+                  <FieldError message={errors.email?.message} />
+                </div>
+              </div>
+
+              {/* subject */}
               <div className="flex flex-col gap-1.5 mb-4">
-                <FieldLabel>Your Name</FieldLabel>
+                <FieldLabel>Subject</FieldLabel>
                 <input
-                  {...register("name")}
+                  {...register("subject")}
                   type="text"
-                  placeholder="Mahmoud Abdelnasser"
+                  placeholder="I want to hire you for my project"
                   className={cn(
                     fieldClassName,
-                    errors.name
+                    errors.subject
                       ? "border-intern-border-a30"
                       : "border-alpha-a20",
                   )}
                 />
-                <FieldError message={errors.name?.message} />
+                <FieldError message={errors.subject?.message} />
               </div>
 
+              {/* message */}
               <div className="flex flex-col gap-1.5 mb-4">
-                <FieldLabel>Your Email</FieldLabel>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="mahmoud@gmail.com"
+                <FieldLabel>Message</FieldLabel>
+                <textarea
+                  {...register("message")}
+                  placeholder="Describe your message in detail"
                   className={cn(
                     fieldClassName,
-                    errors.email
+                    "resize-y min-h-30",
+                    errors.message
                       ? "border-intern-border-a30"
                       : "border-alpha-a20",
                   )}
                 />
-                <FieldError message={errors.email?.message} />
+                <FieldError message={errors.message?.message} />
               </div>
-            </div>
 
-            {/* subject */}
-            <div className="flex flex-col gap-1.5 mb-4">
-              <FieldLabel>Subject</FieldLabel>
-              <input
-                {...register("subject")}
-                type="text"
-                placeholder="I want to hire you for my project"
-                className={cn(
-                  fieldClassName,
-                  errors.subject
-                    ? "border-intern-border-a30"
-                    : "border-alpha-a20",
-                )}
-              />
-              <FieldError message={errors.subject?.message} />
-            </div>
+              <div className="w-full h-px my-5 bg-line-primary" />
 
-            {/* message */}
-            <div className="flex flex-col gap-1.5 mb-4">
-              <FieldLabel>Message</FieldLabel>
-              <textarea
-                {...register("message")}
-                placeholder="Describe your message in detail"
-                className={cn(
-                  fieldClassName,
-                  "resize-y min-h-30",
-                  errors.message
-                    ? "border-intern-border-a30"
-                    : "border-alpha-a20",
-                )}
-              />
-              <FieldError message={errors.message?.message} />
-            </div>
-
-            <div className="w-full h-px my-5 bg-line-primary" />
-
-            {/* submit */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={submitClassName}
-            >
-              <IoSend className="w-3.5 h-3.5 shrink-0" />
-              {isSubmitting ? "Sending..." : "Send the Message"}
-            </button>
-          </form>
-        )}
-      </div>
-    </CardShell>
+              {/* submit */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={submitClassName}
+              >
+                <IoSend className="w-3.5 h-3.5 shrink-0" />
+                {isSubmitting ? "Sending..." : "Send the Message"}
+              </button>
+            </form>
+          )}
+        </div>
+      </CardShell>
+    </motion.div>
   );
 }
