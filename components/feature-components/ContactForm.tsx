@@ -3,10 +3,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import CardShell from "../wow-components/CardShell";
+import { ContactActionState, sendContactEmail } from "@/actions/contact.action";
+import { IoSend } from "react-icons/io5";
+import { motion, useInView } from "framer-motion";
+import { fadeIn } from "@/lib/animations";
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -39,6 +42,18 @@ function FieldError({ message }: { message?: string }) {
   );
 }
 
+function ErrorBanner({ message }: { message: string }) {
+  return (
+    <div className="flex items-center gap-2 px-4 py-3 rounded-[3px] border border-intern-border-a30 bg-intern-surface-a80 mb-4">
+      <span className="w-1.5 h-1.5 rotate-45 shrink-0 inline-block bg-intern-text" />
+      <p className="font-heading text-2xs tracking-widest uppercase text-intern-text">
+        {message ??
+          "An error occurred while sending your message. Please try again."}
+      </p>
+    </div>
+  );
+}
+
 function SuccessState() {
   return (
     <div className="flex flex-col items-center gap-2.5 px-5 py-8 text-center">
@@ -62,7 +77,11 @@ const submitClassName =
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [actionState, setActionState] = useState<ContactActionState>({
+    status: "idle",
+  });
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const {
     register,
@@ -73,19 +92,36 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // TODO: wire up to Server Action later
-    void data;
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
+    setActionState({ status: "idle" });
+    const result = await sendContactEmail(data);
+    setActionState(result);
   };
 
-  return (
-    <CardShell className="p-8">
-      <div className="relative z-20">
-        {submitted ? (
+  if (actionState.status === "success") {
+    return (
+      <CardShell className="p-8">
+        <div className="relative z-20">
           <SuccessState />
-        ) : (
+        </div>
+      </CardShell>
+    );
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={fadeIn}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      custom={0}
+    >
+      <CardShell className="p-8">
+        <div className="relative z-20">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            {/* error banner */}
+            {actionState.status === "error" && (
+              <ErrorBanner message={actionState.message} />
+            )}
             {/* name + email */}
             <div className="grid grid-cols-2 max-[480px]:grid-cols-1 gap-4 mb-4">
               <div className="flex flex-col gap-1.5 mb-4">
@@ -163,12 +199,12 @@ export function ContactForm() {
               disabled={isSubmitting}
               className={submitClassName}
             >
-              <Send className="w-3.5 h-3.5 shrink-0" />
+              <IoSend className="w-3.5 h-3.5 shrink-0" />
               {isSubmitting ? "Sending..." : "Send the Message"}
             </button>
           </form>
-        )}
-      </div>
-    </CardShell>
+        </div>
+      </CardShell>
+    </motion.div>
   );
 }

@@ -1,20 +1,21 @@
-import Link from "next/link";
 import { socialLinks } from "@/lib/data.json";
-import { getIcon } from "@/lib/getIcon";
 import WowDivider from "../wow-components/WowDivider";
 import Gem from "../wow-components/Gem";
+import { SocialIconBtn } from "./SocialIconBtn";
+
+const typedSocialLinks = socialLinks as import("@/lib/types").SocialLink[];
 
 export function Footer() {
   return (
     <footer className="relative w-full overflow-hidden border-t border-alpha-a18 bg-(image:--gradient-footer) px-8 pt-8 pb-5 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-px before:bg-[linear-gradient(90deg,transparent,var(--alpha-bright-a50)_20%,var(--alpha-bright-a50)_80%,transparent)] after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-50 after:w-150 after:pointer-events-none after:bg-[radial-gradient(ellipse_at_50%_100%,var(--alpha-a04)_0%,transparent_70%)]">
-      <WowDivider direction="left" backgroundColor="muted" className="mb-8"/>
+      <WowDivider direction="left" backgroundColor="muted" className="mb-8" />
 
       {/* main row */}
       <div className="flex items-start justify-between gap-8 mb-7 flex-wrap">
         {/* logo + tagline */}
         <div className="flex flex-col">
           <div className="flex gap-2 mb-1">
-            <Gem size="xl" shadow="soft-glow"/>
+            <Gem size="xl" shadow="soft-glow" />
             <div className="font-heading text-lg font-bold leading-none tracking-[0.12em] uppercase text-primary text-shadow-primary-glow-soft">
               Mahmoud
             </div>
@@ -34,17 +35,8 @@ export function Footer() {
             Find Me
           </div>
           <div className="flex gap-1.5 mb-2.5">
-            {socialLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={link.label}
-                className="inline-flex h-8.5 w-8.5 items-center justify-center rounded-xs border border-alpha-a15 text-ink no-underline transition-[color,border-color,box-shadow,background-color] duration-200 hover:border-alpha-a40 hover:bg-alpha-a05 hover:text-primary hover:shadow-[0_0_8px_var(--alpha-bright-a15)]"
-              >
-                {getIcon(link.icon)}
-              </Link>
+            {typedSocialLinks.map((link) => (
+              <SocialIconBtn key={link.label} link={link} />
             ))}
           </div>
           <p className="font-heading text-wow-xs italic tracking-widest text-ink-dark/80">
@@ -54,12 +46,18 @@ export function Footer() {
       </div>
 
       {/* <BottomDivider /> */}
-      <WowDivider gems={1} direction="right" backgroundColor="muted-strong"  className="mb-4"/>
+      <WowDivider
+        gems={1}
+        direction="right"
+        backgroundColor="muted-strong"
+        className="mb-4"
+      />
 
       {/* copyright bar */}
       <div className="flex items-center justify-between flex-wrap gap-2">
         <p className="font-heading text-wow-xs uppercase tracking-[0.12em] text-ink-dark/80">
-          &copy; {new Date().getFullYear()} Mahmoud Abdelnasser. All rights reserved.
+          &copy; {new Date().getFullYear()} Mahmoud Abdelnasser. All rights
+          reserved.
         </p>
         <p className="font-heading text-wow-xs uppercase italic tracking-[0.12em] text-ink-dark/80">
           Crafted with{" "}

@@ -1,6 +1,7 @@
-import { WowButton } from "../wow-components/WowButton";
 import { hero } from "@/lib/translation.json";
 import { WowCard, WowCardBack, WowCardFront } from "../wow-components/WowCard";
+import HeroCTAs from "../motion-components/HeroCTAs";
+import ShatteredName from "../motion-components/ShatteredName";
 
 export function HeroSection() {
   return (
@@ -28,11 +29,10 @@ export function HeroSection() {
           <p className="font-heading text-wow-xl tracking-[0.18em] uppercase text-ink-dark mb-2">
             {hero.greeting}
           </p>
-          <h1 className="font-heading text-[clamp(36px,5vw,56px)] font-black tracking-[0.06em] uppercase text-primary text-shadow-primary-strong leading-none mb-3">
-            Mahmoud
-            <br />
-            Abdelnasser
-          </h1>
+
+          <div className="relative">
+            <ShatteredName />
+          </div>
 
           {/* title */}
           <div className="flex items-center justify-center md:justify-start gap-2 my-6 font-heading text-hero-title tracking-[0.14em] uppercase text-muted">
@@ -49,37 +49,12 @@ export function HeroSection() {
           <div className="w-full h-px bg-line-primary my-3" />
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 max-[480px]:flex-col max-[480px]:w-full">
-            <WowButton
-              variant="primary"
-              icon="Eye"
-              href="#projects"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.projects}
-            </WowButton>
-            <WowButton
-              variant="ghost"
-              icon="Mail"
-              href="#contact"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.contact}
-            </WowButton>
-            <WowButton
-              variant="secondary"
-              icon="BookText"
-              href="/cv.pdf"
-              className="max-[480px]:w-full"
-            >
-              {hero.ctas.cv}
-            </WowButton>
-          </div>
+          <HeroCTAs />
         </div>
 
         {/* ── RIGHT: flip card ── */}
         <div className="w-full md:w-auto shrink-0 flex justify-center md:justify-start">
-          <WowCard 
+          <WowCard
             front={
               <WowCardFront
                 name="Mahmoud"
@@ -94,7 +69,7 @@ export function HeroSection() {
               />
             }
             back={
-              <WowCardBack 
+              <WowCardBack
                 title="About this developer"
                 quote='"Forged in the fires of deadlines, tempered by a thousand console.log()"'
                 info={[

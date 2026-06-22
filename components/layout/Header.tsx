@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { socialLinks, navItems } from "@/lib/data.json";
 import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import Link from "next/link";
-import { NavItem, SocialLink } from "@/lib/types";
-import { getIcon } from "@/lib/getIcon";
+import { NavItem } from "@/lib/types";
 import Gem from "../wow-components/Gem";
 import { setTheme, Theme } from "@/lib/toggleDataTheme";
+import { SocialIconBtn } from "./SocialIconBtn";
+import { IoClose, IoMenu } from "react-icons/io5";
+
+const typedSocialLinks = socialLinks as import("@/lib/types").SocialLink[];
 
 type ThemeOption = Theme | "rgb";
 
@@ -94,20 +96,6 @@ function NavLink({
 
 function NavSep() {
   return <div className="h-3 w-px shrink-0 bg-alpha-a15" />;
-}
-
-function SocialIconBtn({ link }: { link: SocialLink }) {
-  return (
-    <a
-      href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      title={link.label}
-      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xs border border-transparent text-ink transition-[color,border-color,box-shadow,background-color] duration-200 hover:border-alpha-a20 hover:bg-alpha-a05 hover:text-primary hover:shadow-[0_0_8px_var(--alpha-bright-a15)]"
-    >
-      {getIcon(link.icon)}
-    </a>
-  );
 }
 
 function ThemeMenuButton() {
@@ -298,7 +286,7 @@ export function Header() {
         <div className="flex ml-auto items-center gap-1 md:gap-1.5">
           {/* Socials — hidden on mobile */}
           <div className="hidden shrink-0 items-center gap-1 min-[961px]:flex">
-            {socialLinks.map((link) => (
+            {typedSocialLinks.map((link) => (
               <SocialIconBtn key={link.label} link={link} />
             ))}
           </div>
@@ -312,9 +300,9 @@ export function Header() {
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
-              <X className="h-5 w-5" />
+              <IoClose className="h-5 w-5" />
             ) : (
-              <Menu className="h-5 w-5" />
+              <IoMenu className="h-5 w-5" />
             )}
           </button>
         </div>
@@ -343,7 +331,7 @@ export function Header() {
 
           {/* socials in drawer */}
           <div className="mt-2.5 flex items-center gap-2 border-t border-alpha-a10 px-8 pt-4">
-            {socialLinks.map((link) => (
+            {typedSocialLinks.map((link) => (
               <SocialIconBtn key={link.label} link={link} />
             ))}
           </div>
