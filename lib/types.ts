@@ -1,13 +1,31 @@
-export interface LabeledIconItem {
+export type GlowBadgeVariant =
+  | "none"
+  | "success"
+  | "primary"
+  | "arcane"
+  | "secondary"
+  | "stone"
+  | "crimson"
+  | "red"
+  | "green"
+  | "yellow"
+  | "blue"
+  | "purple"
+  | "white"
+  | "cyan";
+
+export type SocialLinkVariant = "arcane" | "red" | "white" | "cyan";
+
+export interface LabeledColorItem {
   label: string;
-  icon: string;
+  color: GlowBadgeVariant;
 }
 
 export interface Project {
   id: string;
   title: string;
   description: string;
-  badges: LabeledIconItem[];
+  badges: LabeledColorItem[];
   status: string;
   githubUrl?: string;
   liveUrl?: string;
@@ -20,7 +38,7 @@ export interface SkillCategory {
   subtitle: string;
   variant: string;
   icon: string;
-  skills: LabeledIconItem[];
+  skills: LabeledColorItem[];
 }
 
 export interface Experience {
@@ -31,7 +49,7 @@ export interface Experience {
   type: string;
   description: string;
   achievements: string[];
-  tags: LabeledIconItem[];
+  tags: LabeledColorItem[];
   current?: boolean;
 }
 
@@ -40,6 +58,7 @@ export interface ContactItem {
   value: string;
   href: string;
   icon: string;
+  color: GlowBadgeVariant;
 }
 
 export interface FactItem {
@@ -57,4 +76,5 @@ export interface SocialLink {
   label: string;
   href: string;
   icon: string;
+  color: SocialLinkVariant;
 }

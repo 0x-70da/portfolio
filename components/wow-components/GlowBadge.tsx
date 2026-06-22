@@ -7,7 +7,7 @@ interface GlowBadgeProps {
   children?: React.ReactNode;
   label?: string;
   variant?: string;
-  icon?: string;
+  icon?: string | React.ReactNode;
   iconsSize?: IconSize;
   corners?: boolean;
   className?: string;
@@ -51,6 +51,24 @@ const variantStyles: Record<string, string> = {
   crimson:
     // Crimson / danger-ish
     "text-[rgb(192,80,80)] text-shadow-[0_0_8px_rgba(200,80,80,0.3)] bg-[linear-gradient(135deg,#1e0c0c_0%,#2a1010_100%)] border border-[rgba(180,60,60,0.35)] shadow-[inset_0_0_0_1px_rgba(180,60,60,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(180,60,60,0.6)] after:bg-[rgba(180,60,60,0.6)] hover:border-[rgba(180,60,60,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(180,60,60,0.12),0_2px_12px_rgba(0,0,0,0.5),0_0_10px_rgba(180,60,60,0.2)] hover:text-shadow-[0_0_10px_rgba(200,80,80,0.5)]",
+
+  red: "text-[rgb(235,139,128)] text-shadow-[0_0_8px_rgba(232,85,69,0.28)] bg-[linear-gradient(135deg,rgba(232,85,69,0.12)_0%,rgba(70,18,18,0.36)_100%)] border border-[rgba(232,85,69,0.35)] shadow-[inset_0_0_0_1px_rgba(232,85,69,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(232,85,69,0.62)] after:bg-[rgba(232,85,69,0.62)] hover:border-[rgba(232,85,69,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(232,85,69,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(232,85,69,0.2)] hover:text-shadow-[0_0_10px_rgba(232,85,69,0.45)]",
+
+  green:
+    "text-[rgb(104,204,141)] text-shadow-[0_0_8px_rgba(74,184,112,0.28)] bg-[linear-gradient(135deg,rgba(74,184,112,0.12)_0%,rgba(18,52,32,0.38)_100%)] border border-[rgba(74,184,112,0.35)] shadow-[inset_0_0_0_1px_rgba(74,184,112,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(74,184,112,0.62)] after:bg-[rgba(74,184,112,0.62)] hover:border-[rgba(74,184,112,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(74,184,112,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(74,184,112,0.2)] hover:text-shadow-[0_0_10px_rgba(74,184,112,0.45)]",
+
+  yellow:
+    "text-[rgb(234,198,92)] text-shadow-[0_0_8px_rgba(212,168,48,0.28)] bg-[linear-gradient(135deg,rgba(212,168,48,0.14)_0%,rgba(56,44,12,0.42)_100%)] border border-[rgba(212,168,48,0.35)] shadow-[inset_0_0_0_1px_rgba(212,168,48,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(212,168,48,0.62)] after:bg-[rgba(212,168,48,0.62)] hover:border-[rgba(212,168,48,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(212,168,48,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(212,168,48,0.2)] hover:text-shadow-[0_0_10px_rgba(212,168,48,0.45)]",
+
+  blue: "text-[rgb(107,178,238)] text-shadow-[0_0_8px_rgba(74,158,221,0.28)] bg-[linear-gradient(135deg,rgba(74,158,221,0.12)_0%,rgba(14,36,58,0.4)_100%)] border border-[rgba(74,158,221,0.35)] shadow-[inset_0_0_0_1px_rgba(74,158,221,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(74,158,221,0.62)] after:bg-[rgba(74,158,221,0.62)] hover:border-[rgba(74,158,221,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(74,158,221,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(74,158,221,0.2)] hover:text-shadow-[0_0_10px_rgba(74,158,221,0.45)]",
+
+  purple:
+    "text-[rgb(192,155,245)] text-shadow-[0_0_8px_rgba(168,112,232,0.28)] bg-[linear-gradient(135deg,rgba(168,112,232,0.12)_0%,rgba(42,22,62,0.4)_100%)] border border-[rgba(168,112,232,0.35)] shadow-[inset_0_0_0_1px_rgba(168,112,232,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(168,112,232,0.62)] after:bg-[rgba(168,112,232,0.62)] hover:border-[rgba(168,112,232,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(168,112,232,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(168,112,232,0.2)] hover:text-shadow-[0_0_10px_rgba(168,112,232,0.45)]",
+
+  white:
+    "text-[rgb(233,236,242)] text-shadow-[0_0_8px_rgba(255,255,255,0.14)] bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] border border-[rgba(255,255,255,0.18)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(255,255,255,0.58)] after:bg-[rgba(255,255,255,0.58)] hover:border-[rgba(255,255,255,0.3)] hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(255,255,255,0.14)] hover:text-shadow-[0_0_10px_rgba(255,255,255,0.22)]",
+
+  cyan: "text-[rgb(111,220,230)] text-shadow-[0_0_8px_rgba(64,200,216,0.28)] bg-[linear-gradient(135deg,rgba(64,200,216,0.12)_0%,rgba(10,40,45,0.4)_100%)] border border-[rgba(64,200,216,0.35)] shadow-[inset_0_0_0_1px_rgba(64,200,216,0.08),0_2px_8px_rgba(0,0,0,0.4)] before:bg-[rgba(64,200,216,0.62)] after:bg-[rgba(64,200,216,0.62)] hover:border-[rgba(64,200,216,0.65)] hover:shadow-[inset_0_0_0_1px_rgba(64,200,216,0.12),0_2px_12px_rgba(0,0,0,0.45),0_0_10px_rgba(64,200,216,0.2)] hover:text-shadow-[0_0_10px_rgba(64,200,216,0.45)]",
 };
 
 export function GlowBadge({
@@ -62,6 +80,11 @@ export function GlowBadge({
   corners = true,
   className,
 }: GlowBadgeProps) {
+  const iconNode =
+    typeof icon === "string"
+      ? getIcon(icon, { className: `${iconSizes[iconsSize]} shrink-0` })
+      : icon;
+
   return (
     <div
       className={cn(
@@ -71,7 +94,7 @@ export function GlowBadge({
         className,
       )}
     >
-      {getIcon(icon, { className: `${iconSizes[iconsSize]} shrink-0` })}
+      {iconNode}
       {children || label}
     </div>
   );

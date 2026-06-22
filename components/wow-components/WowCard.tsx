@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import CardShell from "./CardShell";
@@ -152,6 +152,15 @@ interface WowCardProps {
 
 export function WowCard({ front, back, shimmer, className }: WowCardProps) {
   const [flipped, setFlipped] = useState(false);
+  const [introAnimation, setIntroAnimation] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroAnimation(false);
+    }, 3400);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -162,8 +171,17 @@ export function WowCard({ front, back, shimmer, className }: WowCardProps) {
       onClick={() => setFlipped((prev) => (back ? !prev : false))}
     >
       <div
-        className="w-full h-full relative transform-3d transition-transform duration-[0.75s] ease-in-out"
-        style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+        className="w-full h-full relative transform-3d"
+        style={{
+          transform: introAnimation
+            ? "rotateY(-360deg)"
+            : flipped
+              ? "rotateY(180deg)"
+              : "rotateY(0deg)",
+          transition: introAnimation
+            ? "transform 5s ease-in-out"
+            : "transform 0.75s ease-in-out",
+        }}
       >
         {/* Front */}
         <div className="absolute inset-0 backface-hidden rounded-md transform-[rotateY(0deg)]">
