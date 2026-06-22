@@ -1,9 +1,9 @@
 import { hero } from "@/lib/translation.json";
 import { WowCard, WowCardBack, WowCardFront } from "../wow-components/WowCard";
 import HeroCTAs from "../motion-components/HeroCTAs";
+import ShatteredName from "../motion-components/ShatteredName";
 
 export function HeroSection() {
-
   return (
     <section
       id="home"
@@ -29,11 +29,10 @@ export function HeroSection() {
           <p className="font-heading text-wow-xl tracking-[0.18em] uppercase text-ink-dark mb-2">
             {hero.greeting}
           </p>
-          <h1 className="font-heading text-[clamp(36px,5vw,56px)] font-black tracking-[0.06em] uppercase text-primary text-shadow-primary-strong leading-none mb-3">
-            Mahmoud
-            <br />
-            Abdelnasser
-          </h1>
+
+          <div className="relative">
+            <ShatteredName />
+          </div>
 
           {/* title */}
           <div className="flex items-center justify-center md:justify-start gap-2 my-6 font-heading text-hero-title tracking-[0.14em] uppercase text-muted">
@@ -55,7 +54,7 @@ export function HeroSection() {
 
         {/* ── RIGHT: flip card ── */}
         <div className="w-full md:w-auto shrink-0 flex justify-center md:justify-start">
-          <WowCard 
+          <WowCard
             front={
               <WowCardFront
                 name="Mahmoud"
@@ -70,7 +69,7 @@ export function HeroSection() {
               />
             }
             back={
-              <WowCardBack 
+              <WowCardBack
                 title="About this developer"
                 quote='"Forged in the fires of deadlines, tempered by a thousand console.log()"'
                 info={[

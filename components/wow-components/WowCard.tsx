@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import CardShell from "./CardShell";
 import Gem from "./Gem";
-import { motion } from "framer-motion";
 
 interface WowCardFrontProps {
   name: string;
@@ -153,34 +152,36 @@ interface WowCardProps {
 
 export function WowCard({ front, back, shimmer, className }: WowCardProps) {
   const [flipped, setFlipped] = useState(false);
+  const [introAnimation, setIntroAnimation] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroAnimation(false);
+    }, 3400);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <motion.div
-      initial={{ rotateY: 0, opacity: 0 }}
-      animate={{ rotateY: [0, 360], opacity: [0, 1, 1, 1] }}
-      transition={{
-        rotateY: { duration: 0.9, delay: 0.2, ease: [0.4, 0, 0.2, 1] },
-        opacity: { duration: 0.3, delay: 0.2 },
-      }}
-      onAnimationComplete={() => setFlipped(false)}
+    <div
       className={cn(
         "perspective-[1000px] cursor-pointer w-75 h-100",
         className,
       )}
       onClick={() => setFlipped((prev) => (back ? !prev : false))}
     >
-      <motion.div
-        initial={{ boxShadow: "none" }}
-        animate={{
-          boxShadow: [
-            "none",
-            "0 0 40px rgba(212,168,48,0.6), 0 0 80px rgba(212,168,48,0.3)",
-            "none",
-          ],
+      <div
+        className="w-full h-full relative transform-3d"
+        style={{
+          transform: introAnimation
+            ? "rotateY(-360deg)"
+            : flipped
+              ? "rotateY(180deg)"
+              : "rotateY(0deg)",
+          transition: introAnimation
+            ? "transform 5s ease-in-out"
+            : "transform 0.75s ease-in-out",
         }}
-        transition={{ duration: 1.2, delay: 1.1, ease: "easeInOut" }}
-        className="w-full h-full relative transform-3d transition-transform duration-[0.75s] ease-in-out"
-        style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
         {/* Front */}
         <div className="absolute inset-0 backface-hidden rounded-md transform-[rotateY(0deg)]">
@@ -197,7 +198,7 @@ export function WowCard({ front, back, shimmer, className }: WowCardProps) {
             </CardShell>
           </div>
         )}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
