@@ -83,6 +83,26 @@
   --theme-alpha-secondary-a20: rgba(120, 90, 200, 0.2);
   --theme-alpha-secondary-a08: rgba(120, 90, 200, 0.08);
 
+  --theme-color-arcane: #8870d0;
+  --theme-color-arcane-text: #a990f0;
+  --theme-color-arcane-border: #3a2e6a;
+  --theme-color-arcane-border-strong: #6a58b0;
+  --theme-surface-arcane-secondary: linear-gradient(
+    180deg,
+    #16122a 0%,
+    #0e0c1a 100%
+  );
+  --theme-shadow-arcane-secondary:
+    inset 0 1px 0 rgba(150, 120, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(120, 90, 200, 0.08);
+  --theme-shadow-arcane-secondary-hover:
+    inset 0 1px 0 rgba(150, 120, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(130, 100, 230, 0.3),
+    0 0 0 1px rgba(120, 90, 200, 0.2);
+  --theme-shadow-arcane-secondary-glow: 0 0 4px rgba(140, 110, 220, 0.6);
+  --theme-text-shadow-arcane-secondary: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-text-shadow-arcane-secondary-strong: 0 0 14px rgba(150, 120, 240, 0.6);
+
   --theme-shadow-card:
     inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(160, 120, 30, 0.08);
@@ -197,6 +217,10 @@
   --color-secondary-text: var(--theme-color-secondary-text);
   --color-secondary-border: var(--theme-color-secondary-border);
   --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+  --color-arcane: var(--theme-color-arcane);
+  --color-arcane-text: var(--theme-color-arcane-text);
+  --color-arcane-border: var(--theme-color-arcane-border);
+  --color-arcane-border-strong: var(--theme-color-arcane-border-strong);
 
   --alpha-a70: var(--theme-alpha-a70);
   --alpha-a60: var(--theme-alpha-a60);
@@ -246,6 +270,7 @@
   --surface-button: var(--theme-surface-button);
   --surface-badge: var(--theme-surface-badge);
   --surface-secondary: var(--theme-surface-secondary);
+  --surface-arcane-secondary: var(--theme-surface-arcane-secondary);
 
   --shadow-card: var(--theme-shadow-card);
   --shadow-card-hover: var(--theme-shadow-card-hover);
@@ -257,6 +282,9 @@
   --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
   --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
   --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-arcane-secondary: var(--theme-shadow-arcane-secondary);
+  --shadow-arcane-secondary-hover: var(--theme-shadow-arcane-secondary-hover);
+  --shadow-arcane-secondary-glow: var(--theme-shadow-arcane-secondary-glow);
   --shadow-btn: var(--theme-shadow-btn);
   --shadow-btn-hover: var(--theme-shadow-btn-hover);
   --shadow-badge-contact: var(--theme-shadow-badge-contact);
@@ -274,6 +302,10 @@
   --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
   --text-shadow-secondary: var(--theme-text-shadow-secondary);
   --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+  --text-shadow-arcane-secondary: var(--theme-text-shadow-arcane-secondary);
+  --text-shadow-arcane-secondary-strong: var(
+    --theme-text-shadow-arcane-secondary-strong
+  );
 
   --gradient-hero: var(--theme-gradient-hero);
   --gradient-header: var(--theme-gradient-header);
@@ -556,68 +588,61 @@
   --theme-alpha-secondary-a08: rgba(200, 80, 90, 0.08);
 
   --theme-shadow-card:
-    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
-    0 12px 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(180, 50, 40, 0.08);
   --theme-shadow-card-hover:
-    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(200, 60, 50, 0.07);
   --theme-shadow-glow: 0 0 8px rgba(220, 80, 60, 0.6);
   --theme-shadow-glow-strong:
-    0 0 10px rgba(220, 80, 60, 0.7),
-    0 0 20px rgba(220, 80, 60, 0.3);
+    0 0 10px rgba(220, 80, 60, 0.7), 0 0 20px rgba(220, 80, 60, 0.3);
   --theme-shadow-glow-subtle: 0 0 4px rgba(220, 80, 60, 0.5);
   --theme-shadow-secondary:
-    inset 0 1px 0 rgba(240, 120, 130, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(200, 80, 90, 0.08);
+    inset 0 1px 0 rgba(240, 120, 130, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(200, 80, 90, 0.08);
   --theme-shadow-secondary-hover:
-    inset 0 1px 0 rgba(240, 120, 130, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(220, 100, 110, 0.3),
+    inset 0 1px 0 rgba(240, 120, 130, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(220, 100, 110, 0.3),
     0 0 0 1px rgba(200, 80, 90, 0.2);
   --theme-shadow-secondary-glow: 0 0 4px rgba(230, 110, 120, 0.6);
   --theme-shadow-secondary-glow-strong: 0 0 14px rgba(240, 120, 130, 0.6);
   --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(240, 120, 130, 0.4);
   --theme-shadow-btn:
-    inset 0 1px 0 rgba(220, 80, 60, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(220, 80, 60, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.5);
   --theme-shadow-btn-hover:
-    inset 0 1px 0 rgba(220, 80, 60, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(220, 80, 60, 0.25);
+    inset 0 1px 0 rgba(220, 80, 60, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(220, 80, 60, 0.25);
   --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
   --theme-shadow-badge-contact-hover:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(200, 60, 50, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(200, 60, 50, 0.1);
   --theme-shadow-photo-frame:
-    inset 0 0 0 1px rgba(220, 80, 60, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    inset 0 0 0 1px rgba(220, 80, 60, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
   --theme-shadow-header:
-    0 1px 0 rgba(200, 60, 50, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.6);
+    0 1px 0 rgba(200, 60, 50, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
   --theme-shadow-input:
-    0 0 0 1px rgba(200, 60, 50, 0.12),
-    0 0 12px rgba(200, 60, 50, 0.08);
+    0 0 0 1px rgba(200, 60, 50, 0.12), 0 0 12px rgba(200, 60, 50, 0.08);
 
   --theme-text-shadow-primary: 0 0 10px rgba(232, 85, 69, 0.4);
   --theme-text-shadow-primary-soft: 0 0 8px rgba(232, 85, 69, 0.4);
   --theme-text-shadow-primary-strong:
-    0 0 32px rgba(232, 85, 69, 0.35),
-    0 0 4px rgba(232, 85, 69, 0.15);
+    0 0 32px rgba(232, 85, 69, 0.35), 0 0 4px rgba(232, 85, 69, 0.15);
   --theme-text-shadow-primary-glow: 0 0 14px rgba(232, 85, 69, 0.6);
   --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(232, 85, 69, 0.3);
   --theme-text-shadow-secondary: 0 0 10px rgba(240, 120, 130, 0.4);
   --theme-text-shadow-secondary-strong: 0 0 14px rgba(240, 120, 130, 0.6);
 
   --theme-gradient-hero:
-    radial-gradient(ellipse at 30% 50%, rgba(200, 60, 50, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(180, 40, 60, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(200, 60, 50, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(180, 40, 60, 0.04) 0%,
+      transparent 60%
+    );
   --theme-gradient-header: linear-gradient(
     180deg,
     rgba(12, 6, 6, 0.97) 0%,
@@ -647,13 +672,15 @@
   --theme-gradient-texture-stone-strong:
     repeating-linear-gradient(
       0deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.012) 3px,
       rgba(255, 255, 255, 0.012) 4px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.008) 3px,
       rgba(255, 255, 255, 0.008) 4px
     );
@@ -740,68 +767,61 @@
   --theme-alpha-secondary-a08: rgba(60, 130, 200, 0.08);
 
   --theme-shadow-card:
-    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
-    0 12px 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(40, 100, 180, 0.08);
   --theme-shadow-card-hover:
-    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(40, 120, 200, 0.07);
   --theme-shadow-glow: 0 0 8px rgba(60, 150, 220, 0.6);
   --theme-shadow-glow-strong:
-    0 0 10px rgba(60, 150, 220, 0.7),
-    0 0 20px rgba(60, 150, 220, 0.3);
+    0 0 10px rgba(60, 150, 220, 0.7), 0 0 20px rgba(60, 150, 220, 0.3);
   --theme-shadow-glow-subtle: 0 0 4px rgba(60, 150, 220, 0.5);
   --theme-shadow-secondary:
-    inset 0 1px 0 rgba(100, 180, 240, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(60, 130, 200, 0.08);
+    inset 0 1px 0 rgba(100, 180, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(60, 130, 200, 0.08);
   --theme-shadow-secondary-hover:
-    inset 0 1px 0 rgba(100, 180, 240, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(80, 160, 220, 0.3),
+    inset 0 1px 0 rgba(100, 180, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(80, 160, 220, 0.3),
     0 0 0 1px rgba(60, 130, 200, 0.2);
   --theme-shadow-secondary-glow: 0 0 4px rgba(90, 170, 230, 0.6);
   --theme-shadow-secondary-glow-strong: 0 0 14px rgba(100, 180, 240, 0.6);
   --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(100, 180, 240, 0.4);
   --theme-shadow-btn:
-    inset 0 1px 0 rgba(60, 150, 220, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(60, 150, 220, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.5);
   --theme-shadow-btn-hover:
-    inset 0 1px 0 rgba(60, 150, 220, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(60, 150, 220, 0.25);
+    inset 0 1px 0 rgba(60, 150, 220, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(60, 150, 220, 0.25);
   --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
   --theme-shadow-badge-contact-hover:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(40, 120, 200, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(40, 120, 200, 0.1);
   --theme-shadow-photo-frame:
-    inset 0 0 0 1px rgba(60, 150, 220, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    inset 0 0 0 1px rgba(60, 150, 220, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
   --theme-shadow-header:
-    0 1px 0 rgba(40, 120, 200, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.6);
+    0 1px 0 rgba(40, 120, 200, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
   --theme-shadow-input:
-    0 0 0 1px rgba(40, 120, 200, 0.12),
-    0 0 12px rgba(40, 120, 200, 0.08);
+    0 0 0 1px rgba(40, 120, 200, 0.12), 0 0 12px rgba(40, 120, 200, 0.08);
 
   --theme-text-shadow-primary: 0 0 10px rgba(74, 158, 221, 0.4);
   --theme-text-shadow-primary-soft: 0 0 8px rgba(74, 158, 221, 0.4);
   --theme-text-shadow-primary-strong:
-    0 0 32px rgba(74, 158, 221, 0.35),
-    0 0 4px rgba(74, 158, 221, 0.15);
+    0 0 32px rgba(74, 158, 221, 0.35), 0 0 4px rgba(74, 158, 221, 0.15);
   --theme-text-shadow-primary-glow: 0 0 14px rgba(74, 158, 221, 0.6);
   --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(74, 158, 221, 0.3);
   --theme-text-shadow-secondary: 0 0 10px rgba(100, 180, 240, 0.4);
   --theme-text-shadow-secondary-strong: 0 0 14px rgba(100, 180, 240, 0.6);
 
   --theme-gradient-hero:
-    radial-gradient(ellipse at 30% 50%, rgba(40, 120, 200, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(20, 80, 180, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(40, 120, 200, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(20, 80, 180, 0.04) 0%,
+      transparent 60%
+    );
   --theme-gradient-header: linear-gradient(
     180deg,
     rgba(6, 8, 14, 0.97) 0%,
@@ -831,13 +851,15 @@
   --theme-gradient-texture-stone-strong:
     repeating-linear-gradient(
       0deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.012) 3px,
       rgba(255, 255, 255, 0.012) 4px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.008) 3px,
       rgba(255, 255, 255, 0.008) 4px
     );
@@ -924,68 +946,61 @@
   --theme-alpha-secondary-a08: rgba(60, 160, 100, 0.08);
 
   --theme-shadow-card:
-    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
-    0 12px 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(40, 140, 70, 0.08);
   --theme-shadow-card-hover:
-    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(40, 160, 80, 0.07);
   --theme-shadow-glow: 0 0 8px rgba(60, 180, 100, 0.6);
   --theme-shadow-glow-strong:
-    0 0 10px rgba(60, 180, 100, 0.7),
-    0 0 20px rgba(60, 180, 100, 0.3);
+    0 0 10px rgba(60, 180, 100, 0.7), 0 0 20px rgba(60, 180, 100, 0.3);
   --theme-shadow-glow-subtle: 0 0 4px rgba(60, 180, 100, 0.5);
   --theme-shadow-secondary:
-    inset 0 1px 0 rgba(100, 210, 140, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(60, 160, 100, 0.08);
+    inset 0 1px 0 rgba(100, 210, 140, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(60, 160, 100, 0.08);
   --theme-shadow-secondary-hover:
-    inset 0 1px 0 rgba(100, 210, 140, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(80, 190, 120, 0.3),
+    inset 0 1px 0 rgba(100, 210, 140, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(80, 190, 120, 0.3),
     0 0 0 1px rgba(60, 160, 100, 0.2);
   --theme-shadow-secondary-glow: 0 0 4px rgba(90, 200, 130, 0.6);
   --theme-shadow-secondary-glow-strong: 0 0 14px rgba(100, 210, 140, 0.6);
   --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(100, 210, 140, 0.4);
   --theme-shadow-btn:
-    inset 0 1px 0 rgba(60, 180, 100, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(60, 180, 100, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.5);
   --theme-shadow-btn-hover:
-    inset 0 1px 0 rgba(60, 180, 100, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(60, 180, 100, 0.25);
+    inset 0 1px 0 rgba(60, 180, 100, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(60, 180, 100, 0.25);
   --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
   --theme-shadow-badge-contact-hover:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(40, 160, 80, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(40, 160, 80, 0.1);
   --theme-shadow-photo-frame:
-    inset 0 0 0 1px rgba(60, 180, 100, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    inset 0 0 0 1px rgba(60, 180, 100, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
   --theme-shadow-header:
-    0 1px 0 rgba(40, 160, 80, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.6);
+    0 1px 0 rgba(40, 160, 80, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
   --theme-shadow-input:
-    0 0 0 1px rgba(40, 160, 80, 0.12),
-    0 0 12px rgba(40, 160, 80, 0.08);
+    0 0 0 1px rgba(40, 160, 80, 0.12), 0 0 12px rgba(40, 160, 80, 0.08);
 
   --theme-text-shadow-primary: 0 0 10px rgba(74, 184, 112, 0.4);
   --theme-text-shadow-primary-soft: 0 0 8px rgba(74, 184, 112, 0.4);
   --theme-text-shadow-primary-strong:
-    0 0 32px rgba(74, 184, 112, 0.35),
-    0 0 4px rgba(74, 184, 112, 0.15);
+    0 0 32px rgba(74, 184, 112, 0.35), 0 0 4px rgba(74, 184, 112, 0.15);
   --theme-text-shadow-primary-glow: 0 0 14px rgba(74, 184, 112, 0.6);
   --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(74, 184, 112, 0.3);
   --theme-text-shadow-secondary: 0 0 10px rgba(100, 210, 140, 0.4);
   --theme-text-shadow-secondary-strong: 0 0 14px rgba(100, 210, 140, 0.6);
 
   --theme-gradient-hero:
-    radial-gradient(ellipse at 30% 50%, rgba(40, 160, 80, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(20, 120, 60, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(40, 160, 80, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(20, 120, 60, 0.04) 0%,
+      transparent 60%
+    );
   --theme-gradient-header: linear-gradient(
     180deg,
     rgba(6, 10, 6, 0.97) 0%,
@@ -1015,13 +1030,15 @@
   --theme-gradient-texture-stone-strong:
     repeating-linear-gradient(
       0deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.012) 3px,
       rgba(255, 255, 255, 0.012) 4px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.008) 3px,
       rgba(255, 255, 255, 0.008) 4px
     );
@@ -1108,68 +1125,61 @@
   --theme-alpha-secondary-a08: rgba(150, 90, 220, 0.08);
 
   --theme-shadow-card:
-    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
-    0 12px 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(120, 60, 200, 0.08);
   --theme-shadow-card-hover:
-    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(140, 80, 220, 0.07);
   --theme-shadow-glow: 0 0 8px rgba(170, 100, 240, 0.6);
   --theme-shadow-glow-strong:
-    0 0 10px rgba(170, 100, 240, 0.7),
-    0 0 20px rgba(170, 100, 240, 0.3);
+    0 0 10px rgba(170, 100, 240, 0.7), 0 0 20px rgba(170, 100, 240, 0.3);
   --theme-shadow-glow-subtle: 0 0 4px rgba(170, 100, 240, 0.5);
   --theme-shadow-secondary:
-    inset 0 1px 0 rgba(200, 150, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(150, 90, 220, 0.08);
+    inset 0 1px 0 rgba(200, 150, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(150, 90, 220, 0.08);
   --theme-shadow-secondary-hover:
-    inset 0 1px 0 rgba(200, 150, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(180, 120, 240, 0.3),
+    inset 0 1px 0 rgba(200, 150, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(180, 120, 240, 0.3),
     0 0 0 1px rgba(150, 90, 220, 0.2);
   --theme-shadow-secondary-glow: 0 0 4px rgba(190, 140, 250, 0.6);
   --theme-shadow-secondary-glow-strong: 0 0 14px rgba(200, 150, 255, 0.6);
   --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(200, 150, 255, 0.4);
   --theme-shadow-btn:
-    inset 0 1px 0 rgba(170, 100, 240, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(170, 100, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.5);
   --theme-shadow-btn-hover:
-    inset 0 1px 0 rgba(170, 100, 240, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(170, 100, 240, 0.25);
+    inset 0 1px 0 rgba(170, 100, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(170, 100, 240, 0.25);
   --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
   --theme-shadow-badge-contact-hover:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(140, 80, 220, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(140, 80, 220, 0.1);
   --theme-shadow-photo-frame:
-    inset 0 0 0 1px rgba(170, 100, 240, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    inset 0 0 0 1px rgba(170, 100, 240, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
   --theme-shadow-header:
-    0 1px 0 rgba(140, 80, 220, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.6);
+    0 1px 0 rgba(140, 80, 220, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
   --theme-shadow-input:
-    0 0 0 1px rgba(140, 80, 220, 0.12),
-    0 0 12px rgba(140, 80, 220, 0.08);
+    0 0 0 1px rgba(140, 80, 220, 0.12), 0 0 12px rgba(140, 80, 220, 0.08);
 
   --theme-text-shadow-primary: 0 0 10px rgba(168, 112, 232, 0.4);
   --theme-text-shadow-primary-soft: 0 0 8px rgba(168, 112, 232, 0.4);
   --theme-text-shadow-primary-strong:
-    0 0 32px rgba(168, 112, 232, 0.35),
-    0 0 4px rgba(168, 112, 232, 0.15);
+    0 0 32px rgba(168, 112, 232, 0.35), 0 0 4px rgba(168, 112, 232, 0.15);
   --theme-text-shadow-primary-glow: 0 0 14px rgba(168, 112, 232, 0.6);
   --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(168, 112, 232, 0.3);
   --theme-text-shadow-secondary: 0 0 10px rgba(200, 150, 255, 0.4);
   --theme-text-shadow-secondary-strong: 0 0 14px rgba(200, 150, 255, 0.6);
 
   --theme-gradient-hero:
-    radial-gradient(ellipse at 30% 50%, rgba(140, 80, 220, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(100, 40, 200, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(140, 80, 220, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(100, 40, 200, 0.04) 0%,
+      transparent 60%
+    );
   --theme-gradient-header: linear-gradient(
     180deg,
     rgba(8, 6, 14, 0.97) 0%,
@@ -1199,13 +1209,15 @@
   --theme-gradient-texture-stone-strong:
     repeating-linear-gradient(
       0deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.012) 3px,
       rgba(255, 255, 255, 0.012) 4px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.008) 3px,
       rgba(255, 255, 255, 0.008) 4px
     );
@@ -1292,68 +1304,61 @@
   --theme-alpha-secondary-a08: rgba(30, 160, 190, 0.08);
 
   --theme-shadow-card:
-    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
-    0 12px 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(20, 160, 180, 0.08);
   --theme-shadow-card-hover:
-    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(30, 180, 200, 0.07);
   --theme-shadow-glow: 0 0 8px rgba(50, 200, 220, 0.6);
   --theme-shadow-glow-strong:
-    0 0 10px rgba(50, 200, 220, 0.7),
-    0 0 20px rgba(50, 200, 220, 0.3);
+    0 0 10px rgba(50, 200, 220, 0.7), 0 0 20px rgba(50, 200, 220, 0.3);
   --theme-shadow-glow-subtle: 0 0 4px rgba(50, 200, 220, 0.5);
   --theme-shadow-secondary:
-    inset 0 1px 0 rgba(80, 220, 240, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(30, 160, 190, 0.08);
+    inset 0 1px 0 rgba(80, 220, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(30, 160, 190, 0.08);
   --theme-shadow-secondary-hover:
-    inset 0 1px 0 rgba(80, 220, 240, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(60, 200, 220, 0.3),
+    inset 0 1px 0 rgba(80, 220, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(60, 200, 220, 0.3),
     0 0 0 1px rgba(30, 160, 190, 0.2);
   --theme-shadow-secondary-glow: 0 0 4px rgba(70, 210, 230, 0.6);
   --theme-shadow-secondary-glow-strong: 0 0 14px rgba(80, 220, 240, 0.6);
   --theme-shadow-secondary-glow-subtle: 0 0 10px rgba(80, 220, 240, 0.4);
   --theme-shadow-btn:
-    inset 0 1px 0 rgba(50, 200, 220, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(50, 200, 220, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.5);
   --theme-shadow-btn-hover:
-    inset 0 1px 0 rgba(50, 200, 220, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 20px rgba(0, 0, 0, 0.6),
-    0 0 16px rgba(50, 200, 220, 0.25);
+    inset 0 1px 0 rgba(50, 200, 220, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(50, 200, 220, 0.25);
   --theme-shadow-badge-contact: 0 4px 12px rgba(0, 0, 0, 0.4);
   --theme-shadow-badge-contact-hover:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(30, 180, 200, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(30, 180, 200, 0.1);
   --theme-shadow-photo-frame:
-    inset 0 0 0 1px rgba(50, 200, 220, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.6);
+    inset 0 0 0 1px rgba(50, 200, 220, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6);
   --theme-shadow-header:
-    0 1px 0 rgba(30, 180, 200, 0.08),
-    0 4px 24px rgba(0, 0, 0, 0.6);
+    0 1px 0 rgba(30, 180, 200, 0.08), 0 4px 24px rgba(0, 0, 0, 0.6);
   --theme-shadow-input:
-    0 0 0 1px rgba(30, 180, 200, 0.12),
-    0 0 12px rgba(30, 180, 200, 0.08);
+    0 0 0 1px rgba(30, 180, 200, 0.12), 0 0 12px rgba(30, 180, 200, 0.08);
 
   --theme-text-shadow-primary: 0 0 10px rgba(64, 200, 216, 0.4);
   --theme-text-shadow-primary-soft: 0 0 8px rgba(64, 200, 216, 0.4);
   --theme-text-shadow-primary-strong:
-    0 0 32px rgba(64, 200, 216, 0.35),
-    0 0 4px rgba(64, 200, 216, 0.15);
+    0 0 32px rgba(64, 200, 216, 0.35), 0 0 4px rgba(64, 200, 216, 0.15);
   --theme-text-shadow-primary-glow: 0 0 14px rgba(64, 200, 216, 0.6);
   --theme-text-shadow-primary-glow-soft: 0 0 10px rgba(64, 200, 216, 0.3);
   --theme-text-shadow-secondary: 0 0 10px rgba(80, 220, 240, 0.4);
   --theme-text-shadow-secondary-strong: 0 0 14px rgba(80, 220, 240, 0.6);
 
   --theme-gradient-hero:
-    radial-gradient(ellipse at 30% 50%, rgba(30, 180, 200, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(10, 140, 180, 0.04) 0%, transparent 60%);
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(30, 180, 200, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(10, 140, 180, 0.04) 0%,
+      transparent 60%
+    );
   --theme-gradient-header: linear-gradient(
     180deg,
     rgba(4, 10, 14, 0.97) 0%,
@@ -1383,13 +1388,15 @@
   --theme-gradient-texture-stone-strong:
     repeating-linear-gradient(
       0deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.012) 3px,
       rgba(255, 255, 255, 0.012) 4px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent, transparent 3px,
+      transparent,
+      transparent 3px,
       rgba(255, 255, 255, 0.008) 3px,
       rgba(255, 255, 255, 0.008) 4px
     );
@@ -1419,6 +1426,10 @@
   --color-secondary-text: var(--theme-color-secondary-text);
   --color-secondary-border: var(--theme-color-secondary-border);
   --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+  --color-arcane: var(--theme-color-arcane);
+  --color-arcane-text: var(--theme-color-arcane-text);
+  --color-arcane-border: var(--theme-color-arcane-border);
+  --color-arcane-border-strong: var(--theme-color-arcane-border-strong);
 
   --color-alpha-a70: var(--theme-alpha-a70);
   --color-alpha-a60: var(--theme-alpha-a60);
@@ -1482,6 +1493,9 @@
   --background-image-button: var(--theme-surface-button);
   --background-image-badge: var(--theme-surface-badge);
   --background-image-surface-secondary: var(--theme-surface-secondary);
+  --background-image-surface-arcane-secondary: var(
+    --theme-surface-arcane-secondary
+  );
   --background-image-line-primary: var(--theme-gradient-line-primary);
   --background-image-line-primary-strong: var(
     --theme-gradient-line-primary-strong
@@ -1501,6 +1515,9 @@
   --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
   --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
   --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-arcane-secondary: var(--theme-shadow-arcane-secondary);
+  --shadow-arcane-secondary-hover: var(--theme-shadow-arcane-secondary-hover);
+  --shadow-arcane-secondary-glow: var(--theme-shadow-arcane-secondary-glow);
   --shadow-btn: var(--theme-shadow-btn);
   --shadow-btn-hover: var(--theme-shadow-btn-hover);
   --shadow-badge-contact: var(--theme-shadow-badge-contact);
@@ -1518,6 +1535,10 @@
   --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
   --text-shadow-secondary: var(--theme-text-shadow-secondary);
   --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+  --text-shadow-arcane-secondary: var(--theme-text-shadow-arcane-secondary);
+  --text-shadow-arcane-secondary-strong: var(
+    --theme-text-shadow-arcane-secondary-strong
+  );
 
   --text-hero-name: var(--font-size-hero-name);
   --text-hero-title: var(--font-size-hero-title);
@@ -1526,7 +1547,11 @@
   --text-wow-sm: 10px;
   --text-wow-md: 11px;
   --text-wow-lg: 12px;
-  --text-wow-xl: 13px;
+  --text-wow-xl: 14px;
+  --text-wow-2xl: 16px;
+  --text-wow-3xl: 18px;
+  --text-wow-4xl: 19px;
+  --text-wow-5xl: 20px;
   --text-5xl: var(--font-size-5xl);
   --text-4xl: var(--font-size-4xl);
   --text-3xl: var(--font-size-3xl);
@@ -1563,7 +1588,6 @@
     opacity: 0.9;
   }
 }
-
 
 ::view-transition-old(root),
 ::view-transition-new(root) {

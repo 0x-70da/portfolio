@@ -30,14 +30,14 @@ const variantStyles: Record<WowButtonVariant, string> = {
     "bg-transparent text-muted-soft border border-alpha-a30 shadow-[inset_0_0_0_1px_var(--alpha-a06),0_2px_8px_var(--black-a30)] " +
     "hover:text-primary hover:border-alpha-a60 hover:shadow-[inset_0_0_0_1px_var(--alpha-a10),0_2px_12px_var(--black-a40),0_0_12px_var(--alpha-bright-a15)] hover:text-shadow-primary-glow-soft",
   secondary:
-    "bg-(image:--surface-secondary) text-secondary-text border border-secondary-border shadow-secondary text-shadow-secondary " +
-    "hover:border-secondary-border-strong hover:shadow-secondary-hover hover:text-shadow-secondary-strong",
+    "bg-(image:--surface-arcane-secondary) text-arcane-text border border-arcane-border shadow-arcane-secondary text-shadow-arcane-secondary " +
+    "hover:border-arcane-border-strong hover:shadow-arcane-secondary-hover hover:text-shadow-arcane-secondary-strong",
 };
 
 const cornerGemStyles: Record<WowButtonVariant, string> = {
   primary: "before:bg-accent before:shadow-glow",
   ghost: "before:bg-alpha-a50",
-  secondary: "before:bg-secondary before:shadow-secondary-glow",
+  secondary: "before:bg-arcane before:shadow-arcane-secondary-glow",
 };
 
 const sizeStyles: Record<WowButtonSize, string> = {

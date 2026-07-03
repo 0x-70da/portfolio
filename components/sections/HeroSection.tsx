@@ -20,13 +20,13 @@ export function HeroSection() {
           <div className="flex items-center justify-center md:justify-start gap-2.5 mb-4">
             <div className="w-8 h-px bg-alpha-a40" />
             <span className="w-1.25 h-1.25 rotate-45 shrink-0 inline-block bg-accent shadow-glow" />
-            <span className="font-heading text-wow-xs tracking-[0.22em] uppercase text-ink-dark">
+            <span className="font-heading text-wow-md tracking-[0.22em] uppercase text-ink-dark">
               {hero.eyebrow}
             </span>
           </div>
 
           {/* greeting + name */}
-          <p className="font-heading text-wow-xl tracking-[0.18em] uppercase text-ink-dark mb-2">
+          <p className="font-heading text-wow-2xl tracking-[0.18em] uppercase text-ink-dark mb-2">
             {hero.greeting}
           </p>
 
@@ -42,7 +42,7 @@ export function HeroSection() {
           </div>
 
           {/* description */}
-          <p className="font-heading text-wow-md leading-[1.9] text-body tracking-[0.06em] italic mb-8 max-w-120 md:max-w-120 max-md:max-w-full border-t border-alpha-a20 pt-4 md:border-t-0 md:border-l md:pt-0 md:pl-4">
+          <p className="font-heading text-wow-2xl leading-[1.9] text-body tracking-[0.06em] italic mb-8 max-w-120 md:max-w-120 max-md:max-w-full border-t border-alpha-a20 pt-4 md:border-t-0 md:border-l md:pt-0 md:pl-4">
             {hero.description}
           </p>
 

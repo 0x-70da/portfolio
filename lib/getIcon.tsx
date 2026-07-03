@@ -17,7 +17,32 @@ import {
   FaTwitter,
   FaWrench,
 } from "react-icons/fa";
-import { SiDrizzle, SiEslint, SiExpress, SiFramer, SiGit, SiJavascript, SiJsonwebtokens, SiNextdotjs, SiNodedotjs, SiPnpm, SiPostgresql, SiPrettier, SiPrisma, SiReact, SiReacthookform, SiReactquery, SiShadcnui, SiSupabase, SiTailwindcss, SiTypescript, SiVercel, SiVite, SiZod } from "react-icons/si";
+import { IoSend } from "react-icons/io5";
+import {
+  SiDrizzle,
+  SiEslint,
+  SiExpress,
+  SiFramer,
+  SiGit,
+  SiJavascript,
+  SiJsonwebtokens,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPnpm,
+  SiPostgresql,
+  SiPrettier,
+  SiPrisma,
+  SiReact,
+  SiReacthookform,
+  SiReactquery,
+  SiShadcnui,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+  SiZod,
+} from "react-icons/si";
 
 const icons: Record<string, React.ComponentType<IconBaseProps>> = {
   Github: FaGithub,
@@ -33,6 +58,7 @@ const icons: Record<string, React.ComponentType<IconBaseProps>> = {
   Briefcase: FaBriefcase,
   Eye: FaEye,
   BookText: FaBook,
+  IoSend: IoSend,
   "Next.js": SiNextdotjs,
   "React.js": SiReact,
   "Tailwind CSS": SiTailwindcss,

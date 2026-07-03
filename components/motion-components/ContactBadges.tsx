@@ -22,7 +22,7 @@ const ContactBadges = ({
     <div ref={ref} className="flex flex-col gap-4">
       <div className="flex items-center gap-1.5 mb-1">
         <Gem size="xs" backgroundColor="muted" />
-        <span className="font-heading text-2xs tracking-[0.22em] uppercase text-ink-dark">
+        <span className="font-heading text-wow-xs tracking-[0.22em] uppercase text-ink-dark">
           Contact Information
         </span>
       </div>
