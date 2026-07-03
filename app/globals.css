@@ -83,6 +83,26 @@
   --theme-alpha-secondary-a20: rgba(120, 90, 200, 0.2);
   --theme-alpha-secondary-a08: rgba(120, 90, 200, 0.08);
 
+  --theme-color-arcane: #8870d0;
+  --theme-color-arcane-text: #a990f0;
+  --theme-color-arcane-border: #3a2e6a;
+  --theme-color-arcane-border-strong: #6a58b0;
+  --theme-surface-arcane-secondary: linear-gradient(
+    180deg,
+    #16122a 0%,
+    #0e0c1a 100%
+  );
+  --theme-shadow-arcane-secondary:
+    inset 0 1px 0 rgba(150, 120, 240, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(120, 90, 200, 0.08);
+  --theme-shadow-arcane-secondary-hover:
+    inset 0 1px 0 rgba(150, 120, 240, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(130, 100, 230, 0.3),
+    0 0 0 1px rgba(120, 90, 200, 0.2);
+  --theme-shadow-arcane-secondary-glow: 0 0 4px rgba(140, 110, 220, 0.6);
+  --theme-text-shadow-arcane-secondary: 0 0 10px rgba(150, 120, 240, 0.4);
+  --theme-text-shadow-arcane-secondary-strong: 0 0 14px rgba(150, 120, 240, 0.6);
+
   --theme-shadow-card:
     inset 0 0 0 1px rgba(200, 160, 50, 0.1), 0 12px 40px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(160, 120, 30, 0.08);
@@ -197,6 +217,10 @@
   --color-secondary-text: var(--theme-color-secondary-text);
   --color-secondary-border: var(--theme-color-secondary-border);
   --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+  --color-arcane: var(--theme-color-arcane);
+  --color-arcane-text: var(--theme-color-arcane-text);
+  --color-arcane-border: var(--theme-color-arcane-border);
+  --color-arcane-border-strong: var(--theme-color-arcane-border-strong);
 
   --alpha-a70: var(--theme-alpha-a70);
   --alpha-a60: var(--theme-alpha-a60);
@@ -246,6 +270,7 @@
   --surface-button: var(--theme-surface-button);
   --surface-badge: var(--theme-surface-badge);
   --surface-secondary: var(--theme-surface-secondary);
+  --surface-arcane-secondary: var(--theme-surface-arcane-secondary);
 
   --shadow-card: var(--theme-shadow-card);
   --shadow-card-hover: var(--theme-shadow-card-hover);
@@ -257,6 +282,9 @@
   --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
   --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
   --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-arcane-secondary: var(--theme-shadow-arcane-secondary);
+  --shadow-arcane-secondary-hover: var(--theme-shadow-arcane-secondary-hover);
+  --shadow-arcane-secondary-glow: var(--theme-shadow-arcane-secondary-glow);
   --shadow-btn: var(--theme-shadow-btn);
   --shadow-btn-hover: var(--theme-shadow-btn-hover);
   --shadow-badge-contact: var(--theme-shadow-badge-contact);
@@ -274,6 +302,10 @@
   --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
   --text-shadow-secondary: var(--theme-text-shadow-secondary);
   --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+  --text-shadow-arcane-secondary: var(--theme-text-shadow-arcane-secondary);
+  --text-shadow-arcane-secondary-strong: var(
+    --theme-text-shadow-arcane-secondary-strong
+  );
 
   --gradient-hero: var(--theme-gradient-hero);
   --gradient-header: var(--theme-gradient-header);
@@ -1394,6 +1426,10 @@
   --color-secondary-text: var(--theme-color-secondary-text);
   --color-secondary-border: var(--theme-color-secondary-border);
   --color-secondary-border-strong: var(--theme-color-secondary-border-strong);
+  --color-arcane: var(--theme-color-arcane);
+  --color-arcane-text: var(--theme-color-arcane-text);
+  --color-arcane-border: var(--theme-color-arcane-border);
+  --color-arcane-border-strong: var(--theme-color-arcane-border-strong);
 
   --color-alpha-a70: var(--theme-alpha-a70);
   --color-alpha-a60: var(--theme-alpha-a60);
@@ -1457,6 +1493,9 @@
   --background-image-button: var(--theme-surface-button);
   --background-image-badge: var(--theme-surface-badge);
   --background-image-surface-secondary: var(--theme-surface-secondary);
+  --background-image-surface-arcane-secondary: var(
+    --theme-surface-arcane-secondary
+  );
   --background-image-line-primary: var(--theme-gradient-line-primary);
   --background-image-line-primary-strong: var(
     --theme-gradient-line-primary-strong
@@ -1476,6 +1515,9 @@
   --shadow-secondary-glow: var(--theme-shadow-secondary-glow);
   --shadow-secondary-glow-strong: var(--theme-shadow-secondary-glow-strong);
   --shadow-secondary-glow-subtle: var(--theme-shadow-secondary-glow-subtle);
+  --shadow-arcane-secondary: var(--theme-shadow-arcane-secondary);
+  --shadow-arcane-secondary-hover: var(--theme-shadow-arcane-secondary-hover);
+  --shadow-arcane-secondary-glow: var(--theme-shadow-arcane-secondary-glow);
   --shadow-btn: var(--theme-shadow-btn);
   --shadow-btn-hover: var(--theme-shadow-btn-hover);
   --shadow-badge-contact: var(--theme-shadow-badge-contact);
@@ -1493,6 +1535,10 @@
   --text-shadow-primary-glow-soft: var(--theme-text-shadow-primary-glow-soft);
   --text-shadow-secondary: var(--theme-text-shadow-secondary);
   --text-shadow-secondary-strong: var(--theme-text-shadow-secondary-strong);
+  --text-shadow-arcane-secondary: var(--theme-text-shadow-arcane-secondary);
+  --text-shadow-arcane-secondary-strong: var(
+    --theme-text-shadow-arcane-secondary-strong
+  );
 
   --text-hero-name: var(--font-size-hero-name);
   --text-hero-title: var(--font-size-hero-title);
