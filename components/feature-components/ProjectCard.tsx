@@ -55,7 +55,7 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
           </h3>
         </div>
 
-        <p className="font-heading text-wow-sm leading-[1.8] tracking-[0.04em] italic text-muted-soft">
+        <p className="font-heading text-wow-xl leading-[1.8] tracking-[0.04em] italic text-muted-soft">
           {project.description}
         </p>
 

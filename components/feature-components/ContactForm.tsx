@@ -69,7 +69,7 @@ function SuccessState() {
 }
 
 const fieldClassName =
-  "w-full rounded-[3px] border bg-[rgba(20,16,8,0.8)] px-3.5 py-2.5 font-heading text-wow-md tracking-[0.06em] text-primary caret-accent outline-none transition-[border-color,box-shadow] duration-200 placeholder:italic placeholder:text-alpha-a20 focus:border-alpha-a45 focus:shadow-input";
+  "w-full rounded-[3px] border bg-[rgba(20,16,8,0.8)] px-3.5 py-2.5 font-heading text-wow-lg tracking-[0.06em] text-primary caret-accent outline-none transition-[border-color,box-shadow] duration-200 placeholder:italic placeholder:text-alpha-a20 focus:border-alpha-a45 focus:shadow-input";
 
 const submitClassName =
   "group relative inline-flex items-center justify-center gap-2 w-full h-12 px-8 rounded-[3px] font-heading text-wow-md font-semibold tracking-[0.14em] uppercase cursor-pointer overflow-hidden [background:var(--surface-button)] text-primary border border-border-primary shadow-btn text-shadow-primary transition-[border-color,box-shadow] duration-200 hover:border-ink-light hover:shadow-btn-hover disabled:opacity-60 disabled:cursor-not-allowed after:content-[''] after:absolute after:inset-0 after:pointer-events-none after:opacity-0 after:transition-opacity after:duration-150 after:bg-[linear-gradient(105deg,transparent_35%,var(--alpha-a10)_50%,transparent_65%)] after:bg-size-[200%_100%] after:bg-[-100%_0] hover:after:opacity-100 hover:after:animate-[fx-shimmer-sweep_0.8s_ease_forwards]";
