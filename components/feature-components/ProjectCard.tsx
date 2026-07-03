@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const linkClassName =
-  "inline-flex items-center gap-1.25 rounded-[2px] border border-alpha-a20 px-[10px] py-[5px] font-heading text-[9px] tracking-[0.14em] uppercase text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_8px_var(--alpha-bright-a15)]";
+  "inline-flex w-26 items-center gap-1.25 rounded-[2px] border border-alpha-a20 px-[10px] py-[5px] font-heading text-[9px] tracking-[0.14em] uppercase text-ink-light transition-[color,border-color,box-shadow] duration-200 hover:border-alpha-a40 hover:text-primary hover:shadow-[0_0_8px_var(--alpha-bright-a15)]";
 
 export function ProjectCard({ project, index, total }: ProjectCardProps) {
   const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
@@ -46,13 +46,40 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
       </div>
 
       <div className="relative z-20 flex flex-col gap-2.5 px-5 pb-5 pt-4">
-        <div className="border-b border-alpha-a25 pb-2.5">
-          <span className="block font-heading text-2xs tracking-[0.2em] uppercase text-ink-dark">
-            Project {roman[index]} of {roman[total - 1]}
-          </span>
-          <h3 className="mt-0.5 font-heading text-[18px] font-bold leading-[1.1] tracking-[0.08em] uppercase text-primary text-shadow-primary">
-            {project.title}
-          </h3>
+        <div className="border-b border-alpha-a25 pb-2.5 flex justify-between">
+          <div>
+            <span className="block font-heading text-2xs tracking-[0.2em] uppercase text-ink-dark">
+              Project {roman[index]} of {roman[total - 1]}
+            </span>
+            <h3 className="mt-0.5 font-heading text-[18px] font-bold leading-[1.1] tracking-[0.08em] uppercase text-primary text-shadow-primary">
+              {project.title}
+            </h3>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                {getIcon("Github", { className: "h-2.75 w-2.75" })}
+                GitHub
+              </a>
+            )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                <FaExternalLinkAlt className="h-2.75 w-2.75" />
+                Live Demo
+              </a>
+            )}
+          </div>
         </div>
 
         <p className="font-heading text-wow-xl leading-[1.8] tracking-[0.04em] italic text-muted-soft">
@@ -78,31 +105,6 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
               </span>
             </GlowBadge>
           ))}
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClassName}
-            >
-              {getIcon("Github", { className: "h-2.75 w-2.75" })}
-              GitHub
-            </a>
-          )}
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClassName}
-            >
-              <FaExternalLinkAlt className="h-2.75 w-2.75" />
-              Live Demo
-            </a>
-          )}
         </div>
       </div>
     </CardShell>
