@@ -31,7 +31,7 @@ export const sendContactEmail = async (
 
   try {
     const { error } = await resend.emails.send({
-      from: "Portfolio <onboarding@resend.dev>",
+      from: "portfolio@mahmoudabdelnasser.me",
       to: process.env.CONTACT_EMAIL!,
       replyTo: email,
       subject: `Portfolio ${subject}`,
